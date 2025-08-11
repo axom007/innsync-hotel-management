@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Favicon: Modern orange/white/blue theme -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle fill='%23fff7f0' cx='32' cy='32' r='32'/%3E%3Ccircle fill='%23ff6b35' cx='32' cy='32' r='20'/%3E%3Ccircle fill='%233b82f6' cx='32' cy='32' r='10'/%3E%3C/svg%3E">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>InnSync PMS – Stop Revenue Leakages</title>
@@ -206,6 +208,49 @@
     body.dark-theme .testimonial-section {
       background: #1e293b;
     }
+    /* Modal dark mode and sizing */
+    body.dark-theme .modal-content {
+      background: #1e293b;
+      color: var(--text-primary-dark);
+      border: 1px solid var(--border-dark);
+    }
+    body.dark-theme .modal-body p,
+    body.dark-theme .modal-body label {
+      color: var(--text-primary-dark);
+    }
+    body.dark-theme .modal-header {
+      background: linear-gradient(135deg, #ff6b35, #ff8f65) !important;
+    }
+  /* Slightly smaller centered modal and tighter spacing */
+  #demoModal .modal-dialog { max-width: 480px; }
+  #demoModal .modal-body { padding: 1rem 1.25rem; }
+  #demoModal .form-label { margin-bottom: 0.25rem; }
+  #demoModal .form-control-custom { padding: 0.65rem 0.85rem; font-size: 0.95rem; }
+  #demoModal .btn { padding: 0.75rem 1rem; }
+  /* Side call panel positioned beside modal (outside popup) */
+  .call-side-panel { display: none; position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); z-index: 1060; width: clamp(260px, 24vw, 340px); }
+  .call-side-panel.show { display: block; }
+  @media (max-width: 991.98px) { .call-side-panel { display: none !important; } }
+    /* Right call panel styling */
+    .call-panel {
+      background: linear-gradient(135deg, #fff7f0, #f8fafc);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border-light);
+      height: 100%;
+    }
+    body.dark-theme .call-panel {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border-color: var(--border-dark);
+    }
+    /* Divider between form and call panel on large screens */
+    @media (min-width: 992px) {
+      .col-divider-lg { border-left: 1px solid var(--border-light); }
+      body.dark-theme .col-divider-lg { border-left-color: var(--border-dark); }
+    }
+    /* Call number emphasis */
+    .call-number { font-weight: 800; font-size: 1.125rem; white-space: nowrap; }
+    @media (min-width: 1200px) { .call-number { font-size: 1.25rem; } }
+    .call-hours { font-size: 0.95rem; }
     
     /* How it works section */
     .how-works-section {
@@ -688,8 +733,8 @@
   <!-- Modern Hero Section -->
   <section class="hero-section position-relative hero-bg" style="min-height: 90vh; display: flex; align-items: center;">
     <div class="container position-relative z-2">
-      <div class="row align-items-center flex-lg-nowrap">
-        <div class="col-lg-7 order-1 order-lg-1 animate-fade-in">
+  <div class="row align-items-center flex-lg-nowrap justify-content-lg-between justify-content-center">
+        <div class="col-lg-6 col-md-7 order-1 order-lg-1 animate-fade-in">
           <div class="hero-badge mb-3">
             <span id="heroBadge"></span>
           </div>
@@ -709,8 +754,8 @@
           
           </div>
         </div>
-        <div class="col-lg-5 order-2 order-lg-2 d-flex justify-content-center mt-5 mt-lg-0">
-          <div class="card card-login border-0 p-4 shadow-lg" style="max-width: 370px; width: 100%;">
+  <div class="col-lg-5 offset-lg-1 col-md-8 order-2 order-lg-2 d-flex justify-content-lg-end justify-content-center mt-5 mt-lg-0">
+          <div class="card card-login border-0 p-4 shadow-lg w-100" style="max-width: 480px; min-width: 320px;">
             <div class="card-body">
               <h3 class="card-title fw-bold mb-2" id="loginTitle">Login to Demo</h3>
               <p class="text-secondary-custom small mb-4" id="loginSubtitle">
@@ -745,6 +790,81 @@
     <img src="https://www.transparenttextures.com/patterns/diamond-upholstery.png" alt="" class="hero-decoration" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.07;z-index:1;pointer-events:none;" />
   </section>
 
+  <!-- Demo Booking Modal -->
+  <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="border-radius:1rem;overflow:hidden;">
+        <div class="modal-header" style="background:linear-gradient(135deg,#ff6b35,#ff8f65);color:#fff;">
+          <h5 class="modal-title fw-bold" id="demoModalLabel"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-secondary-custom mb-2" id="demoModalSubtitle"></p>
+          <form id="demoForm" novalidate>
+            <div class="row g-2 g-lg-3">
+              <div class="col-12">
+                <label for="demoName" class="form-label" id="demoNameLabel"></label>
+                <input type="text" id="demoName" class="form-control form-control-custom" required>
+                <div class="invalid-feedback" id="demoNameErr"></div>
+              </div>
+              <div class="col-12">
+                <label for="demoHotel" class="form-label" id="demoHotelLabel"></label>
+                <input type="text" id="demoHotel" class="form-control form-control-custom" required>
+                <div class="invalid-feedback" id="demoHotelErr"></div>
+              </div>
+              <div class="col-12">
+                <label for="demoEmail" class="form-label" id="demoEmailLabel"></label>
+                <input type="email" id="demoEmail" class="form-control form-control-custom" required>
+                <div class="invalid-feedback" id="demoEmailErr"></div>
+              </div>
+              <div class="col-12">
+                <label for="demoPhone" class="form-label" id="demoPhoneLabel"></label>
+                <input type="tel" id="demoPhone" class="form-control form-control-custom" required>
+                <div class="invalid-feedback" id="demoPhoneErr"></div>
+              </div>
+              <div class="col-12">
+                <label for="demoCity" class="form-label" id="demoCityLabel"></label>
+                <input type="text" id="demoCity" class="form-control form-control-custom">
+              </div>
+            </div>
+            <div class="d-flex gap-2 mt-3">
+              <button type="button" class="btn btn-hero-secondary flex-fill" data-bs-dismiss="modal" id="demoCancelBtn"></button>
+              <button type="submit" class="btn btn-hero-primary flex-fill" id="demoSubmitBtn"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call Side Panel (outside modal, shown when modal is open) -->
+  <div id="demoCallSidePanel" class="call-side-panel" aria-hidden="true">
+    <div class="call-panel w-100 p-4 d-flex flex-column justify-content-center text-center">
+      <div class="mb-3 d-flex justify-content-center">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="24" fill="#fff"/>
+          <path d="M16 18c0 7.732 6.268 14 14 14h2c.552 0 1-.448 1-1v-4c0-.552-.448-1-1-1h-3a2 2 0 0 0-1.789 1.106l-.6 1.2a1 1 0 0 1-1.455.41 17 17 0 0 1-7.882-7.882 1 1 0 0 1 .41-1.455l1.2-.6A2 2 0 0 0 20 17v-3c0-.552-.448-1-1-1h-4c-.552 0-1 .448-1 1v3z" fill="#ff6b35"/>
+        </svg>
+      </div>
+      <h5 class="fw-bold mb-1" id="demoCallTitle"></h5>
+      <div class="text-secondary-custom mb-3 call-hours" id="demoCallHours"></div>
+      <a id="demoCallNumber" href="#" class="btn btn-hero-primary align-self-center call-number" role="button"></a>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 2000;">
+    <div id="demoToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <strong id="demoToastTitle"></strong>
+          <div id="demoToastBody" class="small"></div>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
   <!-- Trusted By Bar -->
   <div class="py-3 trusted-bar border-bottom" id="trustedBar">
     <div class="container-fluid px-0">
@@ -767,21 +887,39 @@
           <div class="d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-4">
             <div class="card flex-fill border-0 shadow-sm feature-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
               <div class="d-flex align-items-center justify-content-center mb-3" style="height:80px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="IoT Sensor" style="width:64px;height:64px;object-fit:contain;">
+                <!-- IoT Sensor SVG Icon -->
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="32" fill="#fff7f0"/>
+                  <circle cx="32" cy="32" r="20" fill="#ff6b35"/>
+                  <circle cx="32" cy="32" r="10" fill="#fff"/>
+                  <circle cx="32" cy="32" r="4" fill="#3b82f6"/>
+                </svg>
               </div>
               <h5 class="fw-bold mb-2 mt-2" id="feature1Title"></h5>
               <p class="text-secondary-custom mb-0" id="feature1Desc"></p>
             </div>
             <div class="card flex-fill border-0 shadow-sm feature-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
               <div class="d-flex align-items-center justify-content-center mb-3" style="height:80px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Instant Alerts" style="width:64px;height:64px;object-fit:contain;">
+                <!-- Instant Alerts SVG Icon -->
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="32" fill="#fff7f0"/>
+                  <rect x="22" y="18" width="20" height="28" rx="10" fill="#3b82f6"/>
+                  <rect x="28" y="24" width="8" height="16" rx="4" fill="#fff"/>
+                  <circle cx="32" cy="48" r="4" fill="#ff6b35"/>
+                </svg>
               </div>
               <h5 class="fw-bold mb-2 mt-2" id="feature2Title"></h5>
               <p class="text-secondary-custom mb-0" id="feature2Desc"></p>
             </div>
             <div class="card flex-fill border-0 shadow-sm feature-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
               <div class="d-flex align-items-center justify-content-center mb-3" style="height:80px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Owner Dashboard" style="width:64px;height:64px;object-fit:contain;">
+                <!-- Owner Dashboard SVG Icon -->
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="32" fill="#fff7f0"/>
+                  <rect x="16" y="24" width="32" height="20" rx="6" fill="#ff6b35"/>
+                  <rect x="24" y="32" width="16" height="4" rx="2" fill="#fff"/>
+                  <circle cx="32" cy="40" r="3" fill="#3b82f6"/>
+                </svg>
               </div>
               <h5 class="fw-bold mb-2 mt-2" id="feature3Title"></h5>
               <p class="text-secondary-custom mb-0" id="feature3Desc"></p>
@@ -823,21 +961,39 @@
           <div class="d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-4">
             <div class="card flex-fill border-0 shadow-sm usecase-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
               <div class="d-flex align-items-center justify-content-center mb-2" style="height:60px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Walk-in Detection" style="width:48px;height:48px;object-fit:contain;">
+                <!-- Walk-in Detection SVG Icon -->
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="24" fill="#fff7f0"/>
+                  <rect x="12" y="20" width="24" height="12" rx="6" fill="#ff6b35"/>
+                  <circle cx="24" cy="26" r="4" fill="#fff"/>
+                  <rect x="20" y="32" width="8" height="4" rx="2" fill="#3b82f6"/>
+                </svg>
               </div>
               <h6 class="fw-bold mb-2 mt-2" id="usecase1Title"></h6>
               <p class="text-secondary-custom mb-0" id="usecase1Desc"></p>
             </div>
             <div class="card flex-fill border-0 shadow-sm usecase-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
               <div class="d-flex align-items-center justify-content-center mb-2" style="height:60px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Owner Control" style="width:48px;height:48px;object-fit:contain;">
+                <!-- Owner Control SVG Icon -->
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="24" fill="#fff7f0"/>
+                  <rect x="14" y="16" width="20" height="16" rx="8" fill="#3b82f6"/>
+                  <circle cx="24" cy="24" r="6" fill="#fff"/>
+                  <circle cx="24" cy="24" r="3" fill="#ff6b35"/>
+                </svg>
               </div>
               <h6 class="fw-bold mb-2 mt-2" id="usecase2Title"></h6>
               <p class="text-secondary-custom mb-0" id="usecase2Desc"></p>
             </div>
             <div class="card flex-fill border-0 shadow-sm usecase-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
               <div class="d-flex align-items-center justify-content-center mb-2" style="height:60px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png" alt="Easy Integration" style="width:48px;height:48px;object-fit:contain;">
+                <!-- Easy Integration SVG Icon -->
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="24" fill="#fff7f0"/>
+                  <rect x="16" y="20" width="16" height="8" rx="4" fill="#ff6b35"/>
+                  <rect x="20" y="28" width="8" height="4" rx="2" fill="#3b82f6"/>
+                  <circle cx="24" cy="24" r="3" fill="#fff"/>
+                </svg>
               </div>
               <h6 class="fw-bold mb-2 mt-2" id="usecase3Title"></h6>
               <p class="text-secondary-custom mb-0" id="usecase3Desc"></p>
@@ -1045,6 +1201,136 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   
   <script type="module">
+    // --- Demo Modal (multilingual) ---
+    function updateDemoModal(lang) {
+      const c = window.languageContent[lang] || window.languageContent['en'];
+      document.getElementById('demoModalLabel').textContent = c.demo_heading;
+      document.getElementById('demoModalSubtitle').textContent = c.demo_subtitle;
+      document.getElementById('demoNameLabel').textContent = c.demo_name_label;
+      document.getElementById('demoName').placeholder = c.demo_name_placeholder;
+      document.getElementById('demoHotelLabel').textContent = c.demo_hotel_label;
+      document.getElementById('demoHotel').placeholder = c.demo_hotel_placeholder;
+      document.getElementById('demoEmailLabel').textContent = c.demo_email_label;
+      document.getElementById('demoEmail').placeholder = c.demo_email_placeholder;
+      document.getElementById('demoPhoneLabel').textContent = c.demo_phone_label;
+      document.getElementById('demoPhone').placeholder = c.demo_phone_placeholder;
+      document.getElementById('demoCityLabel').textContent = c.demo_city_label;
+      document.getElementById('demoCity').placeholder = c.demo_city_placeholder;
+      document.getElementById('demoCancelBtn').textContent = c.demo_cancel;
+      document.getElementById('demoSubmitBtn').textContent = c.demo_submit;
+      document.getElementById('demoNameErr').textContent = c.demo_error_name;
+      document.getElementById('demoHotelErr').textContent = c.demo_error_hotel;
+      document.getElementById('demoEmailErr').textContent = c.demo_error_email;
+      document.getElementById('demoPhoneErr').textContent = c.demo_error_phone;
+      document.getElementById('demoToastTitle').textContent = c.demo_success_title;
+      document.getElementById('demoToastBody').textContent = c.demo_success_body;
+
+      // Right-side call panel (multilingual)
+      const callTitleEl = document.getElementById('demoCallTitle');
+      const callHoursEl = document.getElementById('demoCallHours');
+      const callNumberEl = document.getElementById('demoCallNumber');
+      if (callTitleEl && callHoursEl && callNumberEl) {
+        callTitleEl.textContent = c.demo_call_title || '';
+        callHoursEl.textContent = c.demo_call_hours || '';
+        const num = c.cta_call_number || '+91 98765 43210';
+        const label = (c.demo_call_number_label || '{number}').replace('{number}', num);
+        callNumberEl.textContent = label;
+        callNumberEl.setAttribute('href', `tel:${num.replace(/[^+\d]/g, '')}`);
+      }
+    }
+
+    // Open modal on CTA click
+    const demoCta = document.getElementById('heroCtaDemo');
+    if (demoCta) {
+      demoCta.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = localStorage.getItem('innsync_lang') || 'en';
+        updateDemoModal(lang);
+        const modalEl = document.getElementById('demoModal');
+        const modal = new bootstrap.Modal(modalEl);
+        modal.show();
+      }, { passive: false });
+    }
+
+    // Toggle side call panel when modal opens/closes
+    const demoModalEl = document.getElementById('demoModal');
+    if (demoModalEl) {
+      const sidePanel = document.getElementById('demoCallSidePanel');
+      const positionPanel = () => {
+        if (!sidePanel || window.innerWidth < 992) return;
+        const dialog = demoModalEl.querySelector('.modal-dialog');
+        if (!dialog) return;
+        const r = dialog.getBoundingClientRect();
+        const gap = 16; // gap between modal and panel
+        const left = Math.min(window.innerWidth - sidePanel.offsetWidth - 8, r.right + gap);
+        const centerY = r.top + (r.height / 2);
+        sidePanel.style.right = 'auto';
+        sidePanel.style.left = `${left}px`;
+        sidePanel.style.top = `${centerY}px`;
+        sidePanel.style.transform = 'translateY(-50%)';
+      };
+      let resizeHandler;
+      demoModalEl.addEventListener('shown.bs.modal', () => {
+        const lang = localStorage.getItem('innsync_lang') || 'en';
+        updateDemoModal(lang);
+        sidePanel?.classList.add('show');
+        positionPanel();
+        resizeHandler = () => positionPanel();
+        window.addEventListener('resize', resizeHandler);
+        window.addEventListener('scroll', resizeHandler, { passive: true });
+      });
+      demoModalEl.addEventListener('hidden.bs.modal', () => {
+        sidePanel?.classList.remove('show');
+        if (resizeHandler) {
+          window.removeEventListener('resize', resizeHandler);
+          window.removeEventListener('scroll', resizeHandler);
+        }
+      });
+    }
+
+    // Demo form validation and toast
+    const demoForm = document.getElementById('demoForm');
+    function sanitize(s) { return (s || '').toString().trim(); }
+    function validName(v) { return /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{1,49}$/.test(v); }
+    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+    function validPhone(v) { const d = v.replace(/\D/g,''); return d.length >= 10 && d.length <= 13; }
+    if (demoForm) {
+      demoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const lang = localStorage.getItem('innsync_lang') || 'en';
+        const c = window.languageContent[lang] || window.languageContent['en'];
+        const nameEl = document.getElementById('demoName');
+        const hotelEl = document.getElementById('demoHotel');
+        const emailEl = document.getElementById('demoEmail');
+        const phoneEl = document.getElementById('demoPhone');
+
+        let ok = true;
+        const name = sanitize(nameEl.value);
+        const hotel = sanitize(hotelEl.value);
+        const email = sanitize(emailEl.value);
+        const phone = sanitize(phoneEl.value);
+
+        // reset states
+        [nameEl, hotelEl, emailEl, phoneEl].forEach(el => { el.classList.remove('is-invalid'); });
+
+        if (!validName(name)) { nameEl.classList.add('is-invalid'); ok = false; }
+        if (hotel.length < 2) { hotelEl.classList.add('is-invalid'); ok = false; }
+        if (!validEmail(email)) { emailEl.classList.add('is-invalid'); ok = false; }
+        if (!validPhone(phone)) { phoneEl.classList.add('is-invalid'); ok = false; }
+
+        if (!ok) return;
+
+        // Success: show toast and close modal
+        const toastEl = document.getElementById('demoToast');
+        const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+        toast.show();
+
+        const modalEl = document.getElementById('demoModal');
+        const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+        modal.hide();
+        demoForm.reset();
+      }, { passive: false });
+    }
     // --- FAQ & Feedback Multi-language ---
     function updateFaqAndFeedback(lang) {
       const c = window.languageContent[lang] || window.languageContent['en'];
@@ -1174,8 +1460,9 @@
       document.getElementById('usecase3Desc').textContent = c.usecase3_desc;
       // Testimonial heading
       document.getElementById('testimonialHeading').textContent = c.testimonial_heading;
-      // Footer tagline (if present)
-      updateFaqAndFeedback(lang);
+  // Footer tagline (if present)
+  updateFaqAndFeedback(lang);
+  updateDemoModal(lang);
       // Testimonials
       updateTestimonials(lang);
     }
