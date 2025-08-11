@@ -1,0 +1,3 @@
+alert_id,room_id,alert_type,alert_message,created_at,resolved
+1,101,occupancy_without_checkin,Occupancy detected in Room 101 without check-in,2025-08-14 14:00:00,False
+2,104,payment_mismatch,Payment mismatch detected for Room 104,2025-08-15 11:00:00,False

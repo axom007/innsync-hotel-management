@@ -1,0 +1,3 @@
+booking_id,category_id,booked_by,check_in_date,check_out_date,booking_status
+1,1,1,2025-08-15,2025-08-20,reserved
+2,2,1,2025-08-16,2025-08-17,checked_in

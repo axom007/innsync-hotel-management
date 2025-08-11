@@ -1,0 +1,5 @@
+sensor_id,room_id,detected_occupancy,last_updated
+1,101,False,2025-08-14 14:00:00
+2,102,True,2025-08-15 09:30:00
+3,103,True,2025-08-14 18:00:00
+4,104,True,2025-08-15 11:00:00

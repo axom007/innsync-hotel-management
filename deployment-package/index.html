@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InnSync PMS – Stop Revenue Leakages</title>
+  <script src="./js/langContent.js"></script>
+  
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Dark mode for new/updated sections */
+    body.dark-theme .card-custom {
+      background: var(--card-dark);
+      color: var(--text-primary-dark);
+      border-color: var(--border-dark);
+    }
+    body.dark-theme .card-custom h2,
+    body.dark-theme .card-custom h5,
+    body.dark-theme .card-custom ul,
+    body.dark-theme .card-custom li {
+      color: var(--text-primary-dark);
+    }
+    body.dark-theme .card-custom .text-secondary-custom {
+      color: var(--text-secondary-dark) !important;
+    }
+    body.dark-theme .glass-card {
+      background: rgba(30,41,59,0.92);
+      color: var(--text-primary-dark);
+      border-color: var(--border-dark);
+    }
+    body.dark-theme .glass-card .testimonial-quote,
+    body.dark-theme .glass-card .testimonial-cite {
+      color: var(--text-primary-dark);
+    }
+    body.dark-theme .testimonial-dot {
+      background: #ff8f65;
+    }
+    body.dark-theme .section-features {
+      background: rgba(30, 41, 59, 0.3);
+    }
+    body.dark-theme .bg-white {
+      background: #1e293b !important;
+    }
+    body.dark-theme .text-danger {
+      color: #ffb4a2 !important;
+    }
+    body.dark-theme .text-primary {
+      color: #90cdf4 !important;
+    }
+    body.dark-theme .text-success {
+      color: #6ee7b7 !important;
+    }
+    /* Custom Login Button Colors */
+    #loginOwnerBtn {
+      background: linear-gradient(135deg, #ff6b35, #ff8f65) !important;
+      border: none;
+      color: white;
+      box-shadow: 0 4px 14px rgba(255, 107, 53, 0.25);
+    }
+    
+    #loginOwnerBtn:hover {
+      background: linear-gradient(135deg, #e55a2b, #ff6b35) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.35);
+      color: white;
+    }
+    
+    #loginManager {
+      background: transparent !important;
+      border: 2px solid #ff6b35 !important;
+      color: #ff6b35 !important;
+      box-shadow: none;
+    }
+    
+    #loginManager:hover {
+      background: #ff6b35 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+      color: white !important;
+      border-color: #ff6b35 !important;
+    }
+    
+    body.dark-theme #loginManager {
+      border-color: #ff6b35 !important;
+      color: #ff6b35 !important;
+    }
+    
+    body.dark-theme #loginManager:hover {
+      background: #ff6b35 !important;
+      color: white !important;
+    }
+    
+    /* Form labels in dark mode */
+    body.dark-theme .form-label {
+      color: var(--text-primary-dark);
+    }
+    
+    /* Hero decoration */
+    .hero-decoration {
+      opacity: 0.07;
+    }
+    
+    body.dark-theme .hero-decoration {
+      opacity: 0.03;
+      filter: invert(1);
+    }
+    
+    /* Global text styling for dark mode */
+    body.dark-theme h1,
+    body.dark-theme h2, 
+    body.dark-theme h3,
+    body.dark-theme h4,
+    body.dark-theme h5,
+    body.dark-theme h6 {
+      color: var(--text-primary-dark);
+    }
+    
+    body.dark-theme p {
+      color: var(--text-secondary-dark);
+    }
+    
+    body.dark-theme .text-dark {
+      color: var(--text-primary-dark) !important;
+    }
+    
+    body.dark-theme small {
+      color: var(--text-secondary-dark);
+    }
+    
+    /* Navbar toggler for dark mode */
+    .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    body.dark-theme .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    body.dark-theme .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    /* Badge styling for dark mode */
+    body.dark-theme .badge.bg-success {
+      background-color: rgba(34, 197, 94, 0.2) !important;
+      color: #4ade80 !important;
+    }
+    
+    body.dark-theme .badge.bg-primary {
+      background-color: rgba(59, 130, 246, 0.2) !important;
+      color: #60a5fa !important;
+    }
+    
+    body.dark-theme .badge.bg-warning {
+      background-color: rgba(245, 158, 11, 0.2) !important;
+      color: #fbbf24 !important;
+    }
+    
+    /* Timeline styling */
+    .timeline-step h5 {
+      color: var(--text-primary-light);
+    }
+    
+    body.dark-theme .timeline-step h5 {
+      color: var(--text-primary-dark);
+    }
+    
+    /* Testimonial text styling */
+    .testimonial-text {
+      color: var(--text-primary-light);
+    }
+    
+    body.dark-theme .testimonial-text {
+      color: var(--text-primary-dark);
+    }
+    
+    /* Language popup */
+    .lang-popup-content {
+      background: white;
+      color: var(--text-primary-light);
+    }
+    
+    body.dark-theme .lang-popup-content {
+      background: #1e293b;
+      color: var(--text-primary-dark);
+    }
+    
+    /* Testimonial section */
+    .testimonial-section {
+      background: white;
+    }
+    
+    body.dark-theme .testimonial-section {
+      background: #1e293b;
+    }
+    
+    /* How it works section */
+    .how-works-section {
+      background: #f8fafc;
+    }
+    
+    body.dark-theme .how-works-section {
+      background: #0f172a;
+    }
+    
+    /* Trusted bar */
+    .trusted-bar {
+      background: white;
+    }
+    
+    body.dark-theme .trusted-bar {
+      background: #1e293b;
+    }
+    
+    /* Hero Background */
+    .hero-bg {
+      background: linear-gradient(120deg, #ffedea 0%, #fff7f0 100%);
+    }
+    
+    body.dark-theme .hero-bg {
+      background: linear-gradient(120deg, #1e293b 0%, #334155 100%);
+    }
+    /* Performance Optimized Landing Page Styles */
+    :root {
+      --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8f65);
+      --bg-light: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+      --bg-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --text-primary-light: #1a1a1a;
+      --text-primary-dark: #f1f5f9;
+      --text-secondary-light: #64748b;
+      --text-secondary-dark: #94a3b8;
+      --card-light: rgba(255, 255, 255, 0.9);
+      --card-dark: rgba(30, 41, 59, 0.8);
+      --border-light: rgba(255, 107, 53, 0.1);
+      --border-dark: rgba(255, 107, 53, 0.2);
+      --shadow-primary: 0 4px 20px rgba(255, 107, 53, 0.3);
+      --shadow-hover: 0 8px 30px rgba(255, 107, 53, 0.4);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-light);
+      color: var(--text-primary-light);
+      transition: var(--transition);
+      overflow-x: hidden;
+    }
+
+    body.dark-theme {
+      background: var(--bg-dark);
+      color: var(--text-primary-dark);
+    }
+
+    /* Theme Toggle - Optimized */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 60px;
+      height: 30px;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      transition: var(--transition);
+      z-index: 1050;
+      box-shadow: var(--shadow-primary);
+      will-change: transform;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .theme-toggle-ball {
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      will-change: transform;
+    }
+
+    body.dark-theme .theme-toggle-ball {
+      transform: translateX(30px);
+    }
+
+    /* Header - Bootstrap Enhanced */
+    .navbar-custom {
+      background: var(--card-light) !important;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+
+    body.dark-theme .navbar-custom {
+      background: var(--card-dark) !important;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.75rem;
+      background: var(--primary-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: var(--text-secondary-light) !important;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    body.dark-theme .nav-link {
+      color: var(--text-secondary-dark) !important;
+    }
+
+    .nav-link:hover {
+      color: #ff6b35 !important;
+    }
+
+    .btn-nav-primary {
+      background: linear-gradient(135deg, #ff6b35, #ff8f65) !important;
+      color: white !important;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+    }
+
+    .btn-nav-primary:hover {
+      background: linear-gradient(135deg, #e55a2b, #ff6b35) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+      color: white !important;
+    }
+
+    /* Hero Section - Grid Optimized */
+    .hero-section {
+      padding: 5rem 0 7rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid var(--border-light);
+      border-radius: 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ff6b35;
+      margin-bottom: 1.5rem;
+    }
+
+    body.dark-theme .hero-badge {
+      border-color: var(--border-dark);
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary-light);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    body.dark-theme .hero-subtitle {
+      color: var(--text-secondary-dark);
+    }
+
+    /* Buttons - Enhanced */
+    .btn-hero-primary {
+      background: var(--primary-gradient);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      color: white;
+      text-decoration: none;
+    }
+
+    .btn-hero-secondary {
+      background: transparent;
+      border: 2px solid #e2e8f0;
+      color: var(--text-primary-light);
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    body.dark-theme .btn-hero-secondary {
+      border-color: #334155;
+      color: var(--text-primary-dark);
+    }
+
+    .btn-hero-secondary:hover {
+      border-color: #ff6b35;
+      color: #ff6b35;
+      text-decoration: none;
+    }
+
+    /* Cards - Performance Enhanced */
+    .card-custom {
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+      border-radius: 1.5rem;
+      backdrop-filter: blur(20px);
+      transition: var(--transition);
+      height: 100%;
+      will-change: transform;
+    }
+
+    body.dark-theme .card-custom {
+      background: var(--card-dark);
+      border-color: var(--border-dark);
+    }
+
+    .card-custom:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(255, 107, 53, 0.15);
+    }
+
+    .card-login {
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+      border-radius: 1.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-theme .card-login {
+      background: var(--card-dark);
+      border-color: var(--border-dark);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form Elements - Enhanced */
+    .form-control-custom {
+      padding: 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text-primary-light);
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    body.dark-theme .form-control-custom {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: #334155;
+      color: var(--text-primary-dark);
+    }
+
+    .form-control-custom:focus {
+      border-color: #ff6b35;
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    body.dark-theme .form-control-custom:focus {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* Feature Cards */
+    .feature-mini {
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+    }
+
+    body.dark-theme .feature-mini {
+      background: rgba(30, 41, 59, 0.6);
+      border-color: var(--border-dark);
+    }
+
+    .feature-mini:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15);
+    }
+
+    /* Sections */
+    .section-features {
+      padding: 5rem 0;
+      background: rgba(255, 107, 53, 0.02);
+      border-top: 1px solid var(--border-light);
+    }
+
+    body.dark-theme .section-features {
+      background: rgba(30, 41, 59, 0.3);
+      border-color: var(--border-dark);
+    }
+
+    /* Step Numbers */
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin: 0 auto 1rem auto;
+    }
+
+    /* Text Colors */
+    .text-secondary-custom {
+      color: var(--text-secondary-light);
+    }
+
+    body.dark-theme .text-secondary-custom {
+      color: var(--text-secondary-dark);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Performance Optimizations */
+    .gpu-accelerated {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    /* Media Queries for Better Performance */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 3rem 0 5rem;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .theme-toggle {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body id="landingBody">
+  <!-- Language Selection Popup -->
+  <div id="langPopup" style="position:fixed;z-index:2000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;">
+    <div class="lang-popup-content" style="padding:2.5rem 2rem 2rem 2rem;border-radius:1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.18);max-width:90vw;width:350px;text-align:center;">
+      <h4 id="langPopupTitle" style="margin-bottom:1.5rem;font-weight:700;">Choose Language</h4>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+  <button class="btn btn-hero-primary lang-select-btn" data-lang="en">English</button>
+  <button class="btn btn-hero-primary lang-select-btn" data-lang="hi">हिंदी</button>
+  <button class="btn btn-hero-primary lang-select-btn" data-lang="kn">ಕನ್ನಡ</button>
+  <button class="btn btn-hero-primary lang-select-btn" data-lang="mr">मराठी</button>
+      </div>
+    </div>
+  </div>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle gpu-accelerated" id="themeToggle" aria-label="Toggle theme">
+    <div class="theme-toggle-ball">
+      <span id="themeIcon">☀️</span>
+    </div>
+  </button>
+
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">InnSync</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#how">How it works</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="btn btn-nav-primary" href="#login">Login</a>
+          </li>
+          <li class="nav-item ms-3">
+            <button id="langChangeBtn" class="btn btn-outline-secondary" type="button" style="min-width:44px;">
+              <span id="langChangeBtnLabel">🌐</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modern Hero Section -->
+  <section class="hero-section position-relative hero-bg" style="min-height: 90vh; display: flex; align-items: center;">
+    <div class="container position-relative z-2">
+      <div class="row align-items-center flex-lg-nowrap">
+        <div class="col-lg-7 order-1 order-lg-1 animate-fade-in">
+          <div class="hero-badge mb-3">
+            <span id="heroBadge"></span>
+          </div>
+          <h1 class="hero-title display-4 mb-3" id="heroTitle">Stop Revenue Leakages. Start Capturing Every Rupee.</h1>
+          <p class="hero-subtitle lead mb-4" id="heroSubtitle"></p>
+          <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
+            <a href="#login" class="btn-hero-primary px-4 py-3" id="heroCtaDemo">Book a Live Demo</a>
+            <a href="#how" class="btn-hero-secondary px-4 py-3" id="heroCtaCall"></a>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <span class="badge bg-success bg-opacity-10 text-success fw-semibold py-2 px-3">100% Data Transparency</span>
+            <span class="badge bg-primary bg-opacity-10 text-primary fw-semibold py-2 px-3">Instant Alerts</span>
+            <span class="badge bg-warning bg-opacity-10 text-warning fw-semibold py-2 px-3">No More Revenue Leakages</span>
+          </div>
+          <div class="mt-4">
+            <small class="text-secondary-custom" id="heroTrust">Already trusted by 20+ hotels in India</small>
+          
+          </div>
+        </div>
+        <div class="col-lg-5 order-2 order-lg-2 d-flex justify-content-center mt-5 mt-lg-0">
+          <div class="card card-login border-0 p-4 shadow-lg" style="max-width: 370px; width: 100%;">
+            <div class="card-body">
+              <h3 class="card-title fw-bold mb-2" id="loginTitle">Login to Demo</h3>
+              <p class="text-secondary-custom small mb-4" id="loginSubtitle">
+                Use sample credentials:<br>
+                <strong>Owner:</strong> owner@sunrise.example / owner123<br>
+                <strong>Manager:</strong> manager@sunrise.example / manager123
+              </p>
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-semibold" id="loginEmailLabel">Email</label>
+                  <input id="email" type="email" class="form-control form-control-custom" placeholder="you@example.com" required autocomplete="off">
+                </div>
+                <div class="mb-4">
+                  <label for="password" class="form-label fw-semibold" id="loginPasswordLabel">Password</label>
+                  <input id="password" type="password" class="form-control form-control-custom" placeholder="••••••••" required autocomplete="off">
+                </div>
+                <div class="d-flex flex-column flex-sm-row gap-2 mb-3">
+                  <button class="btn btn-hero-primary flex-fill" type="submit" id="loginOwnerBtn">Login as Owner</button>
+                  <button class="btn btn-hero-secondary flex-fill" type="button" id="loginManager">Login as Manager</button>
+                </div>
+                <div class="text-danger small" id="loginError" style="display:none">Invalid credentials</div>
+              </form>
+              <div class="text-center mt-4">
+                <small class="text-secondary-custom" id="loginTerms">By logging in, you agree to the demo terms. Data is sample only.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative background image or SVG -->
+    <img src="https://www.transparenttextures.com/patterns/diamond-upholstery.png" alt="" class="hero-decoration" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.07;z-index:1;pointer-events:none;" />
+  </section>
+
+  <!-- Trusted By Bar -->
+  <div class="py-3 trusted-bar border-bottom" id="trustedBar">
+    <div class="container-fluid px-0">
+      <div class="d-flex flex-nowrap align-items-center justify-content-center overflow-auto" style="gap:1.5rem;">
+        <span class="fw-semibold text-secondary-custom flex-shrink-0" id="trustedBy">Trusted by:</span>
+        <img src="https://dummyimage.com/80x32/eee/aaa&text=Sunrise" alt="Sunrise" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
+        <img src="https://dummyimage.com/80x32/eee/aaa&text=Blue+Lagoon" alt="Blue Lagoon" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
+        <img src="https://dummyimage.com/80x32/eee/aaa&text=Royal+Stay" alt="Royal Stay" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
+        <img src="https://dummyimage.com/80x32/eee/aaa&text=Urban+Nest" alt="Urban Nest" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section id="features" class="section-features">
+    <div class="container">
+      <!-- Problem Section -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+          <div class="card card-custom border-0 p-4 mb-4 shadow-sm">
+            <h2 class="fw-bold mb-3 text-danger" id="problemHeading"></h2>
+            <ul class="card-text text-secondary-custom text-start ps-3 fs-5" id="problemPoints"></ul>
+          </div>
+        </div>
+      </div>
+      <!-- Solution Section -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+          <div class="card card-custom border-0 p-4 mb-4 shadow-sm">
+            <h2 class="fw-bold mb-3 text-primary" id="solutionHeading"></h2>
+            <ul class="card-text text-secondary-custom text-start ps-3 fs-5" id="solutionPoints"></ul>
+          </div>
+        </div>
+      </div>
+      <!-- Benefits Section -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card card-custom border-0 p-4 shadow-sm">
+            <h2 class="fw-bold mb-3 text-success" id="benefitsHeading"></h2>
+            <ul class="card-text text-secondary-custom text-start ps-3 fs-5" id="benefitsPoints"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <!-- How It Works Timeline Section -->
+  <section id="how" class="py-5 how-works-section">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5" id="howHeading">How InnSync Works</h2>
+      <div class="timeline d-flex flex-wrap flex-lg-nowrap justify-content-center align-items-stretch mb-5 gap-4">
+        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
+          <div class="timeline-icon mb-2 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">🔗</div>
+          <h5 class="fw-semibold mb-2" id="timelineStep1Title">Connect</h5>
+          <p class="text-secondary-custom small" id="timelineStep1Desc">Connect your hotel to InnSync in minutes—no tech skills needed.</p>
+        </div>
+        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
+          <div class="timeline-icon mb-2 bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">📡</div>
+          <h5 class="fw-semibold mb-2" id="timelineStep2Title">Detect</h5>
+          <p class="text-secondary-custom small" id="timelineStep2Desc">IoT sensors detect real occupancy and send data to your dashboard.</p>
+        </div>
+        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
+          <div class="timeline-icon mb-2 bg-warning text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">🤖</div>
+          <h5 class="fw-semibold mb-2" id="timelineStep3Title">Verify</h5>
+          <p class="text-secondary-custom small" id="timelineStep3Desc">Our algorithm matches bookings with occupancy and flags mismatches.</p>
+        </div>
+        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
+          <div class="timeline-icon mb-2 bg-danger text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">⚡</div>
+          <h5 class="fw-semibold mb-2" id="timelineStep4Title">Alert</h5>
+          <p class="text-secondary-custom small" id="timelineStep4Desc">Get instant alerts for unrecorded stays or suspicious activity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Carousel Section -->
+  <section class="py-5 testimonial-section border-top">
+    <div class="container">
+  <h2 class="text-center fw-bold mb-5" id="testimonialHeading"></h2>
+      <div class="testimonial-row d-flex flex-nowrap gap-4 pb-3 position-relative" id="testimonialRow" style="overflow:hidden;">
+        <!-- 9 testimonials, only 3 visible at a time -->
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#ffe5d0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(255,107,53,0.08);">🧑‍💼</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote1"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite1"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0f7fa;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,107,255,0.08);">👩‍💼</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote2"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite2"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0ffe0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,255,107,0.08);">🧑‍💻</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote3"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite3"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#ffe5d0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(255,107,53,0.08);">🧑‍💼</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote4"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite4"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0f7fa;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,107,255,0.08);">👩‍💼</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote5"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite5"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0ffe0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,255,107,0.08);">🧑‍💻</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote6"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite6"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#ffe5d0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(255,107,53,0.08);">🧑‍💼</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote7"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite7"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0f7fa;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,107,255,0.08);">👩‍�</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote8"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite8"></div>
+        </div>
+        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
+          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0ffe0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,255,107,0.08);">🧑‍💻</div>
+          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote9"></div>
+          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite9"></div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-3 gap-2">
+        <span class="testimonial-dot" data-dot="0" style="width:16px;height:16px;border-radius:50%;background:#ff6b35;opacity:1;display:inline-block;cursor:pointer;"></span>
+        <span class="testimonial-dot" data-dot="1" style="width:16px;height:16px;border-radius:50%;background:#ff6b35;opacity:0.3;display:inline-block;cursor:pointer;"></span>
+        <span class="testimonial-dot" data-dot="2" style="width:16px;height:16px;border-radius:50%;background:#ff6b35;opacity:0.3;display:inline-block;cursor:pointer;"></span>
+      </div>
+      <style>
+        .glass-card {
+          background: rgba(255,255,255,0.85);
+          border-radius: 1.25rem;
+          box-shadow: 0 4px 24px rgba(30,41,59,0.07);
+          border: 2px solid transparent;
+        }
+        .glass-card:hover {
+          border-color: #ff6b35;
+          box-shadow: 0 8px 32px rgba(255,107,53,0.13);
+        }
+        .testimonial-row {
+          transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+        }
+        .testimonial-dot {
+          transition: opacity 0.2s;
+        }
+      </style>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+  <script type="module">
+    // --- Testimonial Paging and Dynamic Content ---
+    function renderTestimonials(lang) {
+      const testimonials = (window.languageContent[lang] || window.languageContent['en']).testimonials || [];
+      for (let i = 1; i <= 9; i++) {
+        const quote = testimonials[i-1]?.quote || '';
+        const cite = testimonials[i-1]?.cite || '';
+        document.getElementById('testimonialQuote'+i).textContent = quote;
+        document.getElementById('testimonialCite'+i).textContent = cite;
+      }
+    }
+
+    function showTestimonialSet(setIdx) {
+      const row = document.getElementById('testimonialRow');
+      row.style.transform = `translateX(-${setIdx * 100}%)`;
+      document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+        dot.style.opacity = (i === setIdx) ? '1' : '0.3';
+      });
+    }
+
+    // Responsive: 3 cards per set, 9 total
+    let currentTestimonialSet = 0;
+    document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        currentTestimonialSet = i;
+        showTestimonialSet(i);
+      });
+    });
+
+    // On language/content update, rerender testimonials and reset to first set
+    function updateTestimonials(lang) {
+      renderTestimonials(lang);
+      currentTestimonialSet = 0;
+      showTestimonialSet(0);
+    }
+    // Language change button in navbar
+    const langChangeBtn = document.getElementById('langChangeBtn');
+    if (langChangeBtn) {
+      langChangeBtn.onclick = function() {
+        langPopup.style.display = 'flex';
+      };
+      // Set label to current language
+      const lang = localStorage.getItem('innsync_lang') || 'en';
+      const langLabels = { en: 'EN', hi: 'हि', kn: 'ಕ', mr: 'म' };
+      document.getElementById('langChangeBtnLabel').textContent = langLabels[lang] || '🌐';
+    }
+    import { apiLogin } from './js/api.js';
+
+    // --- Language Popup and Dynamic Content ---
+    const langPopup = document.getElementById('langPopup');
+    const langBtns = langPopup.querySelectorAll('button[data-lang]');
+    const langPopupTitle = document.getElementById('langPopupTitle');
+    const defaultLang = localStorage.getItem('innsync_lang') || 'en';
+    let currentLang = defaultLang;
+
+    // Helper to update all landing page content
+    function updateLandingContent(lang) {
+      const c = window.languageContent[lang] || window.languageContent['en'];
+      // Hero
+      document.querySelector('.hero-title').textContent = c.hero_title;
+      document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
+      document.getElementById('heroBadge').textContent = c.trust_heading || '';
+      const mainCtaBtn = document.querySelector('.hero-section .btn-hero-primary:not(.lang-select-btn)');
+      if (mainCtaBtn) mainCtaBtn.textContent = c.cta_demo_label;
+      document.getElementById('heroCtaCall').textContent = c.cta_call_label;
+      // Trust bar
+      document.getElementById('trustedBy').textContent = c.trust_heading || '';
+      // Problem, Solution, Benefits
+      document.getElementById('problemHeading').textContent = c.problem_heading;
+      document.getElementById('solutionHeading').textContent = c.solution_heading;
+      document.getElementById('benefitsHeading').textContent = c.benefits_heading;
+      // List points
+      function fillList(id, arr) {
+        const ul = document.getElementById(id);
+        ul.innerHTML = '';
+        (arr||[]).forEach(pt => {
+          const li = document.createElement('li');
+          li.textContent = pt;
+          ul.appendChild(li);
+        });
+      }
+      fillList('problemPoints', c.problem_points);
+      fillList('solutionPoints', c.solution_points);
+      fillList('benefitsPoints', c.benefits_points);
+      // Testimonial heading
+      document.getElementById('testimonialHeading').textContent = c.testimonial_heading;
+      // Footer tagline (if present)
+      const footer = document.querySelector('footer');
+      if (footer) footer.textContent = c.footer_tagline;
+      // Testimonials
+      updateTestimonials(lang);
+    }
+
+    // Show popup if no language selected
+    if (!localStorage.getItem('innsync_lang')) {
+      langPopup.style.display = 'flex';
+    } else {
+      langPopup.style.display = 'none';
+      setTimeout(() => updateLandingContent(defaultLang), 100);
+    }
+
+    // Initial testimonials render
+    updateTestimonials(defaultLang);
+
+    langBtns.forEach(btn => {
+      btn.onclick = function() {
+        const lang = btn.getAttribute('data-lang');
+        localStorage.setItem('innsync_lang', lang);
+        langPopup.style.display = 'none';
+        updateLandingContent(lang);
+      };
+    });
+
+  // Performance optimized theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.getElementById('landingBody');
+    const themeIcon = document.getElementById('themeIcon');
+
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('innsync-theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      themeIcon.textContent = '🌙';
+    }
+
+    // Optimized theme toggle with requestAnimationFrame
+    themeToggle.addEventListener('click', () => {
+      requestAnimationFrame(() => {
+        body.classList.toggle('dark-theme');
+        const isDark = body.classList.contains('dark-theme');
+        themeIcon.textContent = isDark ? '🌙' : '☀️';
+        localStorage.setItem('innsync-theme', isDark ? 'dark' : 'light');
+      });
+    });
+
+    // Update content if language changes in localStorage (multi-tab)
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'innsync_lang') {
+        updateLandingContent(e.newValue || 'en');
+      }
+    });
+
+    // Optimized login functionality with debouncing
+    let loginTimeout;
+    const showErr = (msg) => { 
+      const e = document.getElementById('loginError'); 
+      e.textContent = msg; 
+      e.style.display = 'block'; 
+    };
+    const hideErr = () => { 
+      const e = document.getElementById('loginError'); 
+      e.style.display = 'none'; 
+    };
+
+    async function login(requestedRole) {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      
+      // Basic validation
+      if (!email || !password) {
+        showErr('Please enter both email and password');
+        return;
+      }
+      
+      hideErr();
+      
+      // Disable buttons during login
+      const buttons = document.querySelectorAll('#loginForm button');
+      buttons.forEach(btn => btn.disabled = true);
+      
+      try {
+        const session = await apiLogin(email, password);
+        if (!session?.role) { 
+          showErr('Login failed, missing role'); 
+          return; 
+        }
+        if (session.role !== requestedRole) { 
+          showErr(`This user is not authorized as ${requestedRole}`); 
+          return; 
+        }
+        localStorage.setItem('innsync_user', JSON.stringify(session));
+        window.location.href = requestedRole === 'MANAGER' ? 'manager.html' : 'owner.html';
+      } catch (e) {
+        showErr('Login failed, please check email/password');
+      } finally {
+        // Re-enable buttons
+        buttons.forEach(btn => btn.disabled = false);
+      }
+    }
+
+    // Event listeners with passive option for better performance
+    document.getElementById('loginForm').addEventListener('submit', (e) => { 
+      e.preventDefault(); 
+      clearTimeout(loginTimeout);
+      loginTimeout = setTimeout(() => login('OWNER'), 100);
+    });
+    
+    document.getElementById('loginManager').addEventListener('click', () => {
+      clearTimeout(loginTimeout);
+      loginTimeout = setTimeout(() => login('MANAGER'), 100);
+    });
+
+    // Optimized smooth scrolling with intersection observer
+    const scrollToTarget = (target) => {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    };
+
+    // Enhanced smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          requestAnimationFrame(() => scrollToTarget(target));
+        }
+      }, { passive: false });
+    });
+
+    // Add fade-in animation on scroll for performance
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe cards for fade-in effect
+    document.querySelectorAll('.card-custom, .feature-mini').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      fadeInObserver.observe(card);
+    });
+
+    // Preload critical images and fonts
+    const preloadResources = () => {
+      // Add any critical resources that need preloading
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = 'manager.html';
+      document.head.appendChild(link);
+      
+      const link2 = document.createElement('link');
+      link2.rel = 'prefetch';
+      link2.href = 'owner.html';
+      document.head.appendChild(link2);
+    };
+
+    // Initialize on DOM content loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', preloadResources);
+    } else {
+      preloadResources();
+    }
+  </script>
+</body>
+</html>

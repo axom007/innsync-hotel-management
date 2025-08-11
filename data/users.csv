@@ -1,0 +1,3 @@
+user_id,username,password,role,email
+1,manager1,password1,manager,manager1@hotel.com
+2,owner1,password2,owner,owner1@hotel.com

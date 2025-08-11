@@ -1,0 +1,472 @@
+/* Modern Theme with Light/Dark Mode Support */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode (default) */
+body:not(.dark-theme) {
+  background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+  color: #1a1a1a;
+}
+
+/* Dark mode */
+body.dark-theme {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #f1f5f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Enhanced Header */
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+/* Light mode header */
+body:not(.dark-theme) .header {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark mode header */
+body.dark-theme .header {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-inner > div:first-child {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa, #34d399);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Modern Button Styles */
+.btn:not(.btn-nav-primary):not(.btn-hero-primary):not(.btn-hero-secondary) {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Light mode buttons */
+body:not(.dark-theme) .btn:not(.btn-nav-primary):not(.btn-hero-primary):not(.btn-hero-secondary) {
+  background: rgba(255, 255, 255, 0.8);
+  color: #1a1a1a;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+body:not(.dark-theme) .btn:not(.btn-nav-primary):not(.btn-hero-primary):not(.btn-hero-secondary):hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(148, 163, 184, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+/* Dark mode buttons */
+body.dark-theme .btn:not(.btn-nav-primary):not(.btn-hero-primary):not(.btn-hero-secondary) {
+  background: rgba(30, 41, 59, 0.8);
+  color: #f1f5f9;
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+body.dark-theme .btn:not(.btn-nav-primary):not(.btn-hero-primary):not(.btn-hero-secondary):hover {
+  background: rgba(51, 65, 85, 0.9);
+  border-color: rgba(148, 163, 184, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+  border: none;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, #2563eb, #059669);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+}
+
+/* Layout Components */
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* Enhanced Card Design */
+.card {
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode cards */
+body:not(.dark-theme) .card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+body:not(.dark-theme) .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+/* Dark mode cards */
+body.dark-theme .card {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.1);
+}
+
+body.dark-theme .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.card > b {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Light mode card text */
+body:not(.dark-theme) .card > b {
+  color: #1a1a1a;
+}
+
+/* Dark mode card text */
+body.dark-theme .card > b {
+  color: #f1f5f9;
+}
+
+/* Grid Systems */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid.rooms {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (min-width: 768px) {
+  .grid.rooms {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid.rooms {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Status Badges with Modern Design */
+.status, .badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Light mode status badges */
+body:not(.dark-theme) .status.vacant, 
+body:not(.dark-theme) .badge.vacant {
+  background: rgba(148, 163, 184, 0.2);
+  color: #64748b;
+}
+
+body:not(.dark-theme) .status.booked, 
+body:not(.dark-theme) .badge.booked {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+body:not(.dark-theme) .status.checked, 
+body:not(.dark-theme) .badge.checked {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+body:not(.dark-theme) .status.flagged, 
+body:not(.dark-theme) .badge.flagged {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Dark mode status badges */
+body.dark-theme .status.vacant, 
+body.dark-theme .badge.vacant {
+  background: rgba(71, 85, 105, 0.8);
+  color: #cbd5e1;
+}
+
+body.dark-theme .status.booked, 
+body.dark-theme .badge.booked {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+body.dark-theme .status.checked, 
+body.dark-theme .badge.checked {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+body.dark-theme .status.flagged, 
+body.dark-theme .badge.flagged {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Typography */
+.small {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.muted {
+  color: #94a3b8;
+}
+
+/* Light mode muted text */
+body:not(.dark-theme) .muted {
+  color: #64748b;
+}
+
+/* Dark mode muted text */
+body.dark-theme .muted {
+  color: #94a3b8;
+}
+
+/* Room Cards */
+.room, .room-card {
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+/* Light mode room cards */
+body:not(.dark-theme) .room, 
+body:not(.dark-theme) .room-card {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+body:not(.dark-theme) .room:hover, 
+body:not(.dark-theme) .room-card:hover {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(148, 163, 184, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Dark mode room cards */
+body.dark-theme .room, 
+body.dark-theme .room-card {
+  background: rgba(30, 41, 59, 0.4);
+  border-color: rgba(148, 163, 184, 0.1);
+}
+
+body.dark-theme .room:hover, 
+body.dark-theme .room-card:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Light mode legend */
+body:not(.dark-theme) .legend {
+  color: #64748b;
+}
+
+/* Dark mode legend */
+body.dark-theme .legend {
+  color: #cbd5e1;
+}
+
+.legend .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Form Elements */
+input, select, textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  font-size: 14px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* Light mode form elements */
+body:not(.dark-theme) input, 
+body:not(.dark-theme) select, 
+body:not(.dark-theme) textarea {
+  background: rgba(255, 255, 255, 0.6);
+  color: #1a1a1a;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+body:not(.dark-theme) input:focus, 
+body:not(.dark-theme) select:focus, 
+body:not(.dark-theme) textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body:not(.dark-theme) input::placeholder {
+  color: #94a3b8;
+}
+
+/* Dark mode form elements */
+body.dark-theme input, 
+body.dark-theme select, 
+body.dark-theme textarea {
+  background: rgba(30, 41, 59, 0.6);
+  color: #f1f5f9;
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+body.dark-theme input:focus, 
+body.dark-theme select:focus, 
+body.dark-theme textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: rgba(30, 41, 59, 0.8);
+}
+
+body.dark-theme input::placeholder {
+  color: #64748b;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px 12px;
+  }
+  
+  .header-inner {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .tabs {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .row {
+    gap: 16px;
+  }
+}
+
+/* Loading and Animation States */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

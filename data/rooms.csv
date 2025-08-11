@@ -1,0 +1,5 @@
+room_id,category_id,room_number,status,assigned_to,payment_status,occupancy_status
+101,1,101,vacant,,pending,False
+102,1,102,booked,,pending,False
+103,2,103,checked_in,1.0,paid,True
+104,3,104,flagged,,pending,True

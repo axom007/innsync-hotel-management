@@ -1,0 +1,607 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InnSync Manager Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Theme Variables */
+    :root {
+      --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8f65);
+      --bg-light: linear-gradient(135deg, #fefefe 0%, #fff5f0 100%);
+      --bg-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --text-primary-light: #1a1a1a;
+      --text-primary-dark: #f1f5f9;
+      --text-secondary-light: #64748b;
+      --text-secondary-dark: #94a3b8;
+      --card-light: rgba(255, 255, 255, 0.9);
+      --card-dark: rgba(30, 41, 59, 0.8);
+      --border-light: rgba(255, 107, 53, 0.1);
+      --border-dark: rgba(255, 107, 53, 0.2);
+      --shadow-primary: 0 4px 20px rgba(255, 107, 53, 0.3);
+      --shadow-hover: 0 8px 30px rgba(255, 107, 53, 0.4);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Light mode (default) */
+    body:not(.dark-theme) {
+      background: var(--bg-light);
+      color: var(--text-primary-light);
+    }
+
+    /* Dark mode */
+    body.dark-theme {
+      background: var(--bg-dark);
+      color: var(--text-primary-dark);
+    }
+
+    /* Theme Toggle - Same as landing page */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 60px;
+      height: 30px;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      transition: var(--transition);
+      z-index: 1050;
+      box-shadow: var(--shadow-primary);
+      will-change: transform;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .theme-toggle-ball {
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      will-change: transform;
+    }
+
+    body.dark-theme .theme-toggle-ball {
+      transform: translateX(30px);
+    }
+
+    /* Grid Layout - Responsive */
+    .gridRooms { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 16px; 
+    }
+
+    /* Main Layout - Side by Side */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    /* Rooms Section */
+    .rooms-section {
+      min-width: 0; /* Prevents overflow issues */
+    }
+
+    /* Actions Section */
+    .actions-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 320px;
+    }
+
+    /* Action Cards */
+    .action-card {
+      background: var(--card-light);
+      border: 2px solid var(--border-light);
+      border-radius: 16px;
+      padding: 20px;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+    }
+
+    body.dark-theme .action-card {
+      background: var(--card-dark);
+      border-color: var(--border-dark);
+    }
+
+    .action-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .main-layout {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 20px;
+      }
+      
+      .gridRooms { 
+        grid-template-columns: repeat(3, 1fr); 
+      }
+    }
+
+    @media (max-width: 980px) { 
+      .main-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .actions-section {
+        order: -1; /* Move actions to top on mobile */
+        flex-direction: row;
+        min-width: auto;
+      }
+      
+      .gridRooms { 
+        grid-template-columns: repeat(2, 1fr); 
+      }
+    }
+
+    @media (max-width: 640px) { 
+      .actions-section {
+        flex-direction: column;
+      }
+      
+      .gridRooms { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .action-card {
+        padding: 16px;
+      }
+    }
+
+    /* Enhanced Room Cards with Better Glass Effect */
+    .room-card { 
+      border-radius: 16px; 
+      padding: 18px;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+      border: 2px solid;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Enhanced glass effect for better visibility */
+    .room-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .room-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Light mode room cards - more visible */
+    body:not(.dark-theme) .room-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(255, 107, 53, 0.15);
+      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.08), 
+                  0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    body:not(.dark-theme) .room-card:hover {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(255, 107, 53, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15), 
+                  0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Dark mode room cards - more visible */
+    body.dark-theme .room-card {
+      background: rgba(30, 41, 59, 0.85);
+      border-color: rgba(148, 163, 184, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
+                  0 4px 16px rgba(255, 107, 53, 0.05);
+    }
+
+    body.dark-theme .room-card:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(148, 163, 184, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 
+                  0 8px 24px rgba(255, 107, 53, 0.08);
+    }
+
+    /* Enhanced Badge Styling */
+    .badge { 
+      padding: 6px 12px; 
+      border-radius: 20px; 
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Light mode badges */
+    body:not(.dark-theme) .badge.vacant { 
+      background: rgba(148, 163, 184, 0.2); 
+      color: #64748b; 
+    }
+    body:not(.dark-theme) .badge.booked { 
+      background: rgba(245, 158, 11, 0.15); 
+      color: #d97706; 
+    }
+    body:not(.dark-theme) .badge.checked { 
+      background: rgba(16, 185, 129, 0.15); 
+      color: #059669; 
+    }
+    body:not(.dark-theme) .badge.flagged { 
+      background: rgba(239, 68, 68, 0.15); 
+      color: #dc2626; 
+    }
+
+    /* Dark mode badges */
+    body.dark-theme .badge.vacant { 
+      background: rgba(71, 85, 105, 0.8); 
+      color: #cbd5e1; 
+    }
+    body.dark-theme .badge.booked { 
+      background: rgba(245, 158, 11, 0.2); 
+      color: #fbbf24; 
+    }
+    body.dark-theme .badge.checked { 
+      background: rgba(16, 185, 129, 0.2); 
+      color: #34d399; 
+    }
+    body.dark-theme .badge.flagged { 
+      background: rgba(239, 68, 68, 0.2); 
+      color: #f87171; 
+    }
+
+    /* Enhanced Form Elements */
+    input, select { 
+      width: 100%; 
+      padding: 12px 16px; 
+      border-radius: 12px; 
+      font-size: 14px;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Light mode forms */
+    body:not(.dark-theme) input, 
+    body:not(.dark-theme) select {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 107, 53, 0.2);
+      color: var(--text-primary-light);
+    }
+
+    body:not(.dark-theme) input:focus, 
+    body:not(.dark-theme) select:focus {
+      border-color: #ff6b35;
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Dark mode forms */
+    body.dark-theme input, 
+    body.dark-theme select {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      color: var(--text-primary-dark);
+    }
+
+    body.dark-theme input:focus, 
+    body.dark-theme select:focus {
+      border-color: #ff6b35;
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+      background: rgba(30, 41, 59, 0.8);
+    }
+
+    /* Enhanced Toasts */
+    #toasts { 
+      position: fixed; 
+      right: 16px; 
+      bottom: 16px; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 8px; 
+      z-index: 9999; 
+    }
+
+    .toast { 
+      padding: 12px 16px; 
+      border-radius: 12px; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+      min-width: 280px; 
+      display: flex; 
+      align-items: center; 
+      gap: 8px;
+      backdrop-filter: blur(20px);
+      border: 1px solid;
+    }
+
+    /* Light mode toasts */
+    body:not(.dark-theme) .toast { 
+      background: rgba(255, 255, 255, 0.95); 
+      color: var(--text-primary-light);
+      border-color: rgba(255, 107, 53, 0.2);
+    }
+    body:not(.dark-theme) .toast.success { 
+      border-color: rgba(16, 185, 129, 0.3); 
+      background: rgba(240, 253, 244, 0.95);
+      color: #065f46;
+    }
+    body:not(.dark-theme) .toast.error { 
+      border-color: rgba(239, 68, 68, 0.3); 
+      background: rgba(254, 242, 242, 0.95);
+      color: #991b1b;
+    }
+
+    /* Dark mode toasts */
+    body.dark-theme .toast { 
+      background: rgba(30, 41, 59, 0.95); 
+      color: var(--text-primary-dark);
+      border-color: rgba(148, 163, 184, 0.2);
+    }
+    body.dark-theme .toast.success { 
+      border-color: rgba(16, 185, 129, 0.3); 
+      background: rgba(6, 78, 59, 0.95);
+    }
+    body.dark-theme .toast.error { 
+      border-color: rgba(239, 68, 68, 0.3); 
+      background: rgba(127, 29, 29, 0.95);
+    }
+
+    .toast .title { 
+      font-weight: 600; 
+    }
+
+    /* Text styling */
+    body.dark-theme h1,
+    body.dark-theme h2,
+    body.dark-theme h3,
+    body.dark-theme h4,
+    body.dark-theme h5,
+    body.dark-theme h6,
+    body.dark-theme b {
+      color: var(--text-primary-dark);
+    }
+
+    body.dark-theme .muted {
+      color: var(--text-secondary-dark);
+    }
+
+    body:not(.dark-theme) .muted {
+      color: var(--text-secondary-light);
+    }
+  </style>
+</head>
+<body id="dashboardBody">
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <div class="theme-toggle-ball">
+      <span id="themeIcon">☀️</span>
+    </div>
+  </button>
+
+  <div class="header">
+    <div class="header-inner container">
+      <div><b>InnSync</b> <span class="muted">· Manager Portal</span></div>
+      <div class="tabs">
+        <a class="btn" href="index.html">Home</a>
+  <button id="addWalkin" class="btn">Add Walk-in</button>
+  <button id="markCheckin" class="btn">Mark Check-in</button>
+  <button id="addOta" class="btn">Add OTA Booking</button>
+  <button id="logout" class="btn">Logout</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="main-layout">
+      <!-- Rooms Section (Left Side) -->
+      <div class="rooms-section">
+        <div class="card">
+          <b>Rooms</b>
+          <div id="roomsGrid" class="gridRooms" style="margin-top:10px"></div>
+        </div>
+      </div>
+      
+      <!-- Actions Section (Right Side) -->
+      <div class="actions-section">
+        <!-- Add Walk-in Card -->
+        <div class="action-card">
+          <b>Add Walk-in</b>
+          <div class="small muted" style="margin-bottom: 16px;">Create a booking for a guest arriving without prior reservation.</div>
+          <div class="row" style="margin-top:8px; flex-wrap: wrap; gap: 12px;">
+            <div style="flex:1; min-width: 120px;">
+              <div class="small muted">Category</div>
+              <select id="walkinCategory">
+                <option>Deluxe</option>
+                <option>Standard</option>
+                <option>Suite</option>
+              </select>
+            </div>
+            <div style="flex:1; min-width: 120px;">
+              <div class="small muted">Guest name</div>
+              <input id="walkinGuest" placeholder="Walk-in Guest">
+            </div>
+            <div style="flex:1; min-width: 120px;">
+              <div class="small muted">Price</div>
+              <input id="walkinPrice" type="number" placeholder="3200">
+            </div>
+            <div style="width: 100%; margin-top: 8px;">
+              <button id="walkinSave" class="btn primary" style="width: 100%;">Save Walk-in</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mark Check-in Card -->
+        <div class="action-card">
+          <b>Mark Check-in</b>
+          <div class="small muted" style="margin-bottom: 16px;">Change a booked room to checked-in.</div>
+          <div class="row" style="margin-top:8px; flex-wrap: wrap; gap: 12px;">
+            <div style="flex:1; min-width: 120px;">
+              <div class="small muted">Booking</div>
+              <select id="checkinBooking"></select>
+            </div>
+            <div style="flex:1; min-width: 120px;">
+              <div class="small muted">Assign Room</div>
+              <select id="checkinRoom"></select>
+            </div>
+            <div style="width: 100%; margin-top: 8px;">
+              <button id="checkinSave" class="btn primary" style="width: 100%;">Mark Check-in</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add OTA Booking Card -->
+        <div class="action-card">
+          <b>Add OTA Booking</b>
+          <div class="small muted" style="margin-bottom: 16px;">Create a random booking from an online travel agency.</div>
+          <div style="margin-top: 16px;">
+            <button id="otaSave" class="btn primary" style="width: 100%;">Add Random OTA Booking</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+
+  <script type="module">
+    import { apiRoomsState, apiBookingsReady, apiRoomsAvailable, apiBookingCheckin, apiWalkinByCategory, apiOtaBookingRandom } from './js/api.js';
+  function getSession() { try { return JSON.parse(localStorage.getItem('innsync_user')||''); } catch { return null; } }
+  const session = getSession(); if (!session || String(session.role).toUpperCase() !== 'MANAGER') { window.location.replace('index.html'); }
+
+    function showToast(message, type='success') {
+      const cont = document.getElementById('toasts');
+      const el = document.createElement('div');
+      el.className = `toast ${type}`;
+      el.innerHTML = `<span class="title">${type==='error'?'Error':'Success'}</span><span class="small">${message}</span>`;
+      cont.appendChild(el);
+      setTimeout(() => { el.style.opacity='0'; el.style.transform='translateY(10px)'; setTimeout(()=>el.remove(), 300); }, 2200);
+    }
+
+    async function refreshRooms() {
+      const rooms = await apiRoomsState(session.hotel_id);
+      const grid = document.getElementById('roomsGrid');
+      const chkRoomSel = document.getElementById('checkinRoom');
+      const chkBookingSel = document.getElementById('checkinBooking');
+      grid.innerHTML = ''; chkRoomSel.innerHTML = ''; chkBookingSel.innerHTML = '';
+      const label = s => s==='checked'?'Checked-in': s==='booked'?'Booked': s==='flagged'?'Flagged':'Vacant';
+      for (const r of rooms) {
+        const div = document.createElement('div');
+        div.className = 'room-card';
+        div.innerHTML = `<div class=\"row\" style=\"align-items:center; justify-content:space-between\"><div>Room <b>${r.number}</b> · ${r.type}</div><div class=\"badge ${r.state}\">${label(r.state)}</div></div>
+        <div class=\"small muted\">Rate: ₹${(r.rate||0).toLocaleString('en-IN')}</div>`;
+        grid.appendChild(div);
+      }
+      // Load only bookings ready for check-in
+      const bookings = await apiBookingsReady(session.hotel_id);
+      for (const b of bookings) {
+        const label = `${b.category || 'Room'} · ${b.guest_name || 'Guest'} · ${b.status}`;
+        const opt = document.createElement('option'); opt.value = b.id; opt.textContent = label; chkBookingSel.appendChild(opt);
+      }
+      // If there is a booking selected, populate available rooms for its category
+      if (chkBookingSel.value) {
+        const selEvt = new Event('change'); chkBookingSel.dispatchEvent(selEvt);
+      }
+    }
+
+    // When booking changes, filter assignable rooms by category and availability
+    document.getElementById('checkinBooking').addEventListener('change', async (e) => {
+      const bookingId = e.target.value; if (!bookingId) return;
+      const bookings = await apiBookingsReady(session.hotel_id);
+      const b = bookings.find(x => x.id === bookingId);
+      const available = await apiRoomsAvailable(session.hotel_id, b?.category||null);
+      const sel = document.getElementById('checkinRoom'); sel.innerHTML = '';
+      for (const r of available) { const opt = document.createElement('option'); opt.value=r.id; opt.textContent=`Room ${r.number}`; sel.appendChild(opt); }
+      // If booking already has a room assigned, preselect it (if present)
+      if (b?.room_id) { sel.value = b.room_id; }
+    });
+
+    document.getElementById('walkinSave').addEventListener('click', async () => {
+      const category = document.getElementById('walkinCategory').value;
+      const guest = document.getElementById('walkinGuest').value || 'Walk-in Guest';
+      const price = parseFloat(document.getElementById('walkinPrice').value || '3200');
+      try {
+        await apiWalkinByCategory(session.hotel_id, category, guest, price);
+        await refreshRooms();
+        showToast('Walk-in booking added');
+      } catch (e) { showToast('Failed to add walk-in', 'error'); }
+    });
+
+    document.getElementById('checkinSave').addEventListener('click', async () => {
+      const bookingId = document.getElementById('checkinBooking').value;
+      const roomIdRaw = document.getElementById('checkinRoom').value;
+      if (!bookingId) { showToast('Pick a booking', 'error'); return; }
+      try {
+        const bookings = await apiBookingsReady(session.hotel_id);
+        const b = bookings.find(x => x.id === bookingId);
+        const roomId = roomIdRaw || b?.room_id || undefined;
+        await apiBookingCheckin(bookingId, session.hotel_id, roomId);
+        await refreshRooms();
+        showToast('Room marked checked-in');
+      } catch (e) { showToast('Failed to mark check-in', 'error'); }
+    });
+
+    document.getElementById('otaSave').addEventListener('click', async () => {
+      try {
+        await apiOtaBookingRandom(session.hotel_id);
+        await refreshRooms();
+        showToast('Random OTA booking created');
+      } catch (e) {
+        let error = { message: 'OTA booking failed' };
+        try { error = await e.json(); } catch {}
+        showToast(error.message || 'OTA booking failed', 'error');
+      }
+    });
+
+  document.getElementById('logout').addEventListener('click', () => { localStorage.removeItem('innsync_user'); window.location.replace('index.html'); });
+
+  // Theme Toggle Functionality
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.getElementById('dashboardBody');
+  const themeIcon = document.getElementById('themeIcon');
+
+  // Check for saved theme preference from landing page
+  const savedTheme = localStorage.getItem('innsync-theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-theme');
+    themeIcon.textContent = '🌙';
+  }
+
+  // Theme toggle with requestAnimationFrame for smooth performance
+  themeToggle.addEventListener('click', () => {
+    requestAnimationFrame(() => {
+      body.classList.toggle('dark-theme');
+      const isDark = body.classList.contains('dark-theme');
+      themeIcon.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('innsync-theme', isDark ? 'dark' : 'light');
+    });
+  });
+
+  await refreshRooms();
+  </script>
+</body>
+</html>

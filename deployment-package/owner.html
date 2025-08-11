@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InnSync Owner Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Theme Variables */
+    :root {
+      --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8f65);
+      --bg-light: linear-gradient(135deg, #fefefe 0%, #fff5f0 100%);
+      --bg-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --text-primary-light: #1a1a1a;
+      --text-primary-dark: #f1f5f9;
+      --text-secondary-light: #64748b;
+      --text-secondary-dark: #94a3b8;
+      --card-light: rgba(255, 255, 255, 0.9);
+      --card-dark: rgba(30, 41, 59, 0.8);
+      --border-light: rgba(255, 107, 53, 0.1);
+      --border-dark: rgba(255, 107, 53, 0.2);
+      --shadow-primary: 0 4px 20px rgba(255, 107, 53, 0.3);
+      --shadow-hover: 0 8px 30px rgba(255, 107, 53, 0.4);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Light mode (default) */
+    body:not(.dark-theme) {
+      background: var(--bg-light);
+      color: var(--text-primary-light);
+    }
+
+    /* Dark mode */
+    body.dark-theme {
+      background: var(--bg-dark);
+      color: var(--text-primary-dark);
+    }
+
+    /* Theme Toggle - Same as landing page */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 60px;
+      height: 30px;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      transition: var(--transition);
+      z-index: 1050;
+      box-shadow: var(--shadow-primary);
+      will-change: transform;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .theme-toggle-ball {
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      will-change: transform;
+    }
+
+    body.dark-theme .theme-toggle-ball {
+      transform: translateX(30px);
+    }
+
+    /* Enhanced Dashboard Styling */
+    .room-card { 
+      border-radius: 16px; 
+      padding: 18px;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+      border: 2px solid;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Enhanced glass effect for better visibility */
+    .room-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .room-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Light mode room cards - more visible */
+    body:not(.dark-theme) .room-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(255, 107, 53, 0.15);
+      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.08), 
+                  0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    body:not(.dark-theme) .room-card:hover {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(255, 107, 53, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15), 
+                  0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Dark mode room cards - more visible */
+    body.dark-theme .room-card {
+      background: rgba(30, 41, 59, 0.85);
+      border-color: rgba(148, 163, 184, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
+                  0 4px 16px rgba(255, 107, 53, 0.05);
+    }
+
+    body.dark-theme .room-card:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(148, 163, 184, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 
+                  0 8px 24px rgba(255, 107, 53, 0.08);
+    }
+
+    /* Enhanced Badge Styling */
+    .badge { 
+      padding: 6px 12px; 
+      border-radius: 20px; 
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Light mode badges */
+    body:not(.dark-theme) .badge.vacant { 
+      background: rgba(148, 163, 184, 0.2); 
+      color: #64748b; 
+    }
+    body:not(.dark-theme) .badge.booked { 
+      background: rgba(245, 158, 11, 0.15); 
+      color: #d97706; 
+    }
+    body:not(.dark-theme) .badge.checked { 
+      background: rgba(16, 185, 129, 0.15); 
+      color: #059669; 
+    }
+    body:not(.dark-theme) .badge.flagged { 
+      background: rgba(239, 68, 68, 0.15); 
+      color: #dc2626; 
+    }
+
+    /* Dark mode badges */
+    body.dark-theme .badge.vacant { 
+      background: rgba(71, 85, 105, 0.8); 
+      color: #cbd5e1; 
+    }
+    body.dark-theme .badge.booked { 
+      background: rgba(245, 158, 11, 0.2); 
+      color: #fbbf24; 
+    }
+    body.dark-theme .badge.checked { 
+      background: rgba(16, 185, 129, 0.2); 
+      color: #34d399; 
+    }
+    body.dark-theme .badge.flagged { 
+      background: rgba(239, 68, 68, 0.2); 
+      color: #f87171; 
+    }
+
+    /* Grid Layout */
+    .gridRooms { 
+      display: grid; 
+      grid-template-columns: repeat(6, 1fr); 
+      gap: 16px; 
+    }
+    @media (max-width: 980px) { 
+      .gridRooms { 
+        grid-template-columns: repeat(3, 1fr); 
+      } 
+    }
+    @media (max-width: 560px) { 
+      .gridRooms { 
+        grid-template-columns: repeat(2, 1fr); 
+      } 
+    }
+
+    /* Enhanced Toasts */
+    #toasts { 
+      position: fixed; 
+      right: 16px; 
+      bottom: 16px; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 8px; 
+      z-index: 9999; 
+    }
+
+    .toast { 
+      padding: 12px 16px; 
+      border-radius: 12px; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+      min-width: 280px; 
+      display: flex; 
+      align-items: center; 
+      gap: 8px;
+      backdrop-filter: blur(20px);
+      border: 1px solid;
+    }
+
+    /* Light mode toasts */
+    body:not(.dark-theme) .toast { 
+      background: rgba(255, 255, 255, 0.95); 
+      color: var(--text-primary-light);
+      border-color: rgba(255, 107, 53, 0.2);
+    }
+    body:not(.dark-theme) .toast.success { 
+      border-color: rgba(16, 185, 129, 0.3); 
+      background: rgba(240, 253, 244, 0.95);
+      color: #065f46;
+    }
+    body:not(.dark-theme) .toast.error { 
+      border-color: rgba(239, 68, 68, 0.3); 
+      background: rgba(254, 242, 242, 0.95);
+      color: #991b1b;
+    }
+
+    /* Dark mode toasts */
+    body.dark-theme .toast { 
+      background: rgba(30, 41, 59, 0.95); 
+      color: var(--text-primary-dark);
+      border-color: rgba(148, 163, 184, 0.2);
+    }
+    body.dark-theme .toast.success { 
+      border-color: rgba(16, 185, 129, 0.3); 
+      background: rgba(6, 78, 59, 0.95);
+    }
+    body.dark-theme .toast.error { 
+      border-color: rgba(239, 68, 68, 0.3); 
+      background: rgba(127, 29, 29, 0.95);
+    }
+
+    .toast .title { 
+      font-weight: 600; 
+    }
+
+    /* Stats Cards Enhancement */
+    .stats-card {
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 20px;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+    }
+
+    body.dark-theme .stats-card {
+      background: var(--card-dark);
+      border-color: var(--border-dark);
+    }
+
+    .stats-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15);
+    }
+
+    /* Text styling */
+    body.dark-theme h1,
+    body.dark-theme h2,
+    body.dark-theme h3,
+    body.dark-theme h4,
+    body.dark-theme h5,
+    body.dark-theme h6,
+    body.dark-theme b {
+      color: var(--text-primary-dark);
+    }
+
+    body.dark-theme .muted {
+      color: var(--text-secondary-dark);
+    }
+
+    body:not(.dark-theme) .muted {
+      color: var(--text-secondary-light);
+    }
+  </style>
+</head>
+<body id="dashboardBody">
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <div class="theme-toggle-ball">
+      <span id="themeIcon">☀️</span>
+    </div>
+  </button>
+
+  <div class="header">
+    <div class="header-inner container">
+      <div><b>InnSync</b> <span class="muted">· Owner Dashboard</span></div>
+      <div class="tabs">
+        <a class="btn" href="index.html">Home</a>
+        <button id="simulatePresence" class="btn">Simulate Sensor Presence</button>
+        <button id="resetDemo" class="btn">Reset Demo</button>
+  <button id="logout" class="btn">Logout</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="card stats-card" style="flex:1 1 220px"><div class="small muted">Occupancy Rate</div><div id="mOcc" style="font-weight:700; font-size:22px">—</div></div>
+      <div class="card stats-card" style="flex:1 1 220px"><div class="small muted">Revenue (Today)</div><div id="mRev" style="font-weight:700; font-size:22px">—</div></div>
+      <div class="card stats-card" style="flex:1 1 220px"><div class="small muted">Booked</div><div id="mBooked" style="font-weight:700; font-size:22px">—</div></div>
+      <div class="card stats-card" style="flex:1 1 220px"><div class="small muted">Flags</div><div id="mFlags" style="font-weight:700; font-size:22px">—</div></div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <div class="row" style="align-items:center; justify-content:space-between">
+        <div><b>Rooms</b></div>
+        <div class="legend"><span class="dot" style="background:#334; border:1px solid #445"></span> Vacant <span class="dot" style="background:#3d2e14"></span> Booked <span class="dot" style="background:#1d3a2e"></span> Checked-in <span class="dot" style="background:#3a1d24"></span> Flagged</div>
+      </div>
+      <div id="roomsGrid" class="gridRooms" style="margin-top:10px"></div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <b>Alerts</b>
+      <div id="alertsList" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+
+  <script type="module">
+  import { apiMetrics, apiRoomsState, apiAlerts, apiIngestPresence, apiResolveAlert, apiResetHotel, apiSimulateFlagVacant } from './js/api.js';
+  function getSession() { try { return JSON.parse(localStorage.getItem('innsync_user')||''); } catch { return null; } }
+  const session = getSession(); if (!session || String(session.role).toUpperCase() !== 'OWNER') { window.location.replace('index.html'); }
+
+    function showToast(message, type='success') {
+      const cont = document.getElementById('toasts');
+      const el = document.createElement('div');
+      el.className = `toast ${type}`;
+      el.innerHTML = `<span class=\"title\">${type==='error'?'Error':'Success'}</span><span class=\"small\">${message}</span>`;
+      cont.appendChild(el);
+      setTimeout(() => { el.style.opacity='0'; el.style.transform='translateY(10px)'; setTimeout(()=>el.remove(), 300); }, 2200);
+    }
+
+    async function computeRoomStates(hotel_id) {
+      const rooms = await apiRoomsState(hotel_id);
+      const label = s => s==='checked'?'Checked-in': s==='booked'?'Booked': s==='flagged'?'Flagged':'Vacant';
+      return rooms.map(r => ({ ...r, stateLabel: label(r.state) }));
+    }
+
+    async function refresh() {
+      const m = await apiMetrics(session.hotel_id);
+      document.getElementById('mOcc').textContent = Math.round(m.occupancyRate) + '%';
+      document.getElementById('mRev').textContent = '₹' + Math.round(m.revenueToday).toLocaleString('en-IN');
+      document.getElementById('mBooked').textContent = m.booked;
+      document.getElementById('mFlags').textContent = m.flags;
+
+      const rooms = await computeRoomStates(session.hotel_id);
+      const grid = document.getElementById('roomsGrid');
+      grid.innerHTML = '';
+      for (const r of rooms) {
+        const div = document.createElement('div');
+        div.className = 'room-card';
+        div.innerHTML = `<div class="row" style="align-items:center; justify-content:space-between"><div>Room <b>${r.number}</b> · ${r.type}</div><div class="badge ${r.state}">${r.stateLabel}</div></div>
+        <div class="small muted">Rate: ₹${(r.rate||0).toLocaleString('en-IN')}</div>`;
+        grid.appendChild(div);
+      }
+
+      const alerts = await apiAlerts(session.hotel_id);
+      const list = document.getElementById('alertsList');
+      list.innerHTML = alerts.length ? '' : '<div class="small muted">No alerts</div>';
+      for (const a of alerts) {
+        const row = document.createElement('div');
+        row.className = 'card';
+        row.innerHTML = `<div class="row" style="justify-content:space-between; align-items:center"><div><div class="small"><b>${a.type}</b> · ${new Date(a.created_at).toLocaleString('en-IN')}</div><div class="small muted">${a.details_json || ''}</div></div><div><button class="btn" data-alert="${a.id}">Resolve</button></div></div>`;
+        list.appendChild(row);
+        row.querySelector('button[data-alert]')?.addEventListener('click', async () => { await apiResolveAlert(a.id); await refresh(); });
+      }
+    }
+
+    document.getElementById('simulatePresence').addEventListener('click', async () => {
+      try {
+        await apiSimulateFlagVacant(session.hotel_id);
+        await refresh();
+        showToast('Simulated presence and flagged a vacant room.');
+      } catch (e) {
+        console.error('Simulation API call failed:', e);
+        let error = { message: 'Simulation failed. Check console for details.' };
+        try {
+          const text = await e.text();
+          console.error('Server response:', text);
+          error = JSON.parse(text);
+        } catch (parseError) {
+          console.error('Failed to parse error response:', parseError);
+        }
+        showToast(error.message || 'Simulation failed. Check console for details.', 'error');
+      }
+    });
+    document.getElementById('resetDemo').addEventListener('click', async () => {
+      try {
+        const res = await apiResetHotel(session.hotel_id);
+        await refresh();
+        showToast('Hotel data reset');
+      } catch (e) {
+        showToast('Reset failed', 'error');
+      }
+    });
+  document.getElementById('logout').addEventListener('click', () => { localStorage.removeItem('innsync_user'); window.location.replace('index.html'); });
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.getElementById('dashboardBody');
+    const themeIcon = document.getElementById('themeIcon');
+
+    // Check for saved theme preference from landing page
+    const savedTheme = localStorage.getItem('innsync-theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      themeIcon.textContent = '🌙';
+    }
+
+    // Theme toggle with requestAnimationFrame for smooth performance
+    themeToggle.addEventListener('click', () => {
+      requestAnimationFrame(() => {
+        body.classList.toggle('dark-theme');
+        const isDark = body.classList.contains('dark-theme');
+        themeIcon.textContent = isDark ? '🌙' : '☀️';
+        localStorage.setItem('innsync-theme', isDark ? 'dark' : 'light');
+      });
+    });
+
+    await refresh();
+  </script>
+</body>
+</html>
