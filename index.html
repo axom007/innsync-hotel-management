@@ -761,30 +761,113 @@
   <!-- Features Section -->
   <section id="features" class="section-features">
     <div class="container">
-      <!-- Problem Section -->
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-8">
-          <div class="card card-custom border-0 p-4 mb-4 shadow-sm">
-            <h2 class="fw-bold mb-3 text-danger" id="problemHeading"></h2>
-            <ul class="card-text text-secondary-custom text-start ps-3 fs-5" id="problemPoints"></ul>
+      <!-- Modern Feature Grid (centered, icons perfectly aligned, equal height) -->
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-10">
+          <div class="d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-4">
+            <div class="card flex-fill border-0 shadow-sm feature-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
+              <div class="d-flex align-items-center justify-content-center mb-3" style="height:80px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="IoT Sensor" style="width:64px;height:64px;object-fit:contain;">
+              </div>
+              <h5 class="fw-bold mb-2 mt-2" id="feature1Title"></h5>
+              <p class="text-secondary-custom mb-0" id="feature1Desc"></p>
+            </div>
+            <div class="card flex-fill border-0 shadow-sm feature-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
+              <div class="d-flex align-items-center justify-content-center mb-3" style="height:80px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Instant Alerts" style="width:64px;height:64px;object-fit:contain;">
+              </div>
+              <h5 class="fw-bold mb-2 mt-2" id="feature2Title"></h5>
+              <p class="text-secondary-custom mb-0" id="feature2Desc"></p>
+            </div>
+            <div class="card flex-fill border-0 shadow-sm feature-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
+              <div class="d-flex align-items-center justify-content-center mb-3" style="height:80px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Owner Dashboard" style="width:64px;height:64px;object-fit:contain;">
+              </div>
+              <h5 class="fw-bold mb-2 mt-2" id="feature3Title"></h5>
+              <p class="text-secondary-custom mb-0" id="feature3Desc"></p>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Solution Section -->
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-8">
-          <div class="card card-custom border-0 p-4 mb-4 shadow-sm">
-            <h2 class="fw-bold mb-3 text-primary" id="solutionHeading"></h2>
-            <ul class="card-text text-secondary-custom text-start ps-3 fs-5" id="solutionPoints"></ul>
+
+      <!-- Modern Stats Bar (centered, pill style, shadow, responsive) -->
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-10">
+          <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 py-4 px-2 rounded-pill shadow stats-bar bg-white" style="background:linear-gradient(90deg,#fff7f0 0%,#f8fafc 100%);">
+            <div class="text-center px-3 flex-fill min-w-0">
+              <div class="fw-bold display-6 text-primary">20+</div>
+              <div class="text-secondary-custom">Hotels Trust Us</div>
+            </div>
+            <div class="vr d-none d-md-block"></div>
+            <div class="text-center px-3 flex-fill min-w-0">
+              <div class="fw-bold display-6 text-success">100%</div>
+              <div class="text-secondary-custom">Data Transparency</div>
+            </div>
+            <div class="vr d-none d-md-block"></div>
+            <div class="text-center px-3 flex-fill min-w-0">
+              <div class="fw-bold display-6 text-danger">0</div>
+              <div class="text-secondary-custom">Revenue Leakages</div>
+            </div>
+            <div class="vr d-none d-md-block"></div>
+            <div class="text-center px-3 flex-fill min-w-0">
+              <div class="fw-bold display-6 text-warning">30min</div>
+              <div class="text-secondary-custom">Avg. Setup Time</div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Benefits Section -->
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card card-custom border-0 p-4 shadow-sm">
-            <h2 class="fw-bold mb-3 text-success" id="benefitsHeading"></h2>
-            <ul class="card-text text-secondary-custom text-start ps-3 fs-5" id="benefitsPoints"></ul>
+
+      <!-- Use Case Cards (centered, icons perfectly aligned, equal height) -->
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-10">
+          <div class="d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-4">
+            <div class="card flex-fill border-0 shadow-sm usecase-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
+              <div class="d-flex align-items-center justify-content-center mb-2" style="height:60px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Walk-in Detection" style="width:48px;height:48px;object-fit:contain;">
+              </div>
+              <h6 class="fw-bold mb-2 mt-2" id="usecase1Title"></h6>
+              <p class="text-secondary-custom mb-0" id="usecase1Desc"></p>
+            </div>
+            <div class="card flex-fill border-0 shadow-sm usecase-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
+              <div class="d-flex align-items-center justify-content-center mb-2" style="height:60px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Owner Control" style="width:48px;height:48px;object-fit:contain;">
+              </div>
+              <h6 class="fw-bold mb-2 mt-2" id="usecase2Title"></h6>
+              <p class="text-secondary-custom mb-0" id="usecase2Desc"></p>
+            </div>
+            <div class="card flex-fill border-0 shadow-sm usecase-card h-100 d-flex flex-column align-items-center text-center py-4 px-3">
+              <div class="d-flex align-items-center justify-content-center mb-2" style="height:60px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png" alt="Easy Integration" style="width:48px;height:48px;object-fit:contain;">
+              </div>
+              <h6 class="fw-bold mb-2 mt-2" id="usecase3Title"></h6>
+              <p class="text-secondary-custom mb-0" id="usecase3Desc"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Redesigned Problem/Solution/Benefits Section (modern, theme colors, icons) -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+          <div class="d-flex flex-column flex-md-row gap-4">
+            <!-- Problem Card -->
+            <div class="card flex-fill border-0 shadow-sm p-4 d-flex flex-column align-items-center text-center" style="background:linear-gradient(135deg,#fff7f0 0%,#f8fafc 100%);">
+              <div class="mb-3" style="background:rgba(255,107,53,0.08);border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;color:#ff6b35;">&#9888;</span></div>
+              <h4 class="fw-bold mb-2" id="problemHeading" style="color:#ff6b35;"></h4>
+              <ul class="card-text text-secondary-custom text-start ps-3 fs-6" id="problemPoints"></ul>
+            </div>
+            <!-- Solution Card -->
+            <div class="card flex-fill border-0 shadow-sm p-4 d-flex flex-column align-items-center text-center" style="background:linear-gradient(135deg,#e0f7fa 0%,#fff7f0 100%);">
+              <div class="mb-3" style="background:rgba(59,130,246,0.08);border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;color:#3b82f6;">&#128161;</span></div>
+              <h4 class="fw-bold mb-2" id="solutionHeading" style="color:#3b82f6;"></h4>
+              <ul class="card-text text-secondary-custom text-start ps-3 fs-6" id="solutionPoints"></ul>
+            </div>
+            <!-- Benefits Card -->
+            <div class="card flex-fill border-0 shadow-sm p-4 d-flex flex-column align-items-center text-center" style="background:linear-gradient(135deg,#e0ffe0 0%,#fff7f0 100%);">
+              <div class="mb-3" style="background:rgba(34,197,94,0.08);border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;"><span style="font-size:2rem;color:#22c55e;">&#127942;</span></div>
+              <h4 class="fw-bold mb-2" id="benefitsHeading" style="color:#22c55e;"></h4>
+              <ul class="card-text text-secondary-custom text-start ps-3 fs-6" id="benefitsPoints"></ul>
+            </div>
           </div>
         </div>
       </div>
@@ -899,10 +982,99 @@
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section class="py-5 bg-white section-faq" id="faqSection">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5" id="faqHeading"></h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqQ1h">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ1" aria-expanded="true" aria-controls="faqQ1" id="faqQ1Title"></button>
+          </h2>
+          <div id="faqQ1" class="accordion-collapse collapse show" aria-labelledby="faqQ1h" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" id="faqQ1Body"></div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqQ2h">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ2" aria-expanded="false" aria-controls="faqQ2" id="faqQ2Title"></button>
+          </h2>
+          <div id="faqQ2" class="accordion-collapse collapse" aria-labelledby="faqQ2h" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" id="faqQ2Body"></div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqQ3h">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ3" aria-expanded="false" aria-controls="faqQ3" id="faqQ3Title"></button>
+          </h2>
+          <div id="faqQ3" class="accordion-collapse collapse" aria-labelledby="faqQ3h" data-bs-parent="#faqAccordion">
+            <div class="accordion-body" id="faqQ3Body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section class="py-5 bg-light" id="feedbackSection">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="card card-custom border-0 p-4 shadow-sm">
+            <h2 class="fw-bold mb-3 text-primary" id="feedbackHeading"></h2>
+            <form id="feedbackForm">
+              <div class="mb-3">
+                <label for="feedbackText" class="form-label fw-semibold" id="feedbackLabel"></label>
+                <textarea id="feedbackText" class="form-control form-control-custom" rows="3" placeholder="" required></textarea>
+              </div>
+              <button class="btn btn-hero-primary" type="submit" id="feedbackSubmit"></button>
+              <div class="text-success small mt-3" id="feedbackSuccess" style="display:none"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Footer -->
+  <footer class="py-4 bg-dark text-center text-white mt-5" id="mainFooter" style="letter-spacing:0.5px;font-size:1.1rem;background:linear-gradient(90deg,#1e293b 0%,#334155 100%);">
+    <span id="footerTagline"></span>
+  </footer>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   
   <script type="module">
+    // --- FAQ & Feedback Multi-language ---
+    function updateFaqAndFeedback(lang) {
+      const c = window.languageContent[lang] || window.languageContent['en'];
+      // FAQ
+      document.getElementById('faqHeading').textContent = c.faq_heading;
+      document.getElementById('faqQ1Title').textContent = c.faq_q1;
+      document.getElementById('faqQ1Body').textContent = c.faq_a1;
+      document.getElementById('faqQ2Title').textContent = c.faq_q2;
+      document.getElementById('faqQ2Body').textContent = c.faq_a2;
+      document.getElementById('faqQ3Title').textContent = c.faq_q3;
+      document.getElementById('faqQ3Body').textContent = c.faq_a3;
+      // Feedback
+      document.getElementById('feedbackHeading').textContent = c.feedback_heading;
+      document.getElementById('feedbackLabel').textContent = c.feedback_label;
+      document.getElementById('feedbackText').placeholder = c.feedback_placeholder;
+      document.getElementById('feedbackSubmit').textContent = c.feedback_submit;
+      document.getElementById('feedbackSuccess').textContent = c.feedback_success;
+      // Footer
+      document.getElementById('footerTagline').textContent = c.footer_tagline;
+    }
+
+    // Feedback form handler (demo only)
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('feedbackSuccess').style.display = 'block';
+      document.getElementById('feedbackText').value = '';
+      setTimeout(() => {
+        document.getElementById('feedbackSuccess').style.display = 'none';
+      }, 3000);
+    });
     // --- Testimonial Paging and Dynamic Content ---
     function renderTestimonials(lang) {
       const testimonials = (window.languageContent[lang] || window.languageContent['en']).testimonials || [];
@@ -986,11 +1158,24 @@
       fillList('problemPoints', c.problem_points);
       fillList('solutionPoints', c.solution_points);
       fillList('benefitsPoints', c.benefits_points);
+      // Feature grid
+      document.getElementById('feature1Title').textContent = c.feature1_title;
+      document.getElementById('feature1Desc').textContent = c.feature1_desc;
+      document.getElementById('feature2Title').textContent = c.feature2_title;
+      document.getElementById('feature2Desc').textContent = c.feature2_desc;
+      document.getElementById('feature3Title').textContent = c.feature3_title;
+      document.getElementById('feature3Desc').textContent = c.feature3_desc;
+      // Use case cards
+      document.getElementById('usecase1Title').textContent = c.usecase1_title;
+      document.getElementById('usecase1Desc').textContent = c.usecase1_desc;
+      document.getElementById('usecase2Title').textContent = c.usecase2_title;
+      document.getElementById('usecase2Desc').textContent = c.usecase2_desc;
+      document.getElementById('usecase3Title').textContent = c.usecase3_title;
+      document.getElementById('usecase3Desc').textContent = c.usecase3_desc;
       // Testimonial heading
       document.getElementById('testimonialHeading').textContent = c.testimonial_heading;
       // Footer tagline (if present)
-      const footer = document.querySelector('footer');
-      if (footer) footer.textContent = c.footer_tagline;
+      updateFaqAndFeedback(lang);
       // Testimonials
       updateTestimonials(lang);
     }
