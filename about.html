@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About InnSync PMS – our mission is to bring operational truth to hospitality with IoT-verified occupancy, instant alerts, and simple workflows.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://innsync.me/about.html">
+  <meta name="theme-color" content="#ff6b35">
+  <meta property="og:title" content="About InnSync PMS">
+  <meta property="og:description" content="Building hospitality that runs on truth. Learn about InnSync’s mission and team.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://innsync.me/about.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About InnSync PMS">
+  <meta name="twitter:description" content="Building hospitality that runs on truth.">
+  <title>About Us – InnSync PMS</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle fill='%23fff7f0' cx='32' cy='32' r='32'/%3E%3Ccircle fill='%23ff6b35' cx='32' cy='32' r='20'/%3E%3Ccircle fill='%233b82f6' cx='32' cy='32' r='10'/%3E%3C/svg%3E">
+  <script src="./js/langContent.js"></script>
+
+  <!-- Fonts + Bootstrap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="./style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About InnSync PMS",
+    "url": "https://innsync.me/about.html",
+    "publisher": { "@type": "Organization", "name": "InnSync" }
+  }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+  /* Shared theme variables to match landing */
+  :root {
+    --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8f65);
+    --card-light: rgba(255, 255, 255, 0.9);
+    --card-dark: rgba(30, 41, 59, 0.8);
+    --border-light: rgba(255, 107, 53, 0.1);
+    --border-dark: rgba(255, 107, 53, 0.2);
+    --text-secondary-light: #64748b;
+    --text-secondary-dark: #94a3b8;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Navbar matches landing (glass, blur, shrink) */
+  .navbar-custom {
+    background: var(--card-light) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-light);
+    transition: padding 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  body.dark-theme .navbar-custom {
+    background: var(--card-dark) !important;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .navbar-brand {
+    font-weight: 800;
+    font-size: 1.75rem;
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+    transition: font-size 0.2s ease, letter-spacing 0.2s ease;
+  }
+  .nav-link {
+    color: var(--text-secondary-light) !important;
+    font-weight: 500;
+    transition: color 0.2s ease, padding 0.2s ease;
+    position: relative;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  body.dark-theme .nav-link { color: var(--text-secondary-dark) !important; }
+  .nav-link:hover { color: #ff6b35 !important; }
+
+  /* Primary nav button */
+  .btn-nav-primary {
+    background: var(--primary-gradient) !important;
+    color: white !important;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+  }
+  .btn-nav-primary:hover {
+    background: linear-gradient(135deg, #e55a2b, #ff6b35) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+    color: white !important;
+  }
+
+  /* Shrink on scroll */
+  .navbar-custom.navbar-shrink {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .navbar-custom.navbar-shrink .navbar-brand {
+    font-size: 1.15rem;
+    letter-spacing: 0;
+  }
+  .navbar-custom.navbar-shrink .nav-link {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  /* Navbar toggler appearance */
+  .navbar-toggler { border: 1px solid rgba(255, 255, 255, 0.1); }
+  body.dark-theme .navbar-toggler { border-color: rgba(255, 255, 255, 0.2); }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  body.dark-theme .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+    /* Glow background accents */
+    .about-hero {
+      position: relative;
+      background: #f8f7f4;
+      overflow: hidden;
+    }
+    .about-hero::before, .about-hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 9999px;
+      filter: blur(48px);
+      transform: translateZ(0);
+    }
+    .about-hero::before {
+      top: -120px; left: 50%; width: 420px; height: 320px;
+      translate: -50% 0;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(255,122,26,0.25), rgba(255,91,0,0.12) 60%, transparent 70%);
+    }
+    .about-hero::after {
+      bottom: -80px; right: -40px; width: 360px; height: 280px;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(255,122,26,0.18), rgba(255,91,0,0.28) 55%, transparent 70%);
+    }
+
+    /* Pills */
+    .about-pill {
+      display: inline-flex; align-items: center; gap:.375rem;
+      border: 1px solid #e5e7eb; background:#fff; color:#404040;
+      border-radius: 9999px; padding:.35rem .75rem; font-size:.8rem; font-weight:500;
+    }
+
+    /* Cards */
+    .about-card {
+      border: 1px solid #e5e7eb; background:#fff; border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(30,41,59,0.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .about-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(30,41,59,0.12); }
+
+    .avatar-ring { background: linear-gradient(135deg,#ff7a1a,#ff5b00); padding:2px; border-radius:9999px; display:inline-block; }
+    .avatar-ring img { border-radius:9999px; background:#fff; display:block; }
+
+    .cta-gradient { background: linear-gradient(135deg, rgba(255,122,26,.12), rgba(255,91,0,.06)); }
+
+    /* Hero/CTA button to match landing */
+    .btn-hero-primary {
+      background: var(--primary-gradient);
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+    }
+    .btn-hero-primary:hover {
+      background: linear-gradient(135deg, #e55a2b, #ff6b35);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+      color: #fff;
+    }
+    .btn-hero-primary svg { margin-left: .35rem; }
+
+    .footer-gradient { background: linear-gradient(90deg,#1e293b 0%,#334155 100%); color:#fff; }
+
+    /* Icons */
+    .icon { width: 20px; height: 20px; vertical-align: -4px; }
+    /* Dark theme tweaks */
+    body.dark-theme .about-hero { background:#1e293b; }
+    body.dark-theme .about-card { background: rgba(30,41,59,0.7); border-color: rgba(148, 163, 184, 0.2); color:#f1f5f9; }
+    body.dark-theme .about-pill { background: rgba(30,41,59,0.8); color:#e2e8f0; border-color: rgba(148,163,184,0.3); }
+    body.dark-theme .footer-gradient { background: linear-gradient(90deg,#0f172a 0%,#1e293b 100%); }
+  </style>
+</head>
+<body id="aboutBody">
+  <!-- Language Selection Popup -->
+  <div id="langPopup" style="position:fixed;z-index:2000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;">
+    <div class="lang-popup-content" style="padding:2.5rem 2rem 2rem 2rem;border-radius:1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.18);max-width:90vw;width:350px;text-align:center;background:#fff;">
+      <h4 id="langPopupTitle" style="margin-bottom:1.5rem;font-weight:700;">Choose Language</h4>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="en">English</button>
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="hi">हिंदी</button>
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="kn">ಕನ್ನಡ</button>
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="mr">मराठी</button>
+      </div>
+    </div>
+  </div>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle gpu-accelerated" id="themeToggle" aria-label="Toggle theme" style="position:fixed;right:16px;bottom:16px;z-index:1050;">
+    <div class="theme-toggle-ball"><span id="themeIcon">☀️</span></div>
+  </button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="./index.html">InnSync</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navAbout" aria-controls="navAbout" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navAbout">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" id="navHome" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" id="navFeatures" href="./index.html#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" id="navHow" href="./index.html#how">How it works</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" id="navAboutLbl" href="#">About</a></li>
+          <li class="nav-item ms-3"><a class="btn btn-nav-primary" id="navLogin" href="./index.html#login">Login</a></li>
+          <li class="nav-item ms-3">
+            <button id="langChangeBtn" class="btn btn-outline-secondary" type="button" style="min-width:44px;"><span id="langChangeBtnLabel">🌐</span></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Hero -->
+  <section class="about-hero py-5 py-md-5">
+    <div class="container">
+      <div class="text-center mx-auto" style="max-width: 980px;">
+        <span class="about-pill" id="aboutPill">InnSync PMS • About Us</span>
+        <h1 class="mt-3 fw-bold" style="font-size:clamp(1.8rem,3vw,3rem);" id="aboutTitle">Building hospitality that runs on truth</h1>
+        <p class="mt-3 lead" id="aboutPara1">
+          InnSync PMS helps hotels <strong>stop revenue leakages</strong> and <strong>capture every rupee</strong>. We combine a modern PMS with IoT-verified occupancy, instant alerts, and simple workflows your team will actually enjoy using. Our mission is to bring <strong>operational truth</strong> to hospitality so owners grow profitably while guests get a consistently great stay.
+        </p>
+        <p class="mt-3 lead" id="aboutPara2">
+          Hospitality Industry is one of the largest employers and contributors to India's GDP. Despite many innovations in the industry, there are still many revenue leakages. We at InnSync build solutions to stop these revenue leakages. The primary product that we are working on is an automated room occupancy detector, giving the hotel owner real-time data of room occupancy, striking down any possibility of pilferage.
+        </p>
+        <div class="mt-3 d-flex flex-wrap justify-content-center gap-2">
+          <span class="about-pill" id="aboutTag1">100% Data Transparency</span>
+          <span class="about-pill" id="aboutTag2">Instant, Actionable Alerts</span>
+          <span class="about-pill" id="aboutTag3">No More Revenue Leakages</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Co-Founders -->
+  <section class="py-4 py-md-5">
+    <div class="container">
+  <h2 class="text-center fw-semibold" id="aboutCoFounders">Co-Founders</h2>
+      <div class="row g-4 mt-1 mt-md-3 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5">
+          <div class="about-card p-4 text-center h-100">
+            <span class="avatar-ring">
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Satvik%20Kumar&backgroundType=gradientLinear&fontWeight=700" alt="Satvik Kumar" class="img-fluid" style="width:128px;height:128px;">
+            </span>
+            <h3 class="mt-3 h5 mb-1">Satvik Kumar</h3>
+            <p class="text-secondary-custom mb-3" id="founderRole1">Co-Founder</p>
+            <a class="btn btn-outline-secondary btn-sm rounded-pill" href="https://www.linkedin.com/in/satvik-kumar-9b89b5214/" target="_blank" rel="noopener noreferrer">
+              <!-- LinkedIn icon -->
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7.12 19.5H4.56V9h2.56v10.5zM5.84 7.62c-.82 0-1.5-.68-1.5-1.5s.68-1.5 1.5-1.5 1.5.68 1.5 1.5-.68 1.5-1.5 1.5zM20 19.5h-2.56v-5.25c0-1.25-.02-2.87-1.75-2.87-1.75 0-2.02 1.36-2.02 2.78v5.34H11.1V9h2.46v1.44h.03c.34-.64 1.17-1.32 2.41-1.32 2.58 0 3.06 1.7 3.06 3.92V19.5z"/></svg>
+              <span class="ms-1">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5">
+          <div class="about-card p-4 text-center h-100">
+            <span class="avatar-ring">
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Harsh%20Singh%20Rathore&backgroundType=gradientLinear&fontWeight=700" alt="Harsh Singh Rathore" class="img-fluid" style="width:128px;height:128px;">
+            </span>
+            <h3 class="mt-3 h5 mb-1">Harsh Singh Rathore</h3>
+            <p class="text-secondary-custom mb-3" id="founderRole2">Co-Founder</p>
+            <a class="btn btn-outline-secondary btn-sm rounded-pill" href="https://www.linkedin.com/in/harsh-singh-rathore-795a89286/" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7.12 19.5H4.56V9h2.56v10.5zM5.84 7.62c-.82 0-1.5-.68-1.5-1.5s.68-1.5 1.5-1.5 1.5.68 1.5 1.5-.68 1.5-1.5 1.5zM20 19.5h-2.56v-5.25c0-1.25-.02-2.87-1.75-2.87-1.75 0-2.02 1.36-2.02 2.78v5.34H11.1V9h2.46v1.44h.03c.34-.64 1.17-1.32 2.41-1.32 2.58 0 3.06 1.7 3.06 3.92V19.5z"/></svg>
+              <span class="ms-1">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-3 py-md-4">
+    <div class="container">
+      <div class="about-card cta-gradient p-4 p-md-5 text-center mx-auto" style="max-width:720px;">
+        <h3 class="h5 fw-semibold" id="aboutCtaTitle">Want to talk to the founders?</h3>
+        <p class="mb-3 text-secondary-custom" id="aboutCtaBody">We’re happy to walk you through the product and share how properties are eliminating leakages with InnSync.</p>
+        <a class="btn btn-hero-primary" href="./index.html#login" id="aboutCtaBtn">
+          Book a Demo
+          <!-- ArrowRight icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 5l7 7-7 7v-4H4v-6h9V5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locate Us -->
+  <section class="py-4 py-md-5">
+    <div class="container">
+      <h2 class="h5 text-center fw-semibold mb-3" id="aboutLocateHeading">
+        <!-- MapPin icon -->
+        <svg class="icon me-1" viewBox="0 0 24 24" fill="#ff7a1a" aria-hidden="true" style="vertical-align:-4px;"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+        Locate Us
+      </h2>
+      <div class="about-card overflow-hidden">
+        <iframe title="IIM Rohtak Location Map"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=76.5311%2C28.87325%2C76.5911%2C28.91325&layer=mapnik&marker=28.89325%2C76.5611"
+                style="border:0; width:100%; height:360px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="text-center mt-2 small">
+        <a href="https://maps.google.com/?q=IIM+Rohtak" target="_blank" rel="noopener noreferrer" class="link-primary" id="aboutOpenMaps">Open in Google Maps</a>
+      </div>
+      <p class="text-center text-muted mt-4 small" id="aboutFooterNote">Co-founded in India. Built for fast-moving hotels, hostels, boutique stays and multi-property groups.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center footer-gradient">
+    <span id="aboutFooterTagline">InnSync PMS — Built for modern hospitality.</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    const aboutContent = {
+      en: {
+  nav: { home:'Home', features: 'Features', how: 'How it works', about: 'About', login: 'Login' },
+        pill: 'InnSync PMS • About Us',
+        title: 'Building hospitality that runs on truth',
+        para1: 'InnSync PMS helps hotels stop revenue leakages and capture every rupee. We combine a modern PMS with IoT-verified occupancy, instant alerts, and simple workflows your team will actually enjoy using. Our mission is to bring operational truth to hospitality so owners grow profitably while guests get a consistently great stay.',
+        para2: "Hospitality Industry is one of the largest employers and contributors to India's GDP. Despite many innovations in the industry, there are still many revenue leakages. We at InnSync build solutions to stop these revenue leakages. The primary product that we are working on is an automated room occupancy detector, giving the hotel owner real-time data of room occupancy, striking down any possibility of pilferage.",
+        tags: ['100% Data Transparency','Instant, Actionable Alerts','No More Revenue Leakages'],
+        cofTitle: 'Co-Founders',
+        role: 'Co-Founder',
+        ctaTitle: 'Want to talk to the founders?',
+        ctaBody: 'We’re happy to walk you through the product and share how properties are eliminating leakages with InnSync.',
+        ctaBtn: 'Book a Demo',
+        locate: 'Locate Us',
+        openMaps: 'Open in Google Maps',
+        footerNote: 'Co-founded in India. Built for fast-moving hotels, hostels, boutique stays and multi-property groups.',
+        footerTagline: 'InnSync PMS — Built for modern hospitality.'
+      },
+      hi: {}, kn: {}, mr: {}
+    };
+    const langPopup = document.getElementById('langPopup');
+    const langBtns = langPopup.querySelectorAll('button[data-lang]');
+    const defaultLang = localStorage.getItem('innsync_lang') || 'en';
+    const langChangeBtn = document.getElementById('langChangeBtn');
+    if (langChangeBtn) {
+      langChangeBtn.onclick = () => { langPopup.style.display = 'flex'; };
+      const langLabels = { en: 'EN', hi: 'हि', kn: 'ಕ', mr: 'म' };
+      document.getElementById('langChangeBtnLabel').textContent = langLabels[defaultLang] || '🌐';
+    }
+    function setAboutLang(lang) {
+      const c = aboutContent[lang] && Object.keys(aboutContent[lang]).length ? aboutContent[lang] : aboutContent.en;
+  document.getElementById('navHome').textContent = c.nav.home;
+  document.getElementById('navFeatures').textContent = c.nav.features;
+      document.getElementById('navHow').textContent = c.nav.how;
+      document.getElementById('navAboutLbl').textContent = c.nav.about;
+      document.getElementById('navLogin').textContent = c.nav.login;
+      document.getElementById('aboutPill').textContent = c.pill;
+      document.getElementById('aboutTitle').textContent = c.title;
+      document.getElementById('aboutPara1').textContent = c.para1;
+      document.getElementById('aboutPara2').textContent = c.para2;
+      document.getElementById('aboutTag1').textContent = c.tags[0];
+      document.getElementById('aboutTag2').textContent = c.tags[1];
+      document.getElementById('aboutTag3').textContent = c.tags[2];
+      document.getElementById('aboutCoFounders').textContent = c.cofTitle;
+      document.getElementById('founderRole1').textContent = c.role;
+      document.getElementById('founderRole2').textContent = c.role;
+      document.getElementById('aboutCtaTitle').textContent = c.ctaTitle;
+      document.getElementById('aboutCtaBody').textContent = c.ctaBody;
+      document.getElementById('aboutCtaBtn').textContent = c.ctaBtn;
+      document.getElementById('aboutLocateHeading').lastChild.textContent = ' ' + c.locate;
+      document.getElementById('aboutOpenMaps').textContent = c.openMaps;
+      document.getElementById('aboutFooterNote').textContent = c.footerNote;
+      document.getElementById('aboutFooterTagline').textContent = c.footerTagline;
+    }
+    setTimeout(() => setAboutLang(defaultLang), 0);
+    langBtns.forEach(btn => btn.onclick = () => {
+      const lang = btn.getAttribute('data-lang');
+      localStorage.setItem('innsync_lang', lang);
+      const langLabels = { en: 'EN', hi: 'हि', kn: 'ಕ', mr: 'म' };
+      document.getElementById('langChangeBtnLabel').textContent = langLabels[lang] || '🌐';
+      langPopup.style.display = 'none';
+      setAboutLang(lang);
+    });
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.getElementById('aboutBody');
+    const themeIcon = document.getElementById('themeIcon');
+    const savedTheme = localStorage.getItem('innsync-theme');
+    if (savedTheme === 'dark') { body.classList.add('dark-theme'); themeIcon.textContent = '🌙'; }
+    themeToggle.addEventListener('click', () => {
+      requestAnimationFrame(() => {
+        body.classList.toggle('dark-theme');
+        const isDark = body.classList.contains('dark-theme');
+        themeIcon.textContent = isDark ? '🌙' : '☀️';
+        localStorage.setItem('innsync-theme', isDark ? 'dark' : 'light');
+      });
+    });
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'innsync_lang') setAboutLang(e.newValue || 'en');
+      if (e.key === 'innsync-theme') {
+        const isDark = (e.newValue === 'dark');
+        body.classList.toggle('dark-theme', isDark);
+        themeIcon.textContent = isDark ? '🌙' : '☀️';
+      }
+    });
+    // Match landing: shrink navbar on scroll
+    (function(){
+      const nav = document.querySelector('.navbar-custom');
+      if (!nav) return;
+      const onScroll = () => {
+        if (window.scrollY > 10) nav.classList.add('navbar-shrink');
+        else nav.classList.remove('navbar-shrink');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
