@@ -1,0 +1,6 @@
+Contact: mailto:security@innsync.me
+Policy: https://innsync.me/security-policy
+Acknowledgments: https://innsync.me/hall-of-fame
+Preferred-Languages: en
+Canonical: https://innsync.me/.well-known/security.txt
+Expires: 2026-08-12T00:00:00Z

@@ -54,7 +54,13 @@ const languageContent = {
     "testimonials": [
       {"quote": "With InnSync, I finally know exactly what’s happening in my property—no more blind spots.", "cite": "Rohit Sharma, Hotel Owner, Bangalore"},
       {"quote": "Revenue leakages have dropped to zero. The alerts are a game changer!", "cite": "Priya Desai, Blue Lagoon"},
-      {"quote": "Setup was so easy, and now I have full control over my hotel’s revenue.", "cite": "Amit Verma, Urban Nest"}
+      {"quote": "Setup was so easy, and now I have full control over my hotel’s revenue.", "cite": "Amit Verma, Urban Nest"},
+      {"quote": "IoT verification ended disputes about occupancy.", "cite": "Seema Kapoor, Royal Stay"},
+      {"quote": "Alerts help my team act instantly—no more manual chasing.", "cite": "Vikram Rao, Front Office Manager"},
+      {"quote": "We recovered missed revenue within the first week.", "cite": "Neha Gupta, Owner, Pune"},
+      {"quote": "Integration was painless with our existing PMS.", "cite": "Karan Mehta, GM, Beachside Inn"},
+      {"quote": "The dashboard is simple and shows what matters.", "cite": "Anita Iyer, Boutique Hotel"},
+      {"quote": "InnSync pays for itself—leakages just stopped.", "cite": "Rahul Jain, Multi-property Owner"}
     ],
     "login_title": "Login to Demo",
     "login_subtitle": "Use sample credentials:",
@@ -166,7 +172,13 @@ const languageContent = {
     "testimonials": [
       {"quote": "InnSync के साथ मुझे अपनी प्रॉपर्टी की पूरी तस्वीर दिखती है—अब कोई ब्लाइंड स्पॉट नहीं।", "cite": "रोहित शर्मा, होटल मालिक, बेंगलुरु"},
       {"quote": "अब कोई राजस्व लीकेज नहीं। अलर्ट्स शानदार हैं!", "cite": "प्रिया देसाई, ब्लू लैगून"},
-      {"quote": "सेटअप बहुत आसान था, अब होटल की कमाई पर पूरा नियंत्रण है।", "cite": "अमित वर्मा, अर्बन नेस्ट"}
+      {"quote": "सेटअप बहुत आसान था, अब होटल की कमाई पर पूरा नियंत्रण है।", "cite": "अमित वर्मा, अर्बन नेस्ट"},
+      {"quote": "IoT वेरिफिकेशन से ऑक्युपेंसी पर विवाद खत्म हो गए।", "cite": "सीमा कपूर, रॉयल स्टे"},
+      {"quote": "अलर्ट्स से टीम तुरंत कार्रवाई करती है—अब मैनुअल पीछा नहीं।", "cite": "विक्रम राव, फ्रंट ऑफिस मैनेजर"},
+      {"quote": "पहले ही हफ्ते में छूटा हुआ राजस्व वापस मिला।", "cite": "नेहा गुप्ता, मालिक, पुणे"},
+      {"quote": "हमारे मौजूदा PMS के साथ इंटीग्रेशन बिना परेशानी के हुआ।", "cite": "करण मेहता, जीएम, बीचसाइड इन"},
+      {"quote": "डैशबोर्ड सरल है और जरूरी चीजें दिखाता है।", "cite": "अनिता अय्यर, बुटीक होटल"},
+      {"quote": "InnSync अपनी कीमत वसूल कर देता है—लीकेज रुक गए।", "cite": "राहुल जैन, मल्टी-प्रॉपर्टी मालिक"}
     ],
     "login_title": "डेमो लॉगिन करें",
     "login_subtitle": "सैंपल क्रेडेंशियल्स का उपयोग करें:",
@@ -278,7 +290,13 @@ const languageContent = {
     "testimonials": [
       {"quote": "InnSync ಜೊತೆ ನನ್ನ ಪ್ರಾಪರ್ಟಿಯಲ್ಲಿ ಏನು ನಡೆಯುತ್ತಿದೆ ಎಂಬುದು ಸ್ಪಷ್ಟ—ಇನ್ನು ಯಾವುದೇ ಬ್ಲೈಂಡ್ ಸ್ಪಾಟ್ ಇಲ್ಲ.", "cite": "ರೋಹಿತ್ ಶರ್ಮಾ, ಹೋಟೆಲ್ ಮಾಲೀಕ, ಬೆಂಗಳೂರು"},
       {"quote": "ಆದಾಯ ಸೋರಿಕೆ ಶೂನ್ಯವಾಗಿದೆ. ಎಚ್ಚರಿಕೆಗಳು ಅದ್ಭುತ!", "cite": "ಪ್ರಿಯಾ ದೇಸಾಯಿ, ಬ್ಲೂ ಲ್ಯಾಗೂನ್"},
-      {"quote": "ಸೆಟಪ್ ತುಂಬಾ ಸುಲಭ, ಈಗ ಆದಾಯದ ಮೇಲೆ ಸಂಪೂರ್ಣ ನಿಯಂತ್ರಣ ಇದೆ.", "cite": "ಅಮಿತ್ ವರ್ಮಾ, ಅರ್ಬನ್ ನೆಸ್ಟ್"}
+      {"quote": "ಸೆಟಪ್ ತುಂಬಾ ಸುಲಭ, ಈಗ ಆದಾಯದ ಮೇಲೆ ಸಂಪೂರ್ಣ ನಿಯಂತ್ರಣ ಇದೆ.", "cite": "ಅಮಿತ್ ವರ್ಮಾ, ಅರ್ಬನ್ ನೆಸ್ಟ್"},
+      {"quote": "IoT ಪರಿಶೀಲನೆಯಿಂದ ಆಕ್ಯುಪೆನ್ಸಿ ಬಗ್ಗೆ ಇರುವ ವಿವಾದಗಳು ಅಂತ್ಯವಾದವು.", "cite": "ಸೀಮಾ ಕಪೂರ್, ರಾಯಲ್ ಸ್ಟೇ"},
+      {"quote": "ಎಚ್ಚರಿಕೆಗಳಿಂದ ತಂಡ ತಕ್ಷಣ ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ—ಇನ್ನು ಕೈಯಿಂದ ಹಿಂಬಾಲಿಕೆ ಬೇಡ.", "cite": "ವಿಕ್ರಮ್ ರಾವ್, ಫ್ರಂಟ್ ಆಫೀಸ್ ಮ್ಯಾನೇಜರ್"},
+      {"quote": "ಮೊದಲ ವಾರದಲ್ಲೇ ತಪ್ಪಿದ ಆದಾಯ ವಶಕ್ಕೆ ಬಂದಿದೆ.", "cite": "ನೇಹಾ ಗುಪ್ತ, ಮಾಲಕಿ, ಪುಣೆ"},
+      {"quote": "ನಮ್ಮ PMS ಜೊತೆಗೆ ಇಂಟಿಗ್ರೇಶನ್ ಸುಲಭವಾಗಿ ಆಯಿತು.", "cite": "ಕರಣ್ ಮೇಹತಾ, ಜಿಎಂ, ಬೀಚ್‌ಸೈಡ್ ಇನ್"},
+      {"quote": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಸರಳವಾಗಿದೆ ಮತ್ತು ಮುಖ್ಯ ವಿಷಯಗಳನ್ನು ತೋರಿಸುತ್ತದೆ.", "cite": "ಅನಿತಾ ಅಯ್ಯರ್, ಬೌಟಿಕ್ ಹೋಟೆಲ್"},
+      {"quote": "InnSync ಖರ್ಚಿನಷ್ಟು ಮೌಲ್ಯ ಕೊಡುತ್ತದೆ—ಸೋರಿಕೆ ನಿಂತಿದೆ.", "cite": "ರಾಹುಲ್ ಜೈನ್, ಬಹು-ಪ್ರಾಪರ್ಟಿ ಮಾಲೀಕ"}
     ],
     "login_title": "ಡೆಮೊಗೆ ಲಾಗಿನ್ ಮಾಡಿ",
     "login_subtitle": "ಉದಾಹರಣೆಯ ಕ್ರೆಡೆನ್ಶಿಯಲ್ ಬಳಸಿ:",
@@ -390,7 +408,13 @@ const languageContent = {
     "testimonials": [
       {"quote": "InnSync मुळे प्रॉपर्टीत काय चाललेय याचे स्पष्ट चित्र दिसते—आता ब्लाइंड स्पॉट नाही.", "cite": "रोहित शर्मा, हॉटेल मालक, बेंगळुरू"},
       {"quote": "महसूल गळती शून्यावर आली. अलर्ट्स अप्रतिम आहेत!", "cite": "प्रिया देसाई, ब्लू लॅगून"},
-      {"quote": "सेटअप खूप सोपे, आता हॉटेलच्या महसूलवर पूर्ण नियंत्रण आहे.", "cite": "अमित वर्मा, अर्बन नेस्ट"}
+      {"quote": "सेटअप खूप सोपे, आता हॉटेलच्या महसूलवर पूर्ण नियंत्रण आहे.", "cite": "अमित वर्मा, अर्बन नेस्ट"},
+      {"quote": "IoT पडताळणीमुळे ऑक्युपन्सीवरचे वाद संपले.", "cite": "सीमा कपूर, रॉयल स्टे"},
+      {"quote": "अलर्ट्समुळे टीम लगेच कृती करते—आता मॅन्युअल फॉलो-अप नाही.", "cite": "विक्रम राव, फ्रंट ऑफिस मॅनेजर"},
+      {"quote": "पहिल्याच आठवड्यात राहिलेला महसूल परत मिळाला.", "cite": "नेहा गुप्ता, मालक, पुणे"},
+      {"quote": "आमच्या PMS सोबत इंटीग्रेशन अगदी सुरळीत झाले.", "cite": "करण मेहता, जीएम, बीचसाइड इन"},
+      {"quote": "डॅशबोर्ड साधा आहे आणि जे महत्त्वाचे तेच दाखवतो.", "cite": "अनिता अय्यर, बुटीक हॉटेल"},
+      {"quote": "InnSync ची किंमत वसूल—गळती थांबली.", "cite": "राहुल जैन, बहु-प्रॉपर्टी मालक"}
     ],
     "login_title": "डेमोमध्ये लॉगिन करा",
     "login_subtitle": "नमुना क्रेडेन्शियल वापरा:",

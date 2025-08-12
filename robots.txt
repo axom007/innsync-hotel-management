@@ -1,0 +1,10 @@
+# Allow everything by default
+User-agent: *
+Allow: /
+
+# Block dashboards from indexing
+Disallow: /owner.html
+Disallow: /manager.html
+
+# Sitemap location
+Sitemap: https://innsync.me/sitemap.xml

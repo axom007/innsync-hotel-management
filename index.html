@@ -1011,14 +1011,12 @@
     </div>
   </div>
 
-  <!-- Features Section (full-screen, snap) -->
-  <section id="features" class="snap-section snap-features">
-    <div class="snap-bg"></div>
-    <div class="snap-overlay"></div>
-    <div class="container snap-content">
+  <!-- Features Section (stacked, centered) -->
+  <section id="features" class="section-features">
+    <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="row g-4">
+        <div class="col-12 col-lg-10 mx-auto text-center">
+          <div class="row g-4 justify-content-center text-center">
             <div class="col-12 col-md-4">
               <div class="glass p-4 h-100 text-center feature-card-mini">
                 <div class="mb-3 d-flex justify-content-center">
@@ -1067,31 +1065,29 @@
     </div>
   </section>
 
-  <!-- Stats Section (full-screen, snap) -->
-  <section class="snap-section snap-stats">
-    <div class="snap-bg"></div>
-    <div class="snap-overlay"></div>
-    <div class="container snap-content">
+  <!-- Stats Section (stacked, centered) -->
+  <section class="py-5">
+    <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="glass p-4 p-md-5 rounded-4">
-            <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 py-2 px-2 stats-bar" style="background:transparent;">
-              <div class="text-center px-3 flex-fill min-w-0">
+        <div class="col-12 text-center">
+          <div class="p-4 p-md-5 rounded-4 mx-auto">
+            <div class="d-flex flex-wrap flex-md-nowrap justify-content-center align-items-center gap-4 py-2 px-2 stats-bar" style="background:transparent;">
+              <div class="text-center px-3 flex-shrink-0">
                 <div class="fw-bold display-5 text-primary">20+</div>
                 <div class="text-secondary-custom">Hotels Trust Us</div>
               </div>
               <div class="vr d-none d-md-block"></div>
-              <div class="text-center px-3 flex-fill min-w-0">
+              <div class="text-center px-3 flex-shrink-0">
                 <div class="fw-bold display-5 text-success">100%</div>
                 <div class="text-secondary-custom">Data Transparency</div>
               </div>
               <div class="vr d-none d-md-block"></div>
-              <div class="text-center px-3 flex-fill min-w-0">
+              <div class="text-center px-3 flex-shrink-0">
                 <div class="fw-bold display-5 text-danger">0</div>
                 <div class="text-secondary-custom">Revenue Leakages</div>
               </div>
               <div class="vr d-none d-md-block"></div>
-              <div class="text-center px-3 flex-fill min-w-0">
+              <div class="text-center px-3 flex-shrink-0">
                 <div class="fw-bold display-5 text-warning">30min</div>
                 <div class="text-secondary-custom">Avg. Setup Time</div>
               </div>
@@ -1102,14 +1098,12 @@
     </div>
   </section>
 
-  <!-- Use Cases Section (full-screen, snap) -->
-  <section class="snap-section snap-usecases">
-    <div class="snap-bg"></div>
-    <div class="snap-overlay"></div>
-    <div class="container snap-content">
+  <!-- Use Cases Section (stacked, centered) -->
+  <section class="py-5">
+    <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="row g-4">
+        <div class="col-12 col-lg-10 mx-auto text-center">
+          <div class="row g-4 justify-content-center text-center">
             <div class="col-12 col-md-4">
               <div class="glass p-4 h-100 text-center usecase-card-mini">
                 <div class="mb-2 d-flex justify-content-center">
@@ -1158,73 +1152,58 @@
     </div>
   </section>
 
-  <!-- Problem Section (full-screen, snap) -->
-  <section class="snap-section snap-problem">
-    <div class="snap-bg"></div>
-    <div class="snap-overlay"></div>
-    <div class="container snap-content">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="glass p-4 p-md-5 rounded-4 text-center">
-            <div class="d-flex flex-column align-items-center">
-              <div class="mb-3 d-flex justify-content-center">
-                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="28" cy="28" r="28" fill="#fff7f0"/>
-                  <path d="M28 14c7.732 0 14 6.268 14 14s-6.268 14-14 14S14 35.732 14 28 20.268 14 28 14zm-2 7h4l-1 12h-2l-1-12zm0 16h4v4h-4v-4z" fill="#ff6b35"/>
-                </svg>
-              </div>
-              <h2 class="fw-bold mb-3" id="problemHeading" style="color:#ff6b35;"></h2>
-              <ul class="text-secondary-custom text-start ps-3 fs-5 mb-0" id="problemPoints"></ul>
-            </div>
-          </div>
+  <!-- Problem Section -->
+  <section id="problem" class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-md-6">
+          <img src="https://res.cloudinary.com/dnbbt7qdv/image/upload/t_Img1/Gemini_Generated_Image_6k148v6k148v6k14_1_qwszsj" alt="A hotel manager looking concerned over finances" class="img-fluid rounded-3 shadow-lg" style="width: 100%; height: 400px; object-fit: cover;" />
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 id="problemHeading" class="fw-bold mb-4 display-5" style="color: #ff6b35;"></h2>
+          <ul id="problemPoints" class="text-secondary-custom text-start ps-3 fs-5 mb-0 lh-lg" style="list-style: none;">
+            <style>
+              #problemPoints li::before { content: "⚠️"; margin-right: 0.5rem; font-size: 1em; }
+            </style>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Solution Section (full-screen, snap) -->
-  <section class="snap-section snap-solution">
-    <div class="snap-bg"></div>
-    <div class="snap-overlay"></div>
-    <div class="container snap-content">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="glass p-4 p-md-5 rounded-4 text-center">
-            <div class="d-flex flex-column align-items-center">
-              <div class="mb-3 d-flex justify-content-center">
-                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="28" cy="28" r="28" fill="#e0f2ff"/>
-                  <path d="M28 14c7.732 0 14 6.268 14 14 0 5.18-2.85 9.69-7.08 12.05L33 44l-5-2-5 2 1.68-3.95A13.97 13.97 0 0 1 14 28c0-7.732 6.268-14 14-14z" fill="#3b82f6"/>
-                </svg>
-              </div>
-              <h2 class="fw-bold mb-3" id="solutionHeading" style="color:#3b82f6;"></h2>
-              <ul class="text-secondary-custom text-start ps-3 fs-5 mb-0" id="solutionPoints"></ul>
-            </div>
-          </div>
+  <!-- Solution Section -->
+  <section id="solution" class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-md-6 order-md-1">
+          <h2 id="solutionHeading" class="fw-bold mb-4 display-5" style="color: #3b82f6;"></h2>
+          <ul id="solutionPoints" class="text-secondary-custom text-start ps-3 fs-5 mb-0 lh-lg" style="list-style: none;">
+            <style>
+              #solutionPoints li::before { content: "🔧"; margin-right: 0.5rem; font-size: 1em; }
+            </style>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 order-md-2">
+          <img src="https://res.cloudinary.com/dnbbt7qdv/image/upload/t_img2/Gemini_Generated_Image_g5kzzrg5kzzrg5kz_raaemu" alt="InnSync dashboard showing real-time data" class="img-fluid rounded-3 shadow-lg" style="width: 100%; height: 400px; object-fit: cover;" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Benefits Section (full-screen, snap) -->
-  <section class="snap-section snap-benefits">
-    <div class="snap-bg"></div>
-    <div class="snap-overlay"></div>
-    <div class="container snap-content">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="glass p-4 p-md-5 rounded-4 text-center">
-            <div class="d-flex flex-column align-items-center">
-              <div class="mb-3 d-flex justify-content-center">
-                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="28" cy="28" r="28" fill="#eaffea"/>
-                  <path d="M38 20l-12 12-6-6-4 4 10 10 16-16-4-4z" fill="#22c55e"/>
-                </svg>
-              </div>
-              <h2 class="fw-bold mb-3" id="benefitsHeading" style="color:#22c55e;"></h2>
-              <ul class="text-secondary-custom text-start ps-3 fs-5 mb-0" id="benefitsPoints"></ul>
-            </div>
-          </div>
+  <!-- Why Hotel Owners Choose InnSync (Benefits) -->
+  <section id="benefits" class="py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-md-6">
+          <img src="https://res.cloudinary.com/dnbbt7qdv/image/upload/f_webp/f_webp/f_webp/Gemini_Generated_Image_3kf27y3kf27y3kf2_1_u2rcx2" alt="A happy hotel owner reviewing positive results" class="img-fluid rounded-3 shadow-lg" style="width: 100%; height: 400px; object-fit: cover;" />
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 id="benefitsHeading" class="fw-bold mb-4 display-5" style="color: #ff6b35;"></h2>
+          <ul id="benefitsPoints" class="text-secondary-custom text-start ps-3 fs-5 mb-0 lh-lg" style="list-style: none;">
+            <style>
+              #benefitsPoints li::before { content: "✅"; margin-right: 0.5rem; font-size: 1em; }
+            </style>
+          </ul>
         </div>
       </div>
     </div>
