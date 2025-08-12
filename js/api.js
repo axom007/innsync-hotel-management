@@ -15,7 +15,7 @@ function detectEnvironment() {
     return ngrokUrl;
   } else if (isLocal || location.protocol === 'file:') {
     // Local development - use localhost
-    const localPort = window.INNSYNC_CONFIG?.LOCAL_API_PORT || 8080;
+    const localPort = window.INNSYNC_CONFIG?.LOCAL_API_PORT || 8090;
     const localUrl = `http://localhost:${localPort}`;
     if (window.INNSYNC_CONFIG?.DEBUG) {
       console.log('Local environment detected, using:', localUrl);
@@ -24,7 +24,7 @@ function detectEnvironment() {
   }
   
   // Default fallback
-  return 'http://localhost:8080';
+  return 'http://localhost:8090';
 }
 
 if (!API_BASE) {
@@ -51,7 +51,7 @@ async function http(path, init) {
       candidates.push(ngrokUrl);
     } else if (!API_BASE || API_BASE.startsWith('http://localhost')) {
       // Local development fallbacks
-      candidates.push('http://localhost:8091', 'http://localhost:8090', 'http://localhost:8080');
+      candidates.push('http://localhost:8090', 'http://localhost:8091', 'http://localhost:8080');
     }
     
     for (const c of candidates) {

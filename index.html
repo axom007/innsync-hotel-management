@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Favicon: Modern orange/white/blue theme -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle fill='%23fff7f0' cx='32' cy='32' r='32'/%3E%3Ccircle fill='%23ff6b35' cx='32' cy='32' r='20'/%3E%3Ccircle fill='%233b82f6' cx='32' cy='32' r='10'/%3E%3C/svg%3E">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="InnSync PMS for hotels helps stop revenue leakages with IoT-verified occupancy, instant alerts, and an owner-first dashboard. Book a live demo.">
@@ -21,28 +19,21 @@
   <title>InnSync PMS – Stop Revenue Leakages</title>
   <script src="./config.js"></script>
   <script src="./js/langContent.js"></script>
-  
+
   <!-- Preload critical resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  
+  <!-- Tailwind (for reference sections from Problem to Footer) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- Custom styles -->
   <link rel="stylesheet" href="style.css">
-  <!-- JSON-LD Schema: Organization + Website -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "InnSync",
-    "url": "https://innsync.me/",
-    "logo": "https://innsync.me/",
-    "sameAs": []
-  }
-  </script>
+
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,809 +42,123 @@
     "url": "https://innsync.me/"
   }
   </script>
+
   <style>
     /* Dark mode for new/updated sections */
-    body.dark-theme .card-custom {
-      background: var(--card-dark);
-      color: var(--text-primary-dark);
-      border-color: var(--border-dark);
-    }
+    body.dark-theme .card-custom { background: var(--card-dark); color: var(--text-primary-dark); border-color: var(--border-dark); }
     body.dark-theme .card-custom h2,
     body.dark-theme .card-custom h5,
     body.dark-theme .card-custom ul,
-    body.dark-theme .card-custom li {
-      color: var(--text-primary-dark);
-    }
-    body.dark-theme .card-custom .text-secondary-custom {
-      color: var(--text-secondary-dark) !important;
-    }
-    body.dark-theme .glass-card {
-      background: rgba(30,41,59,0.92);
-      color: var(--text-primary-dark);
-      border-color: var(--border-dark);
-    }
-    body.dark-theme .glass-card .testimonial-quote,
-    body.dark-theme .glass-card .testimonial-cite {
-      color: var(--text-primary-dark);
-    }
-    body.dark-theme .testimonial-dot {
-      background: #ff8f65;
-    }
-    body.dark-theme .section-features {
-      background: rgba(30, 41, 59, 0.3);
-    }
-    body.dark-theme .bg-white {
-      background: #1e293b !important;
-    }
-    body.dark-theme .text-danger {
-      color: #ffb4a2 !important;
-    }
-    body.dark-theme .text-primary {
-      color: #90cdf4 !important;
-    }
-    body.dark-theme .text-success {
-      color: #6ee7b7 !important;
-    }
-    /* Custom Login Button Colors */
-    #loginOwnerBtn {
-      background: linear-gradient(135deg, #ff6b35, #ff8f65) !important;
-      border: none;
-      color: white;
-      box-shadow: 0 4px 14px rgba(255, 107, 53, 0.25);
-    }
-    
-    #loginOwnerBtn:hover {
-      background: linear-gradient(135deg, #e55a2b, #ff6b35) !important;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.35);
-      color: white;
-    }
-    
-    #loginManager {
-      background: transparent !important;
-      border: 2px solid #ff6b35 !important;
-      color: #ff6b35 !important;
-      box-shadow: none;
-    }
-    
-    #loginManager:hover {
-      background: #ff6b35 !important;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
-      color: white !important;
-      border-color: #ff6b35 !important;
-    }
-    
-    body.dark-theme #loginManager {
-      border-color: #ff6b35 !important;
-      color: #ff6b35 !important;
-    }
-    
-    body.dark-theme #loginManager:hover {
-      background: #ff6b35 !important;
-      color: white !important;
-    }
-    
-    /* Form labels in dark mode */
-    body.dark-theme .form-label {
-      color: var(--text-primary-dark);
-    }
-    
-    /* Hero decoration */
-    .hero-decoration {
-      opacity: 0.07;
-    }
-    
-    body.dark-theme .hero-decoration {
-      opacity: 0.03;
-      filter: invert(1);
-    }
-    
-    /* Global text styling for dark mode */
-    body.dark-theme h1,
-    body.dark-theme h2, 
-    body.dark-theme h3,
-    body.dark-theme h4,
-    body.dark-theme h5,
-    body.dark-theme h6 {
-      color: var(--text-primary-dark);
-    }
-    
-    body.dark-theme p {
-      color: var(--text-secondary-dark);
-    }
-    
-    body.dark-theme .text-dark {
-      color: var(--text-primary-dark) !important;
-    }
-    
-    body.dark-theme small {
-      color: var(--text-secondary-dark);
-    }
-    
-    /* Navbar toggler for dark mode */
-    .navbar-toggler {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    body.dark-theme .navbar-toggler {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-    
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-    
-    body.dark-theme .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-    
-    /* Badge styling for dark mode */
-    body.dark-theme .badge.bg-success {
-      background-color: rgba(34, 197, 94, 0.2) !important;
-      color: #4ade80 !important;
-    }
-    
-    body.dark-theme .badge.bg-primary {
-      background-color: rgba(59, 130, 246, 0.2) !important;
-      color: #60a5fa !important;
-    }
-    
-    body.dark-theme .badge.bg-warning {
-      background-color: rgba(245, 158, 11, 0.2) !important;
-      color: #fbbf24 !important;
-    }
-    
-    /* Timeline styling */
-    .timeline-step h5 {
-      color: var(--text-primary-light);
-    }
-    
-    body.dark-theme .timeline-step h5 {
-      color: var(--text-primary-dark);
-    }
-    
-    /* Testimonial text styling */
-    .testimonial-text {
-      color: var(--text-primary-light);
-    }
-    
-    body.dark-theme .testimonial-text {
-      color: var(--text-primary-dark);
-    }
-    
-    /* Language popup */
-    .lang-popup-content {
-      background: white;
-      color: var(--text-primary-light);
-    }
-    
-    body.dark-theme .lang-popup-content {
-      background: #1e293b;
-      color: var(--text-primary-dark);
-    }
-    
-    /* Testimonial section */
-    .testimonial-section {
-      background: white;
-    }
-    
-    body.dark-theme .testimonial-section {
-      background: #1e293b;
-    }
-    /* Modal dark mode and sizing */
-    body.dark-theme .modal-content {
-      background: #1e293b;
-      color: var(--text-primary-dark);
-      border: 1px solid var(--border-dark);
-    }
-    body.dark-theme .modal-body p,
-    body.dark-theme .modal-body label {
-      color: var(--text-primary-dark);
-    }
-    body.dark-theme .modal-header {
-      background: linear-gradient(135deg, #ff6b35, #ff8f65) !important;
-    }
-  /* Slightly smaller centered modal and tighter spacing */
-  #demoModal .modal-dialog { max-width: 480px; }
-  #demoModal .modal-body { padding: 1rem 1.25rem; }
-  #demoModal .form-label { margin-bottom: 0.25rem; }
-  #demoModal .form-control-custom { padding: 0.65rem 0.85rem; font-size: 0.95rem; }
-  #demoModal .btn { padding: 0.75rem 1rem; }
-  /* Side call panel positioned beside modal (outside popup) */
-  .call-side-panel { display: none; position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); z-index: 1060; width: clamp(260px, 24vw, 340px); }
-  .call-side-panel.show { display: block; }
-  @media (max-width: 991.98px) { .call-side-panel { display: none !important; } }
-    /* Right call panel styling */
-    .call-panel {
-      background: linear-gradient(135deg, #fff7f0, #f8fafc);
-      border-radius: 0.75rem;
-      border: 1px solid var(--border-light);
-      height: 100%;
-    }
-    body.dark-theme .call-panel {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border-color: var(--border-dark);
-    }
-    /* Divider between form and call panel on large screens */
-    @media (min-width: 992px) {
-      .col-divider-lg { border-left: 1px solid var(--border-light); }
-      body.dark-theme .col-divider-lg { border-left-color: var(--border-dark); }
-    }
-    /* Call number emphasis */
-    .call-number { font-weight: 800; font-size: 1.125rem; white-space: nowrap; }
-    @media (min-width: 1200px) { .call-number { font-size: 1.25rem; } }
-    .call-hours { font-size: 0.95rem; }
-    
-    /* How it works section */
-    .how-works-section {
-      background: #f8fafc;
-    }
-    
-    body.dark-theme .how-works-section {
-      background: #0f172a;
-    }
-    
-    /* Trusted bar */
-    .trusted-bar {
-      background: white;
-    }
-    
-    body.dark-theme .trusted-bar {
-      background: #1e293b;
-    }
-    
+    body.dark-theme .card-custom li { color: var(--text-primary-dark); }
+    body.dark-theme .card-custom .text-secondary-custom { color: var(--text-secondary-dark) !important; }
+    body.dark-theme .hero-decoration { opacity: 0.03; filter: invert(1); }
+
     /* Hero Background */
-    .hero-bg {
-      background: linear-gradient(120deg, #ffedea 0%, #fff7f0 100%);
-    }
-    
-    body.dark-theme .hero-bg {
-      background: linear-gradient(120deg, #1e293b 0%, #334155 100%);
-    }
+    .hero-bg { background: linear-gradient(120deg, #ffedea 0%, #fff7f0 100%); }
+    body.dark-theme .hero-bg { background: linear-gradient(120deg, #1e293b 0%, #334155 100%); }
+
     /* Performance Optimized Landing Page Styles */
-    :root {
-      --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8f65);
-      --bg-light: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
-      --bg-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      --text-primary-light: #1a1a1a;
-      --text-primary-dark: #f1f5f9;
-      --text-secondary-light: #64748b;
-      --text-secondary-dark: #94a3b8;
-      --card-light: rgba(255, 255, 255, 0.9);
-      --card-dark: rgba(30, 41, 59, 0.8);
-      --border-light: rgba(255, 107, 53, 0.1);
-      --border-dark: rgba(255, 107, 53, 0.2);
-      --shadow-primary: 0 4px 20px rgba(255, 107, 53, 0.3);
-      --shadow-hover: 0 8px 30px rgba(255, 107, 53, 0.4);
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    :root { --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8f65); --bg-light: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%); --bg-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); --text-primary-light: #1a1a1a; --text-primary-dark: #f1f5f9; --text-secondary-light: #64748b; --text-secondary-dark: #94a3b8; --card-light: rgba(255, 255, 255, 0.9); --card-dark: rgba(30, 41, 59, 0.8); --border-light: rgba(255, 107, 53, 0.1); --border-dark: rgba(255, 107, 53, 0.2); --shadow-primary: 0 4px 20px rgba(255, 107, 53, 0.3); --shadow-hover: 0 8px 30px rgba(255, 107, 53, 0.4); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: var(--bg-light); color: var(--text-primary-light); transition: var(--transition); overflow-x: hidden; }
+    body.dark-theme { background: var(--bg-dark); color: var(--text-primary-dark); }
 
-    * {
-      box-sizing: border-box;
-    }
+    /* Theme Toggle */
+    .theme-toggle { position: fixed; top: 1rem; right: 1rem; width: 60px; height: 30px; background: var(--primary-gradient); border: none; border-radius: 15px; cursor: pointer; display: flex; align-items: center; padding: 3px; transition: var(--transition); z-index: 1050; box-shadow: var(--shadow-primary); }
+    .theme-toggle:hover { transform: scale(1.05); box-shadow: var(--shadow-hover); }
+    .theme-toggle-ball { width: 24px; height: 24px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    body.dark-theme .theme-toggle-ball { transform: translateX(30px); }
 
-    html {
-      scroll-behavior: smooth;
-      /* Enable vertical scroll snapping for designated sections, but allow natural ends */
-      scroll-snap-type: y proximity;
-      /* Account for sticky navbar when snapping to start */
-      scroll-padding-top: 72px;
-      scroll-padding-bottom: 16px;
-    }
+    /* Header */
+  .navbar-custom { background: var(--card-light) !important; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); transition: var(--transition); z-index: 1045; }
+    body.dark-theme .navbar-custom { background: var(--card-dark) !important; border-bottom: 1px solid var(--border-dark); }
+    .navbar-brand { font-weight: 800; font-size: 1.75rem; background: var(--primary-gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
+    .nav-link { color: var(--text-secondary-light) !important; font-weight: 500; transition: var(--transition); position: relative; }
+    body.dark-theme .nav-link { color: var(--text-secondary-dark) !important; }
+    .nav-link:hover { color: #ff6b35 !important; }
+    .btn-nav-primary { background: var(--primary-gradient) !important; color: white !important; border: none; border-radius: 0.75rem; padding: 0.75rem 1.5rem; font-weight: 600; transition: var(--transition); box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3); }
+    .btn-nav-primary:hover { background: linear-gradient(135deg, #e55a2b, #ff6b35) !important; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4); color: white !important; }
+  /* Toggler visibility */
+  .navbar-custom .navbar-toggler { border-color: rgba(100,116,139,0.4); }
+  body.dark-theme .navbar-custom .navbar-toggler-icon { filter: invert(1); }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: var(--bg-light);
-      color: var(--text-primary-light);
-      transition: var(--transition);
-      overflow-x: hidden;
-    }
+    /* Hero */
+    .hero-section { padding: 5rem 0 7rem; min-height: 90vh; display: flex; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255, 107, 53, 0.1); border: 1px solid var(--border-light); border-radius: 1.25rem; font-size: 0.875rem; font-weight: 600; color: #ff6b35; margin-bottom: 1.5rem; }
+    body.dark-theme .hero-badge { border-color: var(--border-dark); }
+    .hero-title { font-size: clamp(2.5rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
+    .hero-subtitle { font-size: 1.25rem; color: var(--text-secondary-light); margin-bottom: 2rem; line-height: 1.6; }
+    body.dark-theme .hero-subtitle { color: var(--text-secondary-dark); }
 
-    body.dark-theme {
-      background: var(--bg-dark);
-      color: var(--text-primary-dark);
-    }
+    /* Buttons */
+    .btn-hero-primary { background: var(--primary-gradient); border: none; color: white; padding: 1rem 2rem; border-radius: 0.75rem; font-weight: 600; font-size: 1rem; transition: var(--transition); box-shadow: var(--shadow-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); color: white; text-decoration: none; }
+    .btn-hero-secondary { background: transparent; border: 2px solid #e2e8f0; color: var(--text-primary-light); padding: 1rem 2rem; border-radius: 0.75rem; font-weight: 600; font-size: 1rem; transition: var(--transition); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+    body.dark-theme .btn-hero-secondary { border-color: #334155; color: var(--text-primary-dark); }
+    .btn-hero-secondary:hover { border-color: #ff6b35; color: #ff6b35; text-decoration: none; }
 
-    /* Theme Toggle - Optimized */
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      width: 60px;
-      height: 30px;
-      background: var(--primary-gradient);
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      padding: 3px;
-      transition: var(--transition);
-      z-index: 1050;
-      box-shadow: var(--shadow-primary);
-      will-change: transform;
-    }
+    /* Cards */
+    .card-custom, .card-login { background: var(--card-light); border: 1px solid var(--border-light); border-radius: 1.5rem; backdrop-filter: blur(20px); transition: var(--transition); }
+    body.dark-theme .card-login, body.dark-theme .card-custom { background: var(--card-dark); border-color: var(--border-dark); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); }
 
-    .theme-toggle:hover {
-      transform: scale(1.05);
-      box-shadow: var(--shadow-hover);
-    }
+    .form-control-custom { padding: 1rem; border: 2px solid #e2e8f0; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.8); color: var(--text-primary-light); transition: var(--transition); font-size: 1rem; }
+    body.dark-theme .form-control-custom { background: rgba(15, 23, 42, 0.8); border-color: #334155; color: var(--text-primary-dark); }
+    .form-control-custom:focus { border-color: #ff6b35; box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1); background: rgba(255, 255, 255, 0.95); }
+    body.dark-theme .form-control-custom:focus { background: rgba(15, 23, 42, 0.95); }
 
-    .theme-toggle-ball {
-      width: 24px;
-      height: 24px;
-      background: white;
-      border-radius: 50%;
-      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      will-change: transform;
-    }
+    /* Feature mini blocks */
+    .feature-mini { background: var(--card-light); border: 1px solid var(--border-light); border-radius: 1rem; padding: 1.5rem; transition: var(--transition); backdrop-filter: blur(20px); }
+    body.dark-theme .feature-mini { background: rgba(30, 41, 59, 0.6); border-color: var(--border-dark); }
+    .feature-mini:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15); }
 
-    body.dark-theme .theme-toggle-ball {
-      transform: translateX(30px);
-    }
+    /* Utilities */
+    .text-secondary-custom { color: var(--text-secondary-light); }
+    body.dark-theme .text-secondary-custom { color: var(--text-secondary-dark); }
 
-    /* Header - Bootstrap Enhanced */
-    .navbar-custom {
-  background: var(--card-light) !important;
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-light);
-  transition: padding 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-    }
-
-    body.dark-theme .navbar-custom {
-      background: var(--card-dark) !important;
-      border-bottom: 1px solid var(--border-dark);
-    }
-
-    .navbar-brand {
-      font-weight: 800;
-      font-size: 1.75rem;
-      background: var(--primary-gradient);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-      transition: font-size 0.2s ease, letter-spacing 0.2s ease;
-    }
-
-    .nav-link {
-      color: var(--text-secondary-light) !important;
-      font-weight: 500;
-  transition: color 0.2s ease, padding 0.2s ease;
-      position: relative;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-    }
-
-    body.dark-theme .nav-link {
-      color: var(--text-secondary-dark) !important;
-    }
-
-    .nav-link:hover {
-      color: #ff6b35 !important;
-    }
-
-    .btn-nav-primary {
-      background: linear-gradient(135deg, #ff6b35, #ff8f65) !important;
-      color: white !important;
-      border: none;
-      border-radius: 0.75rem;
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      transition: var(--transition);
-      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
-    }
-
-    .btn-nav-primary:hover {
-      background: linear-gradient(135deg, #e55a2b, #ff6b35) !important;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
-      color: white !important;
-    }
-
-    /* Shrink navbar on scroll */
-    .navbar-custom.navbar-shrink {
-      padding-top: 0.2rem;
-      padding-bottom: 0.2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    }
-    .navbar-custom.navbar-shrink .navbar-brand {
-      font-size: 1.15rem;
-      letter-spacing: 0;
-    }
-    .navbar-custom.navbar-shrink .nav-link {
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
-    }
-
-    /* Hero Section - Grid Optimized */
-    .hero-section {
-      padding: 5rem 0 7rem;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: rgba(255, 107, 53, 0.1);
-      border: 1px solid var(--border-light);
-      border-radius: 1.25rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #ff6b35;
-      margin-bottom: 1.5rem;
-    }
-
-    body.dark-theme .hero-badge {
-      border-color: var(--border-dark);
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 5vw, 3.25rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      letter-spacing: -1px;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary-light);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    body.dark-theme .hero-subtitle {
-      color: var(--text-secondary-dark);
-    }
-
-    /* Buttons - Enhanced */
-    .btn-hero-primary {
-      background: var(--primary-gradient);
-      border: none;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: var(--transition);
-      box-shadow: var(--shadow-primary);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-hero-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      color: white;
-      text-decoration: none;
-    }
-
-    .btn-hero-secondary {
-      background: transparent;
-      border: 2px solid #e2e8f0;
-      color: var(--text-primary-light);
-      padding: 1rem 2rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: var(--transition);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    body.dark-theme .btn-hero-secondary {
-      border-color: #334155;
-      color: var(--text-primary-dark);
-    }
-
-    .btn-hero-secondary:hover {
-      border-color: #ff6b35;
-      color: #ff6b35;
-      text-decoration: none;
-    }
-
-    /* Cards - Performance Enhanced */
-    .card-custom {
-      background: var(--card-light);
-      border: 1px solid var(--border-light);
-      border-radius: 1.5rem;
-      backdrop-filter: blur(20px);
-      transition: var(--transition);
-      height: 100%;
-      will-change: transform;
-    }
-
-    body.dark-theme .card-custom {
-      background: var(--card-dark);
-      border-color: var(--border-dark);
-    }
-
-    .card-custom:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(255, 107, 53, 0.15);
-    }
-
-    .card-login {
-      background: var(--card-light);
-      border: 1px solid var(--border-light);
-      border-radius: 1.5rem;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-    }
-
-    body.dark-theme .card-login {
-      background: var(--card-dark);
-      border-color: var(--border-dark);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Form Elements - Enhanced */
-    .form-control-custom {
-      padding: 1rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 0.75rem;
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--text-primary-light);
-      transition: var(--transition);
-      font-size: 1rem;
-    }
-
-    body.dark-theme .form-control-custom {
-      background: rgba(15, 23, 42, 0.8);
-      border-color: #334155;
-      color: var(--text-primary-dark);
-    }
-
-    .form-control-custom:focus {
-      border-color: #ff6b35;
-      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-      background: rgba(255, 255, 255, 0.95);
-    }
-
-    body.dark-theme .form-control-custom:focus {
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    /* Feature Cards */
-    .feature-mini {
-      background: var(--card-light);
-      border: 1px solid var(--border-light);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      transition: var(--transition);
-      backdrop-filter: blur(20px);
-    }
-
-    body.dark-theme .feature-mini {
-      background: rgba(30, 41, 59, 0.6);
-      border-color: var(--border-dark);
-    }
-
-    .feature-mini:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15);
-    }
-
-    /* Sections */
-    .section-features {
-      padding: 5rem 0;
-      background: rgba(255, 107, 53, 0.02);
-      border-top: 1px solid var(--border-light);
-    }
-
-    body.dark-theme .section-features {
-      background: rgba(30, 41, 59, 0.3);
-      border-color: var(--border-dark);
-    }
-
-    /* Step Numbers */
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background: var(--primary-gradient);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.125rem;
-      margin: 0 auto 1rem auto;
-    }
-
-    /* Text Colors */
-    .text-secondary-custom {
-      color: var(--text-secondary-light);
-    }
-
-    body.dark-theme .text-secondary-custom {
-      color: var(--text-secondary-dark);
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-fade-in {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    /* Performance Optimizations */
-    .gpu-accelerated {
-      will-change: transform;
-      transform: translateZ(0);
-    }
-
-    /* Media Queries for Better Performance */
     @media (max-width: 768px) {
-      .hero-section {
-        padding: 3rem 0 5rem;
-      }
-      
-      .hero-title {
-        font-size: 2.5rem;
-      }
-      
-      .theme-toggle {
-        top: 0.75rem;
-        right: 0.75rem;
-      }
-    }
-    /* Full-screen scroll-snap sections */
-    .snap-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-      position: relative;
-      overflow: hidden;
-    }
-    /* Allow scrolling fully to bottom after the last section */
-    .snap-section:last-of-type { scroll-snap-align: end; }
-    .snap-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.35) 40%, rgba(15,23,42,0.25) 100%);
-      pointer-events: none;
-    }
-    .snap-content {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
-    .snap-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.05);
-      filter: saturate(1.05);
-    }
-    /* Backgrounds for each snap section */
-    .snap-features .snap-bg {
-      /* Replaced external image with reliable gradient */
-      background: linear-gradient(135deg, #fff1e8 0%, #ffe4d6 50%, #ffd4bf 100%);
-    }
-    .snap-stats .snap-bg {
-      background: linear-gradient(135deg, #e0f2ff 0%, #cfe8ff 50%, #bfe0ff 100%);
-    }
-    .snap-usecases .snap-bg {
-      background: linear-gradient(135deg, #eef2ff 0%, #e2e8f0 50%, #dbeafe 100%);
-    }
-    .snap-problem .snap-bg {
-      background: linear-gradient(135deg, #ffe2e2 0%, #ffc9c9 50%, #ffb3b3 100%);
-    }
-    .snap-solution .snap-bg {
-      background: linear-gradient(135deg, #e6fffa 0%, #ccfbf1 50%, #a7f3d0 100%);
-    }
-    .snap-benefits .snap-bg {
-      background: linear-gradient(135deg, #fff7e6 0%, #ffefcc 50%, #ffe8b3 100%);
-    }
-    /* Glass cards for readability on images */
-    .glass {
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 1rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      backdrop-filter: blur(12px);
-    }
-    body.dark-theme .glass {
-      background: rgba(30,41,59,0.7);
-      border-color: rgba(255,255,255,0.15);
-    }
-    .feature-card-mini, .usecase-card-mini {
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .feature-card-mini:hover, .usecase-card-mini:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 70px rgba(255,107,53,0.25);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      
-      html {
-        scroll-behavior: auto;
-      }
+      .hero-section { padding: 3rem 0 5rem; }
+      .hero-title { font-size: 2.5rem; }
+      .theme-toggle { top: 0.75rem; right: 0.75rem; }
     }
   </style>
 </head>
 <body id="landingBody">
   <!-- Language Selection Popup -->
-  <div id="langPopup" style="position:fixed;z-index:2000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;">
-    <div class="lang-popup-content" style="padding:2.5rem 2rem 2rem 2rem;border-radius:1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.18);max-width:90vw;width:350px;text-align:center;">
+  <div id="langPopup" style="position:fixed;z-index:1000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;">
+    <div class="lang-popup-content" style="padding:2.5rem 2rem 2rem 2rem;border-radius:1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.18);max-width:90vw;width:350px;text-align:center;background:white;">
       <h4 id="langPopupTitle" style="margin-bottom:1.5rem;font-weight:700;">Choose Language</h4>
       <div style="display:flex;flex-direction:column;gap:1rem;">
-  <button class="btn btn-hero-primary lang-select-btn" data-lang="en">English</button>
-  <button class="btn btn-hero-primary lang-select-btn" data-lang="hi">हिंदी</button>
-  <button class="btn btn-hero-primary lang-select-btn" data-lang="kn">ಕನ್ನಡ</button>
-  <button class="btn btn-hero-primary lang-select-btn" data-lang="mr">मराठी</button>
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="en">English</button>
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="hi">हिंदी</button>
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="kn">ಕನ್ನಡ</button>
+        <button class="btn btn-hero-primary lang-select-btn" data-lang="mr">मराठी</button>
       </div>
     </div>
   </div>
+
   <!-- Theme Toggle Button -->
-  <button class="theme-toggle gpu-accelerated" id="themeToggle" aria-label="Toggle theme">
-    <div class="theme-toggle-ball">
-      <span id="themeIcon">☀️</span>
-    </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <div class="theme-toggle-ball"><span id="themeIcon">☀️</span></div>
   </button>
 
-  <!-- Bootstrap Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <!-- Navbar -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">InnSync</a>
+      <a class="navbar-brand" href="#" id="navBrand">InnSync</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#features">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#how">How it works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item ms-3">
-            <a class="btn btn-nav-primary" href="#login">Login</a>
-          </li>
+          <li class="nav-item"><a id="navLive" class="nav-link" href="#liveControl" aria-label="Go to Live Control Panel">Live Control</a></li>
+          <li class="nav-item"><a id="navProblem" class="nav-link" href="#problem" aria-label="Go to Problem section">Problem</a></li>
+          <li class="nav-item"><a id="navSolution" class="nav-link" href="#solution" aria-label="Go to Solution section">Solution</a></li>
+          <li class="nav-item"><a id="navTrusted" class="nav-link" href="#trusted" aria-label="Go to Trusted By section">Trusted</a></li>
+          <li class="nav-item"><a id="navDemo" class="nav-link" href="#demo" aria-label="Go to Demo form">Demo</a></li>
+          <li class="nav-item"><a id="navFAQ" class="nav-link" href="#faq" aria-label="Go to FAQs">FAQ</a></li>
+          <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html" aria-label="About InnSync">About</a></li>
+          <li class="nav-item ms-3"><a id="navLogin" class="btn btn-nav-primary" href="#login" aria-label="Go to Login">Login</a></li>
           <li class="nav-item ms-3">
             <button id="langChangeBtn" class="btn btn-outline-secondary" type="button" style="min-width:44px;" aria-label="Change language">
               <span id="langChangeBtnLabel">🌐</span>
@@ -864,19 +169,17 @@
     </div>
   </nav>
 
-  <!-- Modern Hero Section -->
-  <section class="hero-section position-relative hero-bg" style="min-height: 90vh; display: flex; align-items: center;">
+  <!-- Hero -->
+  <section class="hero-section position-relative hero-bg">
     <div class="container position-relative z-2">
-  <div class="row align-items-center flex-lg-nowrap justify-content-lg-between justify-content-center">
-        <div class="col-lg-6 col-md-7 order-1 order-lg-1 animate-fade-in">
-          <div class="hero-badge mb-3">
-            <span id="heroBadge"></span>
-          </div>
+      <div class="row align-items-center flex-lg-nowrap">
+        <div class="col-lg-7 order-1 order-lg-1">
+          <div class="hero-badge mb-3"><span id="heroBadge"></span></div>
           <h1 class="hero-title display-4 mb-3" id="heroTitle">Stop Revenue Leakages. Start Capturing Every Rupee.</h1>
           <p class="hero-subtitle lead mb-4" id="heroSubtitle"></p>
           <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
             <a href="#login" class="btn-hero-primary px-4 py-3" id="heroCtaDemo">Book a Live Demo</a>
-            <a href="#how" class="btn-hero-secondary px-4 py-3" id="heroCtaCall" aria-label="Learn how InnSync works">Learn how InnSync works</a>
+            <a href="#liveControl" class="btn-hero-secondary px-4 py-3" id="heroCtaCall" aria-label="See the Live Control Panel">See the Live Control Panel</a>
           </div>
           <div class="d-flex align-items-center gap-3 mb-4">
             <span class="badge bg-success bg-opacity-10 text-success fw-semibold py-2 px-3">100% Data Transparency</span>
@@ -885,11 +188,10 @@
           </div>
           <div class="mt-4">
             <small class="text-secondary-custom" id="heroTrust">Already trusted by 20+ hotels in India</small>
-          
           </div>
         </div>
-  <div class="col-lg-5 offset-lg-1 col-md-8 order-2 order-lg-2 d-flex justify-content-lg-end justify-content-center mt-5 mt-lg-0">
-          <div class="card card-login border-0 p-4 shadow-lg w-100" style="max-width: 480px; min-width: 320px;">
+        <div class="col-lg-5 order-2 order-lg-2 d-flex justify-content-center mt-5 mt-lg-0">
+          <div id="login" class="card card-login border-0 p-4 shadow-lg" style="max-width: 420px; width: 100%;">
             <div class="card-body">
               <h3 class="card-title fw-bold mb-2" id="loginTitle">Login to Demo</h3>
               <p class="text-secondary-custom small mb-4" id="loginSubtitle">
@@ -920,754 +222,313 @@
         </div>
       </div>
     </div>
-    <!-- Decorative background image or SVG -->
     <img src="https://www.transparenttextures.com/patterns/diamond-upholstery.png" alt="" class="hero-decoration" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.07;z-index:1;pointer-events:none;" />
   </section>
 
-  <!-- Demo Booking Modal -->
-  <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" style="border-radius:1rem;overflow:hidden;">
-        <div class="modal-header" style="background:linear-gradient(135deg,#ff6b35,#ff8f65);color:#fff;">
-          <h5 class="modal-title fw-bold" id="demoModalLabel"></h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p class="text-secondary-custom mb-2" id="demoModalSubtitle"></p>
-          <form id="demoForm" novalidate>
-            <div class="row g-2 g-lg-3">
-              <div class="col-12">
-                <label for="demoName" class="form-label" id="demoNameLabel"></label>
-                <input type="text" id="demoName" class="form-control form-control-custom" required>
-                <div class="invalid-feedback" id="demoNameErr"></div>
-              </div>
-              <div class="col-12">
-                <label for="demoHotel" class="form-label" id="demoHotelLabel"></label>
-                <input type="text" id="demoHotel" class="form-control form-control-custom" required>
-                <div class="invalid-feedback" id="demoHotelErr"></div>
-              </div>
-              <div class="col-12">
-                <label for="demoEmail" class="form-label" id="demoEmailLabel"></label>
-                <input type="email" id="demoEmail" class="form-control form-control-custom" required>
-                <div class="invalid-feedback" id="demoEmailErr"></div>
-              </div>
-              <div class="col-12">
-                <label for="demoPhone" class="form-label" id="demoPhoneLabel"></label>
-                <input type="tel" id="demoPhone" class="form-control form-control-custom" required>
-                <div class="invalid-feedback" id="demoPhoneErr"></div>
-              </div>
-              <div class="col-12">
-                <label for="demoCity" class="form-label" id="demoCityLabel"></label>
-                <input type="text" id="demoCity" class="form-control form-control-custom">
-              </div>
-            </div>
-            <div class="d-flex gap-2 mt-3">
-              <button type="button" class="btn btn-hero-secondary flex-fill" data-bs-dismiss="modal" id="demoCancelBtn"></button>
-              <button type="submit" class="btn btn-hero-primary flex-fill" id="demoSubmitBtn"></button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Call Side Panel (outside modal, shown when modal is open) -->
-  <div id="demoCallSidePanel" class="call-side-panel" aria-hidden="true">
-    <div class="call-panel w-100 p-4 d-flex flex-column justify-content-center text-center">
-      <div class="mb-3 d-flex justify-content-center">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="24" fill="#fff"/>
-          <path d="M16 18c0 7.732 6.268 14 14 14h2c.552 0 1-.448 1-1v-4c0-.552-.448-1-1-1h-3a2 2 0 0 0-1.789 1.106l-.6 1.2a1 1 0 0 1-1.455.41 17 17 0 0 1-7.882-7.882 1 1 0 0 1 .41-1.455l1.2-.6A2 2 0 0 0 20 17v-3c0-.552-.448-1-1-1h-4c-.552 0-1 .448-1 1v3z" fill="#ff6b35"/>
-        </svg>
-      </div>
-      <h5 class="fw-bold mb-1" id="demoCallTitle"></h5>
-      <div class="text-secondary-custom mb-3 call-hours" id="demoCallHours"></div>
-      <a id="demoCallNumber" href="#" class="btn btn-hero-primary align-self-center call-number" role="button"></a>
-    </div>
-  </div>
-
-  <!-- Toast Container -->
-  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 2000;">
-    <div id="demoToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          <strong id="demoToastTitle"></strong>
-          <div id="demoToastBody" class="small"></div>
-        </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Trusted By Bar -->
-  <div class="py-3 trusted-bar border-bottom" id="trustedBar">
-    <div class="container-fluid px-0">
-      <div class="d-flex flex-nowrap align-items-center justify-content-center overflow-auto" style="gap:1.5rem;">
-        <span class="fw-semibold text-secondary-custom flex-shrink-0" id="trustedBy">Trusted by:</span>
-        <img src="https://dummyimage.com/80x32/eee/aaa&text=Sunrise" alt="Sunrise" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
-        <img src="https://dummyimage.com/80x32/eee/aaa&text=Blue+Lagoon" alt="Blue Lagoon" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
-        <img src="https://dummyimage.com/80x32/eee/aaa&text=Royal+Stay" alt="Royal Stay" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
-        <img src="https://dummyimage.com/80x32/eee/aaa&text=Urban+Nest" alt="Urban Nest" style="height:32px;vertical-align:middle;" class="flex-shrink-0">
-      </div>
-    </div>
-  </div>
-
-  <!-- Features Section (stacked, centered) -->
-  <section id="features" class="section-features">
+  <!-- Live Control Panel (static demo) moved up just after hero -->
+  <section id="liveControl" class="py-5">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 mx-auto text-center">
-          <div class="row g-4 justify-content-center text-center">
-            <div class="col-12 col-md-4">
-              <div class="glass p-4 h-100 text-center feature-card-mini">
-                <div class="mb-3 d-flex justify-content-center">
-                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="32" cy="32" r="32" fill="#fff7f0"/>
-                    <circle cx="32" cy="32" r="20" fill="#ff6b35"/>
-                    <circle cx="32" cy="32" r="10" fill="#fff"/>
-                    <circle cx="32" cy="32" r="4" fill="#3b82f6"/>
-                  </svg>
+        <div class="col-12 col-lg-10">
+          <div class="card card-login border-0 p-4 p-md-5 shadow-lg">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+              <h3 class="fw-bold mb-0">Live Control Panel</h3>
+              <span class="badge booked" id="liveControlStatus">Demo</span>
+            </div>
+            <div class="row g-3 g-md-4 text-center">
+              <div class="col-12 col-md-4">
+                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center">
+                  <div class="mb-2 d-flex justify-content-center" aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 21h18" stroke="#ff6b35" stroke-width="1.5"/><path d="M19 21V8l-7-5-7 5v13" stroke="#ff6b35" stroke-width="1.5"/></svg>
+                  </div>
+                  <div class="display-6 fw-bold" id="kpiOccupancy">92%</div>
+                  <div class="small text-secondary-custom">Occupancy</div>
                 </div>
-                <h4 class="fw-bold mb-2" id="feature1Title"></h4>
-                <p class="mb-0 text-secondary-custom" id="feature1Desc"></p>
               </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="glass p-4 h-100 text-center feature-card-mini">
-                <div class="mb-3 d-flex justify-content-center">
-                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="32" cy="32" r="32" fill="#fff7f0"/>
-                    <rect x="22" y="18" width="20" height="28" rx="10" fill="#3b82f6"/>
-                    <rect x="28" y="24" width="8" height="16" rx="4" fill="#fff"/>
-                    <circle cx="32" cy="48" r="4" fill="#ff6b35"/>
-                  </svg>
+              <div class="col-12 col-md-4">
+                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center">
+                  <div class="mb-2 d-flex justify-content-center" aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-8a5 5 0 0 0-10 0v8" stroke="#ff6b35" stroke-width="1.5"/><circle cx="12" cy="7" r="4" stroke="#ff6b35" stroke-width="1.5"/></svg>
+                  </div>
+                  <div class="display-6 fw-bold" id="kpiRegistered">88%</div>
+                  <div class="small text-secondary-custom">Registered</div>
                 </div>
-                <h4 class="fw-bold mb-2" id="feature2Title"></h4>
-                <p class="mb-0 text-secondary-custom" id="feature2Desc"></p>
               </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="glass p-4 h-100 text-center feature-card-mini">
-                <div class="mb-3 d-flex justify-content-center">
-                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="32" cy="32" r="32" fill="#fff7f0"/>
-                    <rect x="16" y="24" width="32" height="20" rx="6" fill="#ff6b35"/>
-                    <rect x="24" y="32" width="16" height="4" rx="2" fill="#fff"/>
-                    <circle cx="32" cy="40" r="3" fill="#3b82f6"/>
-                  </svg>
+              <div class="col-12 col-md-4">
+                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center">
+                  <div class="mb-2 d-flex justify-content-center" aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#ff6b35" stroke-width="1.5"/><path d="M3 9h18" stroke="#ff6b35" stroke-width="1.5"/></svg>
+                  </div>
+                  <div class="display-6 fw-bold" id="kpiLeakage">4%</div>
+                  <div class="small text-secondary-custom">Leakage</div>
                 </div>
-                <h4 class="fw-bold mb-2" id="feature3Title"></h4>
-                <p class="mb-0 text-secondary-custom" id="feature3Desc"></p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section (stacked, centered) -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 text-center">
-          <div class="p-4 p-md-5 rounded-4 mx-auto">
-            <div class="d-flex flex-wrap flex-md-nowrap justify-content-center align-items-center gap-4 py-2 px-2 stats-bar" style="background:transparent;">
-              <div class="text-center px-3 flex-shrink-0">
-                <div class="fw-bold display-5 text-primary">20+</div>
-                <div class="text-secondary-custom">Hotels Trust Us</div>
-              </div>
-              <div class="vr d-none d-md-block"></div>
-              <div class="text-center px-3 flex-shrink-0">
-                <div class="fw-bold display-5 text-success">100%</div>
-                <div class="text-secondary-custom">Data Transparency</div>
-              </div>
-              <div class="vr d-none d-md-block"></div>
-              <div class="text-center px-3 flex-shrink-0">
-                <div class="fw-bold display-5 text-danger">0</div>
-                <div class="text-secondary-custom">Revenue Leakages</div>
-              </div>
-              <div class="vr d-none d-md-block"></div>
-              <div class="text-center px-3 flex-shrink-0">
-                <div class="fw-bold display-5 text-warning">30min</div>
-                <div class="text-secondary-custom">Avg. Setup Time</div>
-              </div>
+            <div class="mt-4 p-3 rounded-3" style="background: rgba(255,107,53,0.08); border: 1px solid var(--border-light);">
+              <div class="fw-semibold" id="leakAlertTitle">Leak Alert: 2 rooms occupied but not booked</div>
+              <div class="small text-secondary-custom" id="leakAlertDesc">IoT sensors flagged Room 204, 311 • Action needed</div>
             </div>
+            <ul class="mt-3 mb-0 text-secondary-custom small" style="list-style:none; padding-left:0;">
+              <li class="d-flex align-items-center gap-2"><span aria-hidden="true">✅</span> IoT sensors detect unregistered bookings</li>
+              <li class="d-flex align-items-center gap-2"><span aria-hidden="true">✅</span> Integrations with all major OTA platforms</li>
+              <li class="d-flex align-items-center gap-2"><span aria-hidden="true">✅</span> Intuitive dashboards for owners & managers</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Use Cases Section (stacked, centered) -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 mx-auto text-center">
-          <div class="row g-4 justify-content-center text-center">
-            <div class="col-12 col-md-4">
-              <div class="glass p-4 h-100 text-center usecase-card-mini">
-                <div class="mb-2 d-flex justify-content-center">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="24" cy="24" r="24" fill="#fff7f0"/>
-                    <rect x="12" y="20" width="24" height="12" rx="6" fill="#ff6b35"/>
-                    <circle cx="24" cy="26" r="4" fill="#fff"/>
-                    <rect x="20" y="32" width="8" height="4" rx="2" fill="#3b82f6"/>
-                  </svg>
-                </div>
-                <h5 class="fw-bold mb-2" id="usecase1Title"></h5>
-                <p class="mb-0 text-secondary-custom" id="usecase1Desc"></p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="glass p-4 h-100 text-center usecase-card-mini">
-                <div class="mb-2 d-flex justify-content-center">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="24" cy="24" r="24" fill="#fff7f0"/>
-                    <rect x="14" y="16" width="20" height="16" rx="8" fill="#3b82f6"/>
-                    <circle cx="24" cy="24" r="6" fill="#fff"/>
-                    <circle cx="24" cy="24" r="3" fill="#ff6b35"/>
-                  </svg>
-                </div>
-                <h5 class="fw-bold mb-2" id="usecase2Title"></h5>
-                <p class="mb-0 text-secondary-custom" id="usecase2Desc"></p>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="glass p-4 h-100 text-center usecase-card-mini">
-                <div class="mb-2 d-flex justify-content-center">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="24" cy="24" r="24" fill="#fff7f0"/>
-                    <rect x="16" y="20" width="16" height="8" rx="4" fill="#ff6b35"/>
-                    <rect x="20" y="28" width="8" height="4" rx="2" fill="#3b82f6"/>
-                    <circle cx="24" cy="24" r="3" fill="#fff"/>
-                  </svg>
-                </div>
-                <h5 class="fw-bold mb-2" id="usecase3Title"></h5>
-                <p class="mb-0 text-secondary-custom" id="usecase3Desc"></p>
-              </div>
-            </div>
+  <!-- Problem (from reference.html) -->
+  <section id="problem" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="grid items-center gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-extrabold md:text-3xl">The Problem</h2>
+        <p class="mt-3 text-zinc-700">
+          Full rooms, empty records. Walk-ins with no trace. Manual updates that never happen. Without real visibility, 10%+ of revenue disappears into thin air.
+        </p>
+        <ul class="mt-6 grid gap-3 text-zinc-800">
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> Rooms occupied but not recorded</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> Untracked walk-ins and staff errors</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> Dashboards that don’t match reality</li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-orange-200 bg-white p-6 shadow-lg">
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-orange-600">Monthly Risk Snapshot</h3>
+        <div class="mt-4 grid grid-cols-3 gap-4 text-center">
+          <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+            <div class="text-lg font-extrabold">80</div>
+            <div class="text-xs text-zinc-500">Unrecorded Nights</div>
+          </div>
+          <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+            <div class="text-lg font-extrabold">₹3,20,000</div>
+            <div class="text-xs text-zinc-500">Monthly Loss</div>
+          </div>
+          <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+            <div class="text-lg font-extrabold">10%</div>
+            <div class="text-xs text-zinc-500">Occupancy Gap</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Problem Section -->
-  <section id="problem" class="py-5">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-md-6">
-          <img src="https://res.cloudinary.com/dnbbt7qdv/image/upload/t_Img1/Gemini_Generated_Image_6k148v6k148v6k14_1_qwszsj" alt="A hotel manager looking concerned over finances" class="img-fluid rounded-3 shadow-lg" style="width: 100%; height: 400px; object-fit: cover;" />
+  <!-- Solution (from reference.html) -->
+  <section id="solution" class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-center text-2xl font-extrabold md:text-3xl">How InnSync Stops the Leak</h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-zinc-700">Every booking counted. Real-time control. Seamless operations.</p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="group rounded-3xl border border-orange-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 7h10v10H7z"/></svg>
         </div>
-        <div class="col-12 col-md-6">
-          <h2 id="problemHeading" class="fw-bold mb-4 display-5" style="color: #ff6b35;"></h2>
-          <ul id="problemPoints" class="text-secondary-custom text-start ps-3 fs-5 mb-0 lh-lg" style="list-style: none;">
-            <style>
-              #problemPoints li::before { content: "⚠️"; margin-right: 0.5rem; font-size: 1em; }
-            </style>
-          </ul>
+        <div class="text-lg font-semibold">IoT Occupancy Sensors</div>
+        <p class="mt-1 text-sm text-zinc-600">Detect unregistered stays instantly—no cameras, no PII. If a room is used but not booked, you’ll know.</p>
+      </div>
+      <div class="group rounded-3xl border border-orange-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12h16M12 4v16"/></svg>
         </div>
+        <div class="text-lg font-semibold">All OTA Integrations</div>
+        <p class="mt-1 text-sm text-zinc-600">Sync reservations across OYO, Booking.com, MakeMyTrip, Agoda, Airbnb & more—no manual entry.</p>
+      </div>
+      <div class="group rounded-3xl border border-orange-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3h18v14H3z"/><path d="M3 17h18"/></svg>
+        </div>
+        <div class="text-lg font-semibold">Intuitive Dashboards</div>
+        <p class="mt-1 text-sm text-zinc-600">Live occupancy, revenue, and discrepancies for owners & managers. Make decisions with confidence.</p>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center justify-center gap-4 rounded-3xl border border-orange-200 bg-white p-6 text-center shadow-lg">
+      <div class="text-sm font-semibold uppercase tracking-wider text-orange-600">Pricing</div>
+      <div class="text-3xl font-black">Grow revenue by 10%+ for just <span class="text-orange-600">₹150/month</span></div>
+      <div class="text-sm text-zinc-600">Flat, transparent, no hidden charges.</div>
+      <div class="mt-2 flex flex-wrap items-center justify-center gap-3">
+        <span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">No long contracts</span>
+        <span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">Easy install</span>
+        <span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">24×7 support</span>
+      </div>
+      <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+        <a href="tel:+918791011880" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-6 py-3 font-semibold text-white shadow hover:bg-orange-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.1 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9.1 10.9a16 16 0 0 0 4 4l1.57-1.06a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+        <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-zinc-300 bg-white px-6 py-3 font-semibold text-zinc-900 shadow hover:border-zinc-400">
+          Book a Free Demo
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Solution Section -->
-  <section id="solution" class="py-5">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-md-6 order-md-1">
-          <h2 id="solutionHeading" class="fw-bold mb-4 display-5" style="color: #3b82f6;"></h2>
-          <ul id="solutionPoints" class="text-secondary-custom text-start ps-3 fs-5 mb-0 lh-lg" style="list-style: none;">
-            <style>
-              #solutionPoints li::before { content: "🔧"; margin-right: 0.5rem; font-size: 1em; }
-            </style>
-          </ul>
-        </div>
-        <div class="col-12 col-md-6 order-md-2">
-          <img src="https://res.cloudinary.com/dnbbt7qdv/image/upload/t_img2/Gemini_Generated_Image_g5kzzrg5kzzrg5kz_raaemu" alt="InnSync dashboard showing real-time data" class="img-fluid rounded-3 shadow-lg" style="width: 100%; height: 400px; object-fit: cover;" />
-        </div>
+  <!-- CTA Banner (from reference.html) -->
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white shadow-lg">
+      <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10"></div>
+      <h3 class="text-2xl font-extrabold md:text-3xl">Stop revenue leakage. Start compounding profits.</h3>
+      <p class="mt-2 text-white/90">InnSync makes sure your records match reality—every single day.</p>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a href="tel:+918791011880" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold text-orange-700 shadow hover:bg-white/90">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.1 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9.1 10.9a16 16 0 0 0 4 4l1.57-1.06a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now: +91 8791011880
+        </a>
+        <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 px-6 py-3 font-semibold text-white hover:bg-white/10">
+          Book a Free Demo
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Why Hotel Owners Choose InnSync (Benefits) -->
-  <section id="benefits" class="py-5">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-md-6">
-          <img src="https://res.cloudinary.com/dnbbt7qdv/image/upload/f_webp/f_webp/f_webp/Gemini_Generated_Image_3kf27y3kf27y3kf2_1_u2rcx2" alt="A happy hotel owner reviewing positive results" class="img-fluid rounded-3 shadow-lg" style="width: 100%; height: 400px; object-fit: cover;" />
-        </div>
-        <div class="col-12 col-md-6">
-          <h2 id="benefitsHeading" class="fw-bold mb-4 display-5" style="color: #ff6b35;"></h2>
-          <ul id="benefitsPoints" class="text-secondary-custom text-start ps-3 fs-5 mb-0 lh-lg" style="list-style: none;">
-            <style>
-              #benefitsPoints li::before { content: "✅"; margin-right: 0.5rem; font-size: 1em; }
-            </style>
-          </ul>
-        </div>
-      </div>
+  <!-- Trusted By (from reference.html) -->
+  <section id="trusted" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="text-center">
+      <h2 class="text-2xl font-extrabold md:text-3xl">Trusted By</h2>
+      <p class="mt-2 text-zinc-600">Leading hospitality brands rely on InnSync</p>
+    </div>
+    <div class="mt-8 grid grid-cols-2 items-center justify-center gap-6 sm:grid-cols-4">
+      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">OYO</div>
+      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">FabHotels</div>
+      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">Treebo</div>
+      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">Hosteller</div>
     </div>
   </section>
 
-  <!-- How It Works Section -->
-  <!-- How It Works Timeline Section -->
-  <section id="how" class="py-5 how-works-section">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5" id="howHeading">How InnSync Works</h2>
-      <div class="timeline d-flex flex-wrap flex-lg-nowrap justify-content-center align-items-stretch mb-5 gap-4">
-        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
-          <div class="timeline-icon mb-2 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">🔗</div>
-          <h5 class="fw-semibold mb-2" id="timelineStep1Title">Connect</h5>
-          <p class="text-secondary-custom small" id="timelineStep1Desc">Connect your hotel to InnSync in minutes—no tech skills needed.</p>
-        </div>
-        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
-          <div class="timeline-icon mb-2 bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">📡</div>
-          <h5 class="fw-semibold mb-2" id="timelineStep2Title">Detect</h5>
-          <p class="text-secondary-custom small" id="timelineStep2Desc">IoT sensors detect real occupancy and send data to your dashboard.</p>
-        </div>
-        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
-          <div class="timeline-icon mb-2 bg-warning text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">🤖</div>
-          <h5 class="fw-semibold mb-2" id="timelineStep3Title">Verify</h5>
-          <p class="text-secondary-custom small" id="timelineStep3Desc">Our algorithm matches bookings with occupancy and flags mismatches.</p>
-        </div>
-        <div class="timeline-step text-center flex-fill d-flex flex-column align-items-center">
-          <div class="timeline-icon mb-2 bg-danger text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:60px;height:60px;font-size:2rem;">⚡</div>
-          <h5 class="fw-semibold mb-2" id="timelineStep4Title">Alert</h5>
-          <p class="text-secondary-custom small" id="timelineStep4Desc">Get instant alerts for unrecorded stays or suspicious activity.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonial Carousel Section -->
-  <section class="py-5 testimonial-section border-top">
-    <div class="container">
-  <h2 class="text-center fw-bold mb-5" id="testimonialHeading"></h2>
-      <div class="testimonial-row d-flex flex-nowrap gap-4 pb-3 position-relative" id="testimonialRow" style="overflow:hidden;">
-        <!-- 9 testimonials, only 3 visible at a time -->
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#ffe5d0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(255,107,53,0.08);">🧑‍💼</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote1"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite1"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0f7fa;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,107,255,0.08);">👩‍💼</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote2"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite2"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0ffe0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,255,107,0.08);">🧑‍💻</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote3"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite3"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#ffe5d0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(255,107,53,0.08);">🧑‍💼</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote4"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite4"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0f7fa;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,107,255,0.08);">👩‍💼</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote5"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite5"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0ffe0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,255,107,0.08);">🧑‍💻</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote6"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite6"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#ffe5d0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(255,107,53,0.08);">🧑‍💼</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote7"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite7"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0f7fa;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,107,255,0.08);">👩‍�</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote8"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite8"></div>
-        </div>
-        <div class="testimonial-card glass-card border-0 flex-shrink-0 d-flex flex-column align-items-center justify-content-between p-4" style="min-width:340px;max-width:400px;">
-          <div class="testimonial-avatar mb-3" style="width:56px;height:56px;border-radius:50%;background:#e0ffe0;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 2px 8px rgba(53,255,107,0.08);">🧑‍💻</div>
-          <div class="testimonial-quote mb-3 text-center fs-5 fst-italic testimonial-text" id="testimonialQuote9"></div>
-          <div class="testimonial-cite fw-semibold text-primary text-center" id="testimonialCite9"></div>
-        </div>
-      </div>
-      <div class="d-flex justify-content-center mt-3 gap-2">
-        <span class="testimonial-dot" data-dot="0" style="width:16px;height:16px;border-radius:50%;background:#ff6b35;opacity:1;display:inline-block;cursor:pointer;"></span>
-        <span class="testimonial-dot" data-dot="1" style="width:16px;height:16px;border-radius:50%;background:#ff6b35;opacity:0.3;display:inline-block;cursor:pointer;"></span>
-        <span class="testimonial-dot" data-dot="2" style="width:16px;height:16px;border-radius:50%;background:#ff6b35;opacity:0.3;display:inline-block;cursor:pointer;"></span>
-      </div>
-      <style>
-        .glass-card {
-          background: rgba(255,255,255,0.85);
-          border-radius: 1.25rem;
-          box-shadow: 0 4px 24px rgba(30,41,59,0.07);
-          border: 2px solid transparent;
-        }
-        .glass-card:hover {
-          border-color: #ff6b35;
-          box-shadow: 0 8px 32px rgba(255,107,53,0.13);
-        }
-        .testimonial-row {
-          transition: transform 0.5s cubic-bezier(.4,0,.2,1);
-        }
-        .testimonial-dot {
-          transition: opacity 0.2s;
-        }
-      </style>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="py-5 bg-white section-faq" id="faqSection">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-5" id="faqHeading"></h2>
-      <div class="accordion" id="faqAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faqQ1h">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ1" aria-expanded="true" aria-controls="faqQ1" id="faqQ1Title" aria-label="What is InnSync PMS?">What is InnSync PMS?</button>
-          </h2>
-          <div id="faqQ1" class="accordion-collapse collapse show" role="region" aria-labelledby="faqQ1Title" data-bs-parent="#faqAccordion">
-            <div class="accordion-body" id="faqQ1Body"></div>
+  <!-- Demo Form (from reference.html) -->
+  <section id="demo" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="rounded-3xl border border-orange-200 bg-white p-6 shadow-lg">
+        <h3 class="text-xl font-bold">Book a Free Demo</h3>
+        <p class="mt-1 text-sm text-zinc-600">Tell us a bit about your property and we’ll show you how InnSync pays for itself.</p>
+        <form id="demoFormRef" class="mt-6 grid gap-4">
+          <div>
+            <label class="text-sm font-medium">Your Name</label>
+            <input name="name" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 outline-none ring-orange-200 focus:ring" placeholder="e.g., Rahul Verma">
           </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faqQ2h">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ2" aria-expanded="false" aria-controls="faqQ2" id="faqQ2Title" aria-label="How does InnSync detect occupancy?">How does InnSync detect occupancy?</button>
-          </h2>
-          <div id="faqQ2" class="accordion-collapse collapse" role="region" aria-labelledby="faqQ2Title" data-bs-parent="#faqAccordion">
-            <div class="accordion-body" id="faqQ2Body"></div>
+          <div>
+            <label class="text-sm font-medium">Phone</label>
+            <input name="phone" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 outline-none ring-orange-200 focus:ring" placeholder="e.g., 98765 43210">
           </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="faqQ3h">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ3" aria-expanded="false" aria-controls="faqQ3" id="faqQ3Title" aria-label="Can InnSync prevent revenue leakage?">Can InnSync prevent revenue leakage?</button>
-          </h2>
-          <div id="faqQ3" class="accordion-collapse collapse" role="region" aria-labelledby="faqQ3Title" data-bs-parent="#faqAccordion">
-            <div class="accordion-body" id="faqQ3Body"></div>
+          <div>
+            <label class="text-sm font-medium">Hotel / Property Name</label>
+            <input name="hotel" class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 outline-none ring-orange-200 focus:ring" placeholder="e.g., Sunrise Residency">
           </div>
-        </div>
+          <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-700">
+            Request Demo
+          </button>
+          <p class="text-xs text-zinc-500">Or call us directly at <a href="tel:+918791011880" class="font-medium text-orange-700 hover:underline">+91 8791011880</a></p>
+        </form>
+      </div>
+      <div class="flex flex-col justify-center">
+        <ul class="grid gap-3">
+          <li class="flex items-start gap-3"><span class="mt-1 text-orange-600">✔</span> <div><div class="font-semibold">Fast setup</div><div class="text-sm text-zinc-600">Get started in days, not weeks—minimal change to your workflow.</div></div></li>
+          <li class="flex items-start gap-3"><span class="mt-1 text-orange-600">✔</span> <div><div class="font-semibold">Privacy-safe</div><div class="text-sm text-zinc-600">Sensors never capture PII—only presence signals.</div></div></li>
+          <li class="flex items-start gap-3"><span class="mt-1 text-orange-600">✔</span> <div><div class="font-semibold">Actionable alerts</div><div class="text-sm text-zinc-600">Get notified the moment occupancy and records don’t match.</div></div></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Feedback Section -->
-  <section class="py-5 bg-light" id="feedbackSection">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-7">
-          <div class="card card-custom border-0 p-4 shadow-sm">
-            <h2 class="fw-bold mb-3 text-primary" id="feedbackHeading"></h2>
-            <form id="feedbackForm">
-              <div class="mb-3">
-                <label for="feedbackText" class="form-label fw-semibold" id="feedbackLabel"></label>
-                <textarea id="feedbackText" class="form-control form-control-custom" rows="3" placeholder="" required></textarea>
-              </div>
-              <button class="btn btn-hero-primary" type="submit" id="feedbackSubmit" aria-label="Submit feedback">Send Feedback</button>
-              <div class="text-success small mt-3" id="feedbackSuccess" style="display:none"></div>
-            </form>
-          </div>
-        </div>
+  <!-- FAQ (from reference.html) -->
+  <section id="faq" class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-center text-2xl font-extrabold md:text-3xl">FAQs</h2>
+    <div class="mx-auto mt-6 max-w-3xl divide-y divide-zinc-200 rounded-2xl border border-zinc-200 bg-white">
+      <div class="px-5 py-4">
+        <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
+          <span>Will IoT sensors invade guest privacy?</span>
+          <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
+        </button>
+        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">No. Our sensors only detect presence to measure occupancy—no images, audio, or personal data are captured.</p>
+      </div>
+      <div class="px-5 py-4">
+        <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
+          <span>What if we don’t use major OTAs?</span>
+          <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
+        </button>
+        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">InnSync supports manual entries and PMS sync. You’ll still get full visibility on walk-ins and offline bookings.</p>
+      </div>
+      <div class="px-5 py-4">
+        <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
+          <span>Is ₹150/month the only cost?</span>
+          <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
+        </button>
+        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">Yes. A simple, transparent plan—no setup fees, no hidden charges.</p>
+      </div>
+      <div class="px-5 py-4">
+        <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
+          <span>Will my team need training?</span>
+          <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
+        </button>
+        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">InnSync’s UI is designed to be intuitive. Most teams are comfortable within a day.</p>
+      </div>
+      <div class="px-5 py-4">
+        <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
+          <span>How quickly can we see results?</span>
+          <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
+        </button>
+        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">Many properties see leakage reduced within the first month of use.</p>
       </div>
     </div>
   </section>
 
-  <!-- Modern Footer -->
-  <footer class="py-4 bg-dark text-center text-white mt-5" id="mainFooter" style="letter-spacing:0.5px;font-size:1.1rem;background:linear-gradient(90deg,#1e293b 0%,#334155 100%);">
-    <span id="footerTagline"></span>
+  <!-- Footer (from reference.html) -->
+  <footer class="border-t border-orange-200 bg-white/70">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 md:flex-row">
+      <div>
+        <div class="text-lg font-bold">InnSync</div>
+        <div class="text-sm text-zinc-600">Recover hidden revenue. Control your operations.</div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="tel:+918791011880" class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-zinc-800">Call Now</a>
+        <a href="#demo" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-700">Book Demo</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- Floating Call Now (mobile) -->
+  <a href="tel:+918791011880" class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-orange-600 px-5 py-3 font-semibold text-white shadow-2xl md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.1 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9.1 10.9a16 16 0 0 0 4 4l1.57-1.06a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
+    Call Now
+  </a>
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  
+
   <script type="module">
-    // --- Demo Modal (multilingual) ---
-    function updateDemoModal(lang) {
-      const c = window.languageContent[lang] || window.languageContent['en'];
-      document.getElementById('demoModalLabel').textContent = c.demo_heading;
-      document.getElementById('demoModalSubtitle').textContent = c.demo_subtitle;
-      document.getElementById('demoNameLabel').textContent = c.demo_name_label;
-      document.getElementById('demoName').placeholder = c.demo_name_placeholder;
-      document.getElementById('demoHotelLabel').textContent = c.demo_hotel_label;
-      document.getElementById('demoHotel').placeholder = c.demo_hotel_placeholder;
-      document.getElementById('demoEmailLabel').textContent = c.demo_email_label;
-      document.getElementById('demoEmail').placeholder = c.demo_email_placeholder;
-      document.getElementById('demoPhoneLabel').textContent = c.demo_phone_label;
-      document.getElementById('demoPhone').placeholder = c.demo_phone_placeholder;
-      document.getElementById('demoCityLabel').textContent = c.demo_city_label;
-      document.getElementById('demoCity').placeholder = c.demo_city_placeholder;
-      document.getElementById('demoCancelBtn').textContent = c.demo_cancel;
-      document.getElementById('demoSubmitBtn').textContent = c.demo_submit;
-      document.getElementById('demoNameErr').textContent = c.demo_error_name;
-      document.getElementById('demoHotelErr').textContent = c.demo_error_hotel;
-      document.getElementById('demoEmailErr').textContent = c.demo_error_email;
-      document.getElementById('demoPhoneErr').textContent = c.demo_error_phone;
-      document.getElementById('demoToastTitle').textContent = c.demo_success_title;
-      document.getElementById('demoToastBody').textContent = c.demo_success_body;
+    import { apiLogin } from './js/api.js';
 
-      // Right-side call panel (multilingual)
-      const callTitleEl = document.getElementById('demoCallTitle');
-      const callHoursEl = document.getElementById('demoCallHours');
-      const callNumberEl = document.getElementById('demoCallNumber');
-      if (callTitleEl && callHoursEl && callNumberEl) {
-        callTitleEl.textContent = c.demo_call_title || '';
-        callHoursEl.textContent = c.demo_call_hours || '';
-        const num = c.cta_call_number || '+91 98765 43210';
-        const label = (c.demo_call_number_label || '{number}').replace('{number}', num);
-        callNumberEl.textContent = label;
-        callNumberEl.setAttribute('href', `tel:${num.replace(/[^+\d]/g, '')}`);
-      }
-    }
-
-    // Open modal on CTA click
-    const demoCta = document.getElementById('heroCtaDemo');
-    if (demoCta) {
-      demoCta.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lang = localStorage.getItem('innsync_lang') || 'en';
-        updateDemoModal(lang);
-        const modalEl = document.getElementById('demoModal');
-        const modal = new bootstrap.Modal(modalEl);
-        modal.show();
-      }, { passive: false });
-    }
-
-    // Toggle side call panel when modal opens/closes
-    const demoModalEl = document.getElementById('demoModal');
-    if (demoModalEl) {
-      const sidePanel = document.getElementById('demoCallSidePanel');
-      const positionPanel = () => {
-        if (!sidePanel || window.innerWidth < 992) return;
-        const dialog = demoModalEl.querySelector('.modal-dialog');
-        if (!dialog) return;
-        const r = dialog.getBoundingClientRect();
-        const gap = 16; // gap between modal and panel
-        const left = Math.min(window.innerWidth - sidePanel.offsetWidth - 8, r.right + gap);
-        const centerY = r.top + (r.height / 2);
-        sidePanel.style.right = 'auto';
-        sidePanel.style.left = `${left}px`;
-        sidePanel.style.top = `${centerY}px`;
-        sidePanel.style.transform = 'translateY(-50%)';
-      };
-      let resizeHandler;
-      demoModalEl.addEventListener('shown.bs.modal', () => {
-        const lang = localStorage.getItem('innsync_lang') || 'en';
-        updateDemoModal(lang);
-        sidePanel?.classList.add('show');
-        positionPanel();
-        resizeHandler = () => positionPanel();
-        window.addEventListener('resize', resizeHandler);
-        window.addEventListener('scroll', resizeHandler, { passive: true });
-      });
-      demoModalEl.addEventListener('hidden.bs.modal', () => {
-        sidePanel?.classList.remove('show');
-        if (resizeHandler) {
-          window.removeEventListener('resize', resizeHandler);
-          window.removeEventListener('scroll', resizeHandler);
-        }
-      });
-    }
-
-    // Demo form validation and toast
-    const demoForm = document.getElementById('demoForm');
-    function sanitize(s) { return (s || '').toString().trim(); }
-    function validName(v) { return /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ .'-]{1,49}$/.test(v); }
-    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
-    function validPhone(v) { const d = v.replace(/\D/g,''); return d.length >= 10 && d.length <= 13; }
-    if (demoForm) {
-      demoForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const lang = localStorage.getItem('innsync_lang') || 'en';
-        const c = window.languageContent[lang] || window.languageContent['en'];
-        const nameEl = document.getElementById('demoName');
-        const hotelEl = document.getElementById('demoHotel');
-        const emailEl = document.getElementById('demoEmail');
-        const phoneEl = document.getElementById('demoPhone');
-
-        let ok = true;
-        const name = sanitize(nameEl.value);
-        const hotel = sanitize(hotelEl.value);
-        const email = sanitize(emailEl.value);
-        const phone = sanitize(phoneEl.value);
-
-        // reset states
-        [nameEl, hotelEl, emailEl, phoneEl].forEach(el => { el.classList.remove('is-invalid'); });
-
-        if (!validName(name)) { nameEl.classList.add('is-invalid'); ok = false; }
-        if (hotel.length < 2) { hotelEl.classList.add('is-invalid'); ok = false; }
-        if (!validEmail(email)) { emailEl.classList.add('is-invalid'); ok = false; }
-        if (!validPhone(phone)) { phoneEl.classList.add('is-invalid'); ok = false; }
-
-        if (!ok) return;
-
-        // Success: show toast and close modal
-        const toastEl = document.getElementById('demoToast');
-        const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
-        toast.show();
-
-        const modalEl = document.getElementById('demoModal');
-        const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
-        modal.hide();
-        demoForm.reset();
-      }, { passive: false });
-    }
-    // --- FAQ & Feedback Multi-language ---
-    function updateFaqAndFeedback(lang) {
-      const c = window.languageContent[lang] || window.languageContent['en'];
-      // FAQ
-  document.getElementById('faqHeading').textContent = c.faq_heading;
-  document.getElementById('faqQ1Title').textContent = c.faq_q1;
-  document.getElementById('faqQ1Title').setAttribute('aria-label', c.faq_q1);
-      document.getElementById('faqQ1Body').textContent = c.faq_a1;
-  document.getElementById('faqQ2Title').textContent = c.faq_q2;
-  document.getElementById('faqQ2Title').setAttribute('aria-label', c.faq_q2);
-      document.getElementById('faqQ2Body').textContent = c.faq_a2;
-  document.getElementById('faqQ3Title').textContent = c.faq_q3;
-  document.getElementById('faqQ3Title').setAttribute('aria-label', c.faq_q3);
-      document.getElementById('faqQ3Body').textContent = c.faq_a3;
-      // Feedback
-      document.getElementById('feedbackHeading').textContent = c.feedback_heading;
-      document.getElementById('feedbackLabel').textContent = c.feedback_label;
-      document.getElementById('feedbackText').placeholder = c.feedback_placeholder;
-  document.getElementById('feedbackSubmit').textContent = c.feedback_submit;
-  document.getElementById('feedbackSubmit').setAttribute('aria-label', c.feedback_submit);
-      document.getElementById('feedbackSuccess').textContent = c.feedback_success;
-      // Footer
-      document.getElementById('footerTagline').textContent = c.footer_tagline;
-    }
-
-    // Feedback form handler (demo only)
-    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('feedbackSuccess').style.display = 'block';
-      document.getElementById('feedbackText').value = '';
-      setTimeout(() => {
-        document.getElementById('feedbackSuccess').style.display = 'none';
-      }, 3000);
-    });
-    // --- Testimonial Paging and Dynamic Content ---
-    function renderTestimonials(lang) {
-      const testimonials = (window.languageContent[lang] || window.languageContent['en']).testimonials || [];
-      for (let i = 1; i <= 9; i++) {
-        const quote = testimonials[i-1]?.quote || '';
-        const cite = testimonials[i-1]?.cite || '';
-        document.getElementById('testimonialQuote'+i).textContent = quote;
-        document.getElementById('testimonialCite'+i).textContent = cite;
-      }
-    }
-
-    function showTestimonialSet(setIdx) {
-      const row = document.getElementById('testimonialRow');
-      row.style.transform = `translateX(-${setIdx * 100}%)`;
-      document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
-        dot.style.opacity = (i === setIdx) ? '1' : '0.3';
-      });
-    }
-
-    // Responsive: 3 cards per set, 9 total
-    let currentTestimonialSet = 0;
-    document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        currentTestimonialSet = i;
-        showTestimonialSet(i);
-      });
-    });
-
-    // On language/content update, rerender testimonials and reset to first set
-    function updateTestimonials(lang) {
-      renderTestimonials(lang);
-      currentTestimonialSet = 0;
-      showTestimonialSet(0);
-    }
-    // Language change button in navbar
+    // Language change button label
     const langChangeBtn = document.getElementById('langChangeBtn');
     if (langChangeBtn) {
-      langChangeBtn.onclick = function() {
-        langPopup.style.display = 'flex';
-      };
-      // Set label to current language
+      langChangeBtn.onclick = function() { langPopup.style.display = 'flex'; };
       const lang = localStorage.getItem('innsync_lang') || 'en';
       const langLabels = { en: 'EN', hi: 'हि', kn: 'ಕ', mr: 'म' };
       document.getElementById('langChangeBtnLabel').textContent = langLabels[lang] || '🌐';
     }
-    import { apiLogin } from './js/api.js';
 
-    // --- Language Popup and Dynamic Content ---
+    // Language popup and dynamic content
     const langPopup = document.getElementById('langPopup');
     const langBtns = langPopup.querySelectorAll('button[data-lang]');
-    const langPopupTitle = document.getElementById('langPopupTitle');
     const defaultLang = localStorage.getItem('innsync_lang') || 'en';
-    let currentLang = defaultLang;
 
-    // Helper to update all landing page content
     function updateLandingContent(lang) {
       const c = window.languageContent[lang] || window.languageContent['en'];
       // Hero
-      document.querySelector('.hero-title').textContent = c.hero_title;
-      document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
-      document.getElementById('heroBadge').textContent = c.trust_heading || '';
-      const mainCtaBtn = document.querySelector('.hero-section .btn-hero-primary:not(.lang-select-btn)');
-      if (mainCtaBtn) { 
-        mainCtaBtn.textContent = c.cta_demo_label; 
-        mainCtaBtn.setAttribute('aria-label', c.cta_demo_label);
-      }
-      const ctaCall = document.getElementById('heroCtaCall');
-      if (ctaCall) {
-        ctaCall.textContent = c.cta_call_label;
-        ctaCall.setAttribute('aria-label', c.cta_call_label);
-      }
-      // Trust bar
-      document.getElementById('trustedBy').textContent = c.trust_heading || '';
-      // Problem, Solution, Benefits
-      document.getElementById('problemHeading').textContent = c.problem_heading;
-      document.getElementById('solutionHeading').textContent = c.solution_heading;
-      document.getElementById('benefitsHeading').textContent = c.benefits_heading;
-      // List points
-      function fillList(id, arr) {
-        const ul = document.getElementById(id);
-        ul.innerHTML = '';
-        (arr||[]).forEach(pt => {
-          const li = document.createElement('li');
-          li.textContent = pt;
-          ul.appendChild(li);
-        });
-      }
-      fillList('problemPoints', c.problem_points);
-      fillList('solutionPoints', c.solution_points);
-      fillList('benefitsPoints', c.benefits_points);
-      // Feature grid
-      document.getElementById('feature1Title').textContent = c.feature1_title;
-      document.getElementById('feature1Desc').textContent = c.feature1_desc;
-      document.getElementById('feature2Title').textContent = c.feature2_title;
-      document.getElementById('feature2Desc').textContent = c.feature2_desc;
-      document.getElementById('feature3Title').textContent = c.feature3_title;
-      document.getElementById('feature3Desc').textContent = c.feature3_desc;
-      // Use case cards
-      document.getElementById('usecase1Title').textContent = c.usecase1_title;
-      document.getElementById('usecase1Desc').textContent = c.usecase1_desc;
-      document.getElementById('usecase2Title').textContent = c.usecase2_title;
-      document.getElementById('usecase2Desc').textContent = c.usecase2_desc;
-      document.getElementById('usecase3Title').textContent = c.usecase3_title;
-      document.getElementById('usecase3Desc').textContent = c.usecase3_desc;
-      // Testimonial heading
-      document.getElementById('testimonialHeading').textContent = c.testimonial_heading;
-  // Footer tagline (if present)
-  updateFaqAndFeedback(lang);
-  updateDemoModal(lang);
-      // Testimonials
-      updateTestimonials(lang);
+      const title = document.querySelector('.hero-title'); if (title) title.textContent = c.hero_title;
+      const subtitle = document.getElementById('heroSubtitle'); if (subtitle) subtitle.textContent = c.hero_subtitle;
+      const badge = document.getElementById('heroBadge'); if (badge) badge.textContent = c.trust_heading || '';
+      const ctaDemo = document.getElementById('heroCtaDemo'); if (ctaDemo) { ctaDemo.textContent = c.cta_demo_label; ctaDemo.setAttribute('aria-label', c.cta_demo_label); }
+      const ctaCall = document.getElementById('heroCtaCall'); if (ctaCall) { ctaCall.textContent = c.cta_call_label || 'See the Live Control Panel'; ctaCall.setAttribute('aria-label', c.cta_call_label || 'See the Live Control Panel'); }
     }
 
-    // Show popup if no language selected
     if (!localStorage.getItem('innsync_lang')) {
       langPopup.style.display = 'flex';
     } else {
       langPopup.style.display = 'none';
-      setTimeout(() => updateLandingContent(defaultLang), 100);
+      setTimeout(() => updateLandingContent(defaultLang), 50);
     }
-
-    // Initial testimonials render
-    updateTestimonials(defaultLang);
 
     langBtns.forEach(btn => {
       btn.onclick = function() {
@@ -1678,19 +539,12 @@
       };
     });
 
-  // Performance optimized theme toggle
+    // Theme toggle
     const themeToggle = document.getElementById('themeToggle');
     const body = document.getElementById('landingBody');
     const themeIcon = document.getElementById('themeIcon');
-
-    // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('innsync-theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark-theme');
-      themeIcon.textContent = '🌙';
-    }
-
-    // Optimized theme toggle with requestAnimationFrame
+    if (savedTheme === 'dark') { body.classList.add('dark-theme'); themeIcon.textContent = '🌙'; }
     themeToggle.addEventListener('click', () => {
       requestAnimationFrame(() => {
         body.classList.toggle('dark-theme');
@@ -1700,157 +554,96 @@
       });
     });
 
-    // Update content if language changes in localStorage (multi-tab)
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'innsync_lang') {
-        updateLandingContent(e.newValue || 'en');
-      }
-    });
-
-    // Optimized login functionality with debouncing
+    // Login
     let loginTimeout;
-    const showErr = (msg) => { 
-      const e = document.getElementById('loginError'); 
-      e.textContent = msg; 
-      e.style.display = 'block'; 
-    };
-    const hideErr = () => { 
-      const e = document.getElementById('loginError'); 
-      e.style.display = 'none'; 
-    };
-
+    const showErr = (msg) => { const e = document.getElementById('loginError'); e.textContent = msg; e.style.display = 'block'; };
+    const hideErr = () => { const e = document.getElementById('loginError'); e.style.display = 'none'; };
     async function login(requestedRole) {
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
-      
-      // Basic validation
-      if (!email || !password) {
-        showErr('Please enter both email and password');
-        return;
-      }
-      
+      if (!email || !password) { showErr('Please enter both email and password'); return; }
       hideErr();
-      
-      // Disable buttons during login
       const buttons = document.querySelectorAll('#loginForm button');
       buttons.forEach(btn => btn.disabled = true);
-      
       try {
         const session = await apiLogin(email, password);
-        if (!session?.role) { 
-          showErr('Login failed, missing role'); 
-          return; 
-        }
-        if (session.role !== requestedRole) { 
-          showErr(`This user is not authorized as ${requestedRole}`); 
-          return; 
-        }
+        if (!session?.role) { showErr('Login failed, missing role'); return; }
+        if (session.role !== requestedRole) { showErr(`This user is not authorized as ${requestedRole}`); return; }
         localStorage.setItem('innsync_user', JSON.stringify(session));
         window.location.href = requestedRole === 'MANAGER' ? 'manager.html' : 'owner.html';
       } catch (e) {
         showErr('Login failed, please check email/password');
       } finally {
-        // Re-enable buttons
         buttons.forEach(btn => btn.disabled = false);
       }
     }
+    document.getElementById('loginForm').addEventListener('submit', (e) => { e.preventDefault(); clearTimeout(loginTimeout); loginTimeout = setTimeout(() => login('OWNER'), 100); });
+    document.getElementById('loginManager').addEventListener('click', () => { clearTimeout(loginTimeout); loginTimeout = setTimeout(() => login('MANAGER'), 100); });
 
-    // Event listeners with passive option for better performance
-    document.getElementById('loginForm').addEventListener('submit', (e) => { 
-      e.preventDefault(); 
-      clearTimeout(loginTimeout);
-      loginTimeout = setTimeout(() => login('OWNER'), 100);
-    });
-    
-    document.getElementById('loginManager').addEventListener('click', () => {
-      clearTimeout(loginTimeout);
-      loginTimeout = setTimeout(() => login('MANAGER'), 100);
-    });
-
-    // Optimized smooth scrolling with intersection observer
-    const scrollToTarget = (target) => {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    };
-
-    // Enhanced smooth scrolling for anchor links
+    // Smooth anchor scroll
+    const scrollToTarget = (target) => target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#' ) return;
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
+        const targetId = href.substring(1);
         const target = document.getElementById(targetId);
-        if (target) {
-          requestAnimationFrame(() => scrollToTarget(target));
-        }
+        if (target) requestAnimationFrame(() => scrollToTarget(target));
       }, { passive: false });
     });
 
-    // Add fade-in animation on scroll for performance
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
+    // Fade-in observer for cards
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
     const fadeInObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } });
     }, observerOptions);
-
-    // Observe cards for fade-in effect
     document.querySelectorAll('.card-custom, .feature-mini').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      fadeInObserver.observe(card);
+      card.style.opacity = '0'; card.style.transform = 'translateY(20px)'; card.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; fadeInObserver.observe(card);
     });
 
-    // Preload critical images and fonts
+    // Prefetch dashboards
     const preloadResources = () => {
-      // Add any critical resources that need preloading
-      const link = document.createElement('link');
-      link.rel = 'prefetch';
-      link.href = 'manager.html';
-      document.head.appendChild(link);
-      
-      const link2 = document.createElement('link');
-      link2.rel = 'prefetch';
-      link2.href = 'owner.html';
-      document.head.appendChild(link2);
+      const link1 = document.createElement('link'); link1.rel = 'prefetch'; link1.href = 'manager.html'; document.head.appendChild(link1);
+      const link2 = document.createElement('link'); link2.rel = 'prefetch'; link2.href = 'owner.html'; document.head.appendChild(link2);
     };
-
-    // Initialize on DOM content loaded
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', preloadResources);
-    } else {
-      preloadResources();
-    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', preloadResources); else preloadResources();
 
     // Shrink navbar on scroll
     (function() {
-      const nav = document.querySelector('.navbar-custom');
-      if (!nav) return;
-      let ticking = false;
-      const update = () => {
-        const y = window.scrollY || window.pageYOffset;
-        if (y > 10) nav.classList.add('navbar-shrink');
-        else nav.classList.remove('navbar-shrink');
-        ticking = false;
-      };
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(update);
-          ticking = true;
-        }
-      }, { passive: true });
-      // Run once on load
+      const nav = document.querySelector('.navbar-custom'); if (!nav) return;
+      let ticking = false; const update = () => { const y = window.scrollY || window.pageYOffset; if (y > 10) nav.classList.add('navbar-shrink'); else nav.classList.remove('navbar-shrink'); ticking = false; };
+      window.addEventListener('scroll', () => { if (!ticking) { window.requestAnimationFrame(update); ticking = true; } }, { passive: true });
       update();
     })();
+  </script>
+
+  <!-- Minimal JS: FAQ toggles + demo form (from reference.html) -->
+  <script>
+    // FAQ toggles
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrapper = btn.parentElement;
+        const ans = wrapper.querySelector('.faq-answer');
+        const ind = wrapper.querySelector('.faq-indicator');
+        const open = !ans.classList.contains('hidden');
+        ans.classList.toggle('hidden');
+        ind.textContent = open ? '+' : '−';
+        ind.classList.toggle('bg-orange-600', !open);
+        ind.classList.toggle('text-white', !open);
+        ind.classList.toggle('border-orange-600', !open);
+      });
+    });
+
+    // Demo form (simple acknowledgement)
+    const refDemoForm = document.getElementById('demoFormRef');
+    if (refDemoForm) {
+      refDemoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert("Thanks! We'll reach out to schedule your demo.");
+        e.target.reset();
+      });
+    }
   </script>
 </body>
 </html>

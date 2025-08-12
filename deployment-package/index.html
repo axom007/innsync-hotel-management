@@ -344,7 +344,8 @@
       background: var(--card-light) !important;
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-light);
-      transition: var(--transition);
+  transition: var(--transition);
+  z-index: 1045;
     }
 
     body.dark-theme .navbar-custom {
@@ -393,6 +394,11 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
       color: white !important;
+    }
+
+    /* Ensure navbar shows on desktop even if collapse JS fails */
+    @media (min-width: 992px) {
+      .navbar-expand-lg .navbar-collapse { display: flex !important; flex-basis: auto; }
     }
 
     /* Hero Section - Grid Optimized */
@@ -661,7 +667,7 @@
 </head>
 <body id="landingBody">
   <!-- Language Selection Popup -->
-  <div id="langPopup" style="position:fixed;z-index:2000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;">
+  <div id="langPopup" style="position:fixed;z-index:1000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;">
     <div class="lang-popup-content" style="padding:2.5rem 2rem 2rem 2rem;border-radius:1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.18);max-width:90vw;width:350px;text-align:center;">
       <h4 id="langPopupTitle" style="margin-bottom:1.5rem;font-weight:700;">Choose Language</h4>
       <div style="display:flex;flex-direction:column;gap:1rem;">
@@ -680,29 +686,36 @@
   </button>
 
   <!-- Bootstrap Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">InnSync</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a id="navLive" class="nav-link" href="#liveControl" aria-label="Go to Live Control Panel">Live Control</a></li>
+        <li class="nav-item"><a id="navProblem" class="nav-link" href="#problem" aria-label="Go to Problem section">Problem</a></li>
+        <li class="nav-item"><a id="navSolution" class="nav-link" href="#solution" aria-label="Go to Solution section">Solution</a></li>
+        <li class="nav-item"><a id="navTrusted" class="nav-link" href="#trusted" aria-label="Go to Trusted By section">Trusted</a></li>
+        <li class="nav-item"><a id="navDemo" class="nav-link" href="#demo" aria-label="Go to Demo form">Demo</a></li>
+          <li class="nav-item"><a id="navFAQ" class="nav-link" href="#faq" aria-label="Go to FAQs">FAQ</a></li>
+          <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html" aria-label="About InnSync">About</a></li>
+          <li class="nav-item ms-3"><a id="navLogin" class="btn btn-nav-primary" href="#login" aria-label="Go to Login">Login</a></li>
+          <li class="nav-item ms-3">
+            <button id="langChangeBtn" class="btn btn-outline-secondary" type="button" style="min-width:44px;" aria-label="Change language">
+              <span id="langChangeBtnLabel">🌐</span>
+            </button>
+          </li>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#features">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#how">How it works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item ms-3">
-            <a class="btn btn-nav-primary" href="#login">Login</a>
-          </li>
+          <li class="nav-item"><a id="navLive" class="nav-link" href="#liveControl" aria-label="Go to Live Control Panel">Live Control</a></li>
+          <li class="nav-item"><a id="navProblem" class="nav-link" href="#problem" aria-label="Go to Problem section">Problem</a></li>
+          <li class="nav-item"><a id="navSolution" class="nav-link" href="#solution" aria-label="Go to Solution section">Solution</a></li>
+          <li class="nav-item"><a id="navTrusted" class="nav-link" href="#trusted" aria-label="Go to Trusted By section">Trusted</a></li>
+          <li class="nav-item"><a id="navDemo" class="nav-link" href="#demo" aria-label="Go to Demo form">Demo</a></li>
+          <li class="nav-item"><a id="navFAQ" class="nav-link" href="#faq" aria-label="Go to FAQs">FAQ</a></li>
+          <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html" aria-label="About InnSync">About</a></li>
+          <li class="nav-item ms-3"><a id="navLogin" class="btn btn-nav-primary" href="#login" aria-label="Go to Login">Login</a></li>
           <li class="nav-item ms-3">
             <button id="langChangeBtn" class="btn btn-outline-secondary" type="button" style="min-width:44px;" aria-label="Change language">
               <span id="langChangeBtnLabel">🌐</span>

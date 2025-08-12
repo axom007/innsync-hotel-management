@@ -1,5 +1,6 @@
 # Node modules
 node_modules/
+development-package/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

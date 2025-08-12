@@ -6,10 +6,10 @@ window.INNSYNC_CONFIG = {
   NGROK_URL: 'https://46238a3ed91d.ngrok-free.app',
   
   // Local development settings (usually don't need to change)
-  LOCAL_API_PORT: 8080,
+  LOCAL_API_PORT: 8090,
   
   // Debug mode - set to true to see API base URL in console
-  DEBUG: false
+  DEBUG: true
 };
 
 // Auto-detect environment and set API base
