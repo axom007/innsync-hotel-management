@@ -1,7 +1,34 @@
 let API_BASE = (window.INNSYNC_API_BASE || localStorage.getItem('INNSYNC_API_BASE') || '').replace(/\/$/, '') || '';
-if (!API_BASE && location.protocol === 'file:') {
-  // default to common dev port if opened from file://
-  API_BASE = 'http://localhost:8080';
+
+// Auto-detect environment and set appropriate API base
+function detectEnvironment() {
+  const hostname = window.location.hostname;
+  const isGitHubPages = hostname.includes('github.io') || hostname.includes('githubpages.io');
+  const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '';
+  
+  if (isGitHubPages) {
+    // When accessed from GitHub Pages, use ngrok URL from config
+    const ngrokUrl = window.INNSYNC_CONFIG?.NGROK_URL || 'https://your-ngrok-url.ngrok.io';
+    if (window.INNSYNC_CONFIG?.DEBUG) {
+      console.log('GitHub Pages detected, using ngrok URL:', ngrokUrl);
+    }
+    return ngrokUrl;
+  } else if (isLocal || location.protocol === 'file:') {
+    // Local development - use localhost
+    const localPort = window.INNSYNC_CONFIG?.LOCAL_API_PORT || 8080;
+    const localUrl = `http://localhost:${localPort}`;
+    if (window.INNSYNC_CONFIG?.DEBUG) {
+      console.log('Local environment detected, using:', localUrl);
+    }
+    return localUrl;
+  }
+  
+  // Default fallback
+  return 'http://localhost:8080';
+}
+
+if (!API_BASE) {
+  API_BASE = detectEnvironment();
 }
 
 async function http(path, init) {
@@ -16,9 +43,17 @@ async function http(path, init) {
   } catch (e) {
     // Fallback probes if base is not set or unreachable
     const candidates = [];
-    if (!API_BASE || API_BASE.startsWith('http://localhost')) {
+    const isGitHubPages = window.location.hostname.includes('github.io') || window.location.hostname.includes('githubpages.io');
+    
+    if (isGitHubPages) {
+      // On GitHub Pages, try ngrok URLs first
+      const ngrokUrl = window.INNSYNC_CONFIG?.NGROK_URL || 'https://your-ngrok-url.ngrok.io';
+      candidates.push(ngrokUrl);
+    } else if (!API_BASE || API_BASE.startsWith('http://localhost')) {
+      // Local development fallbacks
       candidates.push('http://localhost:8091', 'http://localhost:8090', 'http://localhost:8080');
     }
+    
     for (const c of candidates) {
       try {
         const res = await doFetch(c);
