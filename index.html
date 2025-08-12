@@ -71,17 +71,48 @@
     body.dark-theme .theme-toggle-ball { transform: translateX(30px); }
 
     /* Header */
-  .navbar-custom { background: var(--card-light) !important; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); transition: var(--transition); z-index: 1045; }
-    body.dark-theme .navbar-custom { background: var(--card-dark) !important; border-bottom: 1px solid var(--border-dark); }
-    .navbar-brand { font-weight: 800; font-size: 1.75rem; background: var(--primary-gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
-    .nav-link { color: var(--text-secondary-light) !important; font-weight: 500; transition: var(--transition); position: relative; }
-    body.dark-theme .nav-link { color: var(--text-secondary-dark) !important; }
+  .navbar-custom { 
+    background: white !important; 
+    backdrop-filter: blur(20px); 
+    border-bottom: 2px solid #ff6b35; 
+    transition: all 0.3s ease; 
+    z-index: 1045; 
+    min-height: 70px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+    body.dark-theme .navbar-custom { 
+      background: #1e293b !important; 
+      border-bottom: 2px solid #ff6b35; 
+    }
+    .navbar-brand { 
+      font-weight: 800; 
+      font-size: 1.75rem; 
+      color: #ff6b35 !important;
+      letter-spacing: -0.5px; 
+    }
+    .nav-link { 
+      color: #64748b !important; 
+      font-weight: 500; 
+      transition: all 0.3s ease; 
+    }
+    body.dark-theme .nav-link { 
+      color: #94a3b8 !important; 
+    }
     .nav-link:hover { color: #ff6b35 !important; }
     .btn-nav-primary { background: var(--primary-gradient) !important; color: white !important; border: none; border-radius: 0.75rem; padding: 0.75rem 1.5rem; font-weight: 600; transition: var(--transition); box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3); }
     .btn-nav-primary:hover { background: linear-gradient(135deg, #e55a2b, #ff6b35) !important; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4); color: white !important; }
   /* Toggler visibility */
   .navbar-custom .navbar-toggler { border-color: rgba(100,116,139,0.4); }
   body.dark-theme .navbar-custom .navbar-toggler-icon { filter: invert(1); }
+  
+  
+  
+
+  
+ 
+  
+ 
+
 
     /* Hero */
     .hero-section { padding: 5rem 0 7rem; min-height: 90vh; display: flex; align-items: center; }
@@ -90,6 +121,71 @@
     .hero-title { font-size: clamp(2.5rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
     .hero-subtitle { font-size: 1.25rem; color: var(--text-secondary-light); margin-bottom: 2rem; line-height: 1.6; }
     body.dark-theme .hero-subtitle { color: var(--text-secondary-dark); }
+
+  /* Dark-mode overrides for Tailwind utility classes used in sections */
+  body.dark-theme .text-zinc-900 { color: #f8fafc !important; }
+  body.dark-theme .text-zinc-800 { color: #f1f5f9 !important; }
+  body.dark-theme .text-zinc-700 { color: #e2e8f0 !important; }
+  body.dark-theme .text-zinc-600 { color: #cbd5e1 !important; }
+  body.dark-theme .text-zinc-500 { color: #94a3b8 !important; }
+  body.dark-theme .border-zinc-200, body.dark-theme .divide-zinc-200 { border-color: #334155 !important; }
+  body.dark-theme .border-zinc-300 { border-color: #475569 !important; }
+  body.dark-theme .bg-white { background-color: var(--card-dark) !important; }
+  /* Keep small white icon bubbles subtle in dark */
+  body.dark-theme .bg-orange-50 .bg-white { background-color: rgba(255,255,255,0.08) !important; }
+  /* Light orange tint surfaces on dark */
+  body.dark-theme .bg-orange-50 { background-color: rgba(255,107,53,0.10) !important; }
+  /* Strengthen orange borders in dark for contrast */
+  body.dark-theme .border-orange-200 { border-color: rgba(255,107,53,0.35) !important; }
+  body.dark-theme .text-orange-700 { color: #ff9f6a !important; }
+  /* Outlined button variant contrast in dark */
+  body.dark-theme .text-zinc-900 { color: #f8fafc !important; }
+  /* Footer background & contrast */
+  body.dark-theme footer { background: rgba(15,23,42,0.6) !important; }
+  body.dark-theme footer a { color: #cbd5e1; }
+  body.dark-theme footer a:hover { color: #ff6b35; }
+  /* FAQ container borders */
+  body.dark-theme #faq .divide-zinc-200, body.dark-theme #faq .border-zinc-200 { border-color: #334155 !important; }
+  /* Trusted-by logo tiles */
+  body.dark-theme #trusted .border-zinc-200 { border-color: #334155 !important; }
+  body.dark-theme #trusted .text-zinc-600 { color: #cbd5e1 !important; }
+
+  /* Login card: boost label and helper text contrast in dark */
+  body.dark-theme #login .form-label { color: #f8fafc !important; }
+  body.dark-theme #login #loginSubtitle { color: #e2e8f0 !important; }
+  body.dark-theme #login .text-danger { color: #f87171 !important; }
+  body.dark-theme #login .card-title,
+  body.dark-theme #login h1,
+  body.dark-theme #login h2,
+  body.dark-theme #login h3,
+  body.dark-theme #login h4,
+  body.dark-theme #login h5,
+  body.dark-theme #login h6 { color: #f8fafc !important; }
+
+  /* Live control panel: ensure KPI and alert texts are readable */
+  body.dark-theme #liveControl #kpiOccupancy,
+  body.dark-theme #liveControl #kpiRegistered,
+  body.dark-theme #liveControl #kpiLeakage { color: #ffffff !important; }
+  body.dark-theme #liveControl #kpiOccupancyLabel,
+  body.dark-theme #liveControl #kpiRegisteredLabel,
+  body.dark-theme #liveControl #kpiLeakageLabel { color: #cbd5e1 !important; }
+  body.dark-theme #liveControl #leakAlertTitle { color: #f8fafc !important; }
+  body.dark-theme #liveControl #leakAlertDesc { color: #cbd5e1 !important; }
+  /* Override inline alert bg/border in dark */
+  body.dark-theme #liveControl .rounded-3xl[style*="background:"] { background-color: rgba(255,107,53,0.12) !important; border-color: var(--border-dark) !important; }
+  /* Ensure major card headers inside white-surfaced (now dark) cards render bright */
+  body.dark-theme .rounded-3xl.bg-white h1,
+  body.dark-theme .rounded-3xl.bg-white h2,
+  body.dark-theme .rounded-3xl.bg-white h3,
+  body.dark-theme .rounded-3xl.bg-white h4,
+  body.dark-theme .rounded-3xl.bg-white h5,
+  body.dark-theme .rounded-3xl.bg-white h6,
+  body.dark-theme .rounded-2xl.bg-white h1,
+  body.dark-theme .rounded-2xl.bg-white h2,
+  body.dark-theme .rounded-2xl.bg-white h3,
+  body.dark-theme .rounded-2xl.bg-white h4,
+  body.dark-theme .rounded-2xl.bg-white h5,
+  body.dark-theme .rounded-2xl.bg-white h6 { color: #f8fafc !important; }
 
     /* Buttons */
     .btn-hero-primary { background: var(--primary-gradient); border: none; color: white; padding: 1rem 2rem; border-radius: 0.75rem; font-weight: 600; font-size: 1rem; transition: var(--transition); box-shadow: var(--shadow-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
@@ -121,6 +217,9 @@
       .hero-title { font-size: 2.5rem; }
       .theme-toggle { top: 0.75rem; right: 0.75rem; }
     }
+  /* Dark theme for language popup */
+  body.dark-theme #langPopup .lang-popup-content { background: rgba(30,41,59,0.95) !important; color: #f1f5f9; border: 1px solid #334155; }
+  body.dark-theme #langPopup h4 { color: #f8fafc; }
   </style>
 </head>
 <body id="landingBody">
@@ -144,29 +243,50 @@
 
   <!-- Navbar -->
   <nav id="mainNav" class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top">
-    <div class="container">
+    <div class="container px-4">
       <a class="navbar-brand" href="#" id="navBrand">InnSync</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Desktop Navigation -->
+      <ul class="navbar-nav d-none d-lg-flex align-items-center gap-2 ms-auto mb-0">
+        <li class="nav-item"><a id="navProblem" class="nav-link" href="#problem" aria-label="Go to Problem section">Problem</a></li>
+        <li class="nav-item"><a id="navSolution" class="nav-link" href="#solution" aria-label="Go to Solution section">Solution</a></li>
+        <li class="nav-item"><a id="navTrusted" class="nav-link" href="#trusted" aria-label="Go to Trusted By section">Trusted</a></li>
+        <li class="nav-item"><a id="navDemo" class="nav-link" href="#demo" aria-label="Go to Demo form">Demo</a></li>
+        <li class="nav-item"><a id="navFAQ" class="nav-link" href="#faq" aria-label="Go to FAQs">FAQ</a></li>
+        <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html" aria-label="About InnSync">About</a></li>
+        <li class="nav-item ms-2"><a id="navLogin" class="btn btn-nav-primary" href="#login" aria-label="Go to Login">Login</a></li>
+        <li class="nav-item ms-2">
+          <button id="langChangeBtn" class="btn btn-outline-secondary" type="button" style="min-width:44px;" aria-label="Change language">
+            <span id="langChangeBtnLabel">🌐</span>
+          </button>
+        </li>
+      </ul>
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler d-lg-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a id="navLive" class="nav-link" href="#liveControl" aria-label="Go to Live Control Panel">Live Control</a></li>
-          <li class="nav-item"><a id="navProblem" class="nav-link" href="#problem" aria-label="Go to Problem section">Problem</a></li>
-          <li class="nav-item"><a id="navSolution" class="nav-link" href="#solution" aria-label="Go to Solution section">Solution</a></li>
-          <li class="nav-item"><a id="navTrusted" class="nav-link" href="#trusted" aria-label="Go to Trusted By section">Trusted</a></li>
-          <li class="nav-item"><a id="navDemo" class="nav-link" href="#demo" aria-label="Go to Demo form">Demo</a></li>
-          <li class="nav-item"><a id="navFAQ" class="nav-link" href="#faq" aria-label="Go to FAQs">FAQ</a></li>
-          <li class="nav-item"><a id="navAbout" class="nav-link" href="about.html" aria-label="About InnSync">About</a></li>
-          <li class="nav-item ms-3"><a id="navLogin" class="btn btn-nav-primary" href="#login" aria-label="Go to Login">Login</a></li>
-          <li class="nav-item ms-3">
-            <button id="langChangeBtn" class="btn btn-outline-secondary" type="button" style="min-width:44px;" aria-label="Change language">
-              <span id="langChangeBtnLabel">🌐</span>
+    </div>
+      
+  
+      
+      <!-- Mobile Navigation (collapsible, only visible on smaller screens) -->
+      <!-- <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-end gap-2">
+          <li class="nav-item"><a class="nav-link" href="#liveControl" aria-label="Go to Live Control Panel">Live Control</a></li>
+          <li class="nav-item"><a class="nav-link" href="#problem" aria-label="Go to Problem section">Problem</a></li>
+          <li class="nav-item"><a class="nav-link" href="#solution" aria-label="Go to Solution section">Solution</a></li>
+          <li class="nav-item"><a class="nav-link" href="#trusted" aria-label="Go to Trusted By section">Trusted</a></li>
+          <li class="nav-item"><a class="nav-link" href="#demo" aria-label="Go to Demo form">Demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq" aria-label="Go to FAQs">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html" aria-label="About InnSync">About</a></li>
+          <li class="nav-item ms-2"><a class="btn btn-nav-primary" href="#login" aria-label="Go to Login">Login</a></li>
+          <li class="nav-item ms-2">
+            <button id="langChangeBtn2" class="btn btn-outline-secondary" type="button" style="min-width:44px;" aria-label="Change language">
+              <span id="langChangeBtnLabel2">🌐</span>
             </button>
           </li>
         </ul>
-      </div>
-    </div>
+      </div> -->
+    
   </nav>
 
   <!-- Hero -->
@@ -182,9 +302,9 @@
             <a href="#liveControl" class="btn-hero-secondary px-4 py-3" id="heroCtaCall" aria-label="See the Live Control Panel">See the Live Control Panel</a>
           </div>
           <div class="d-flex align-items-center gap-3 mb-4">
-            <span class="badge bg-success bg-opacity-10 text-success fw-semibold py-2 px-3">100% Data Transparency</span>
-            <span class="badge bg-primary bg-opacity-10 text-primary fw-semibold py-2 px-3">Instant Alerts</span>
-            <span class="badge bg-warning bg-opacity-10 text-warning fw-semibold py-2 px-3">No More Revenue Leakages</span>
+            <span id="heroPill1" class="badge bg-success bg-opacity-10 text-success fw-semibold py-2 px-3">100% Data Transparency</span>
+            <span id="heroPill2" class="badge bg-primary bg-opacity-10 text-primary fw-semibold py-2 px-3">Instant Alerts</span>
+            <span id="heroPill3" class="badge bg-warning bg-opacity-10 text-warning fw-semibold py-2 px-3">No More Revenue Leakages</span>
           </div>
           <div class="mt-4">
             <small class="text-secondary-custom" id="heroTrust">Already trusted by 20+ hotels in India</small>
@@ -232,35 +352,35 @@
         <div class="col-12 col-lg-10">
           <div class="card card-login border-0 p-4 p-md-5 shadow-lg">
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-              <h3 class="fw-bold mb-0">Live Control Panel</h3>
+              <h3 id="liveTitle" class="fw-bold mb-0">Live Control Panel</h3>
               <span class="badge booked" id="liveControlStatus">Demo</span>
             </div>
-            <div class="row g-3 g-md-4 text-center">
-              <div class="col-12 col-md-4">
-                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="row text-center" style="flex-wrap:nowrap; gap:8px;">
+              <div class="col-4">
+                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center" style="padding:0.9rem;">
                   <div class="mb-2 d-flex justify-content-center" aria-hidden="true">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 21h18" stroke="#ff6b35" stroke-width="1.5"/><path d="M19 21V8l-7-5-7 5v13" stroke="#ff6b35" stroke-width="1.5"/></svg>
                   </div>
-                  <div class="display-6 fw-bold" id="kpiOccupancy">92%</div>
-                  <div class="small text-secondary-custom">Occupancy</div>
+                  <div class="fs-4 fw-bold" id="kpiOccupancy">92%</div>
+                  <div id="kpiOccupancyLabel" class="small text-secondary-custom">Occupancy</div>
                 </div>
               </div>
-              <div class="col-12 col-md-4">
-                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center">
+              <div class="col-4">
+                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center" style="padding:0.9rem;">
                   <div class="mb-2 d-flex justify-content-center" aria-hidden="true">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-8a5 5 0 0 0-10 0v8" stroke="#ff6b35" stroke-width="1.5"/><circle cx="12" cy="7" r="4" stroke="#ff6b35" stroke-width="1.5"/></svg>
                   </div>
-                  <div class="display-6 fw-bold" id="kpiRegistered">88%</div>
-                  <div class="small text-secondary-custom">Registered</div>
+                  <div class="fs-4 fw-bold" id="kpiRegistered">88%</div>
+                  <div id="kpiRegisteredLabel" class="small text-secondary-custom">Registered</div>
                 </div>
               </div>
-              <div class="col-12 col-md-4">
-                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center">
+              <div class="col-4">
+                <div class="feature-mini h-100 d-flex flex-column align-items-center justify-content-center" style="padding:0.9rem;">
                   <div class="mb-2 d-flex justify-content-center" aria-hidden="true">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#ff6b35" stroke-width="1.5"/><path d="M3 9h18" stroke="#ff6b35" stroke-width="1.5"/></svg>
                   </div>
-                  <div class="display-6 fw-bold" id="kpiLeakage">4%</div>
-                  <div class="small text-secondary-custom">Leakage</div>
+                  <div class="fs-4 fw-bold" id="kpiLeakage">4%</div>
+                  <div id="kpiLeakageLabel" class="small text-secondary-custom">Leakage</div>
                 </div>
               </div>
             </div>
@@ -268,7 +388,7 @@
               <div class="fw-semibold" id="leakAlertTitle">Leak Alert: 2 rooms occupied but not booked</div>
               <div class="small text-secondary-custom" id="leakAlertDesc">IoT sensors flagged Room 204, 311 • Action needed</div>
             </div>
-            <ul class="mt-3 mb-0 text-secondary-custom small" style="list-style:none; padding-left:0;">
+            <ul id="liveBullets" class="mt-3 mb-0 text-secondary-custom small" style="list-style:none; padding-left:0;">
               <li class="d-flex align-items-center gap-2"><span aria-hidden="true">✅</span> IoT sensors detect unregistered bookings</li>
               <li class="d-flex align-items-center gap-2"><span aria-hidden="true">✅</span> Integrations with all major OTA platforms</li>
               <li class="d-flex align-items-center gap-2"><span aria-hidden="true">✅</span> Intuitive dashboards for owners & managers</li>
@@ -283,30 +403,30 @@
   <section id="problem" class="mx-auto max-w-6xl px-4 py-12">
     <div class="grid items-center gap-8 md:grid-cols-2">
       <div>
-        <h2 class="text-2xl font-extrabold md:text-3xl">The Problem</h2>
-        <p class="mt-3 text-zinc-700">
+        <h2 id="problemTitle" class="text-2xl font-extrabold md:text-3xl">The Problem</h2>
+        <p id="problemText" class="mt-3 text-zinc-700">
           Full rooms, empty records. Walk-ins with no trace. Manual updates that never happen. Without real visibility, 10%+ of revenue disappears into thin air.
         </p>
         <ul class="mt-6 grid gap-3 text-zinc-800">
-          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> Rooms occupied but not recorded</li>
-          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> Untracked walk-ins and staff errors</li>
-          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> Dashboards that don’t match reality</li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> <span id="problemPoint1">Rooms occupied but not recorded</span></li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> <span id="problemPoint2">Untracked walk-ins and staff errors</span></li>
+          <li class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-orange-600"></span> <span id="problemPoint3">Dashboards that don’t match reality</span></li>
         </ul>
       </div>
       <div class="rounded-3xl border border-orange-200 bg-white p-6 shadow-lg">
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-orange-600">Monthly Risk Snapshot</h3>
+  <h3 id="riskTitle" class="text-sm font-semibold uppercase tracking-wider text-orange-600">Monthly Risk Snapshot</h3>
         <div class="mt-4 grid grid-cols-3 gap-4 text-center">
           <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
             <div class="text-lg font-extrabold">80</div>
-            <div class="text-xs text-zinc-500">Unrecorded Nights</div>
+            <div id="riskLabel1" class="text-xs text-zinc-500">Unrecorded Nights</div>
           </div>
           <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
             <div class="text-lg font-extrabold">₹3,20,000</div>
-            <div class="text-xs text-zinc-500">Monthly Loss</div>
+            <div id="riskLabel2" class="text-xs text-zinc-500">Monthly Loss</div>
           </div>
           <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
             <div class="text-lg font-extrabold">10%</div>
-            <div class="text-xs text-zinc-500">Occupancy Gap</div>
+            <div id="riskLabel3" class="text-xs text-zinc-500">Occupancy Gap</div>
           </div>
         </div>
       </div>
@@ -315,68 +435,128 @@
 
   <!-- Solution (from reference.html) -->
   <section id="solution" class="mx-auto max-w-6xl px-4 py-12">
-    <h2 class="text-center text-2xl font-extrabold md:text-3xl">How InnSync Stops the Leak</h2>
-    <p class="mx-auto mt-3 max-w-2xl text-center text-zinc-700">Every booking counted. Real-time control. Seamless operations.</p>
+    <h2 id="solutionTitle" class="text-center text-2xl font-extrabold md:text-3xl">How InnSync Stops the Leak</h2>
+    <p id="solutionTagline" class="mx-auto mt-3 max-w-2xl text-center text-zinc-700">Every booking counted. Real-time control. Seamless operations.</p>
 
     <div class="mt-10 grid gap-6 md:grid-cols-3">
       <div class="group rounded-3xl border border-orange-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
         <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-700">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 7h10v10H7z"/></svg>
         </div>
-        <div class="text-lg font-semibold">IoT Occupancy Sensors</div>
-        <p class="mt-1 text-sm text-zinc-600">Detect unregistered stays instantly—no cameras, no PII. If a room is used but not booked, you’ll know.</p>
+  <div id="solCard1Title" class="text-lg font-semibold">IoT Occupancy Sensors</div>
+  <p id="solCard1Desc" class="mt-1 text-sm text-zinc-600">Detect unregistered stays instantly—no cameras, no PII. If a room is used but not booked, you’ll know.</p>
       </div>
       <div class="group rounded-3xl border border-orange-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
         <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-700">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 12h16M12 4v16"/></svg>
         </div>
-        <div class="text-lg font-semibold">All OTA Integrations</div>
-        <p class="mt-1 text-sm text-zinc-600">Sync reservations across OYO, Booking.com, MakeMyTrip, Agoda, Airbnb & more—no manual entry.</p>
+  <div id="solCard2Title" class="text-lg font-semibold">All OTA Integrations</div>
+  <p id="solCard2Desc" class="mt-1 text-sm text-zinc-600">Sync reservations across OYO, Booking.com, MakeMyTrip, Agoda, Airbnb & more—no manual entry.</p>
       </div>
       <div class="group rounded-3xl border border-orange-200 bg-white p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
         <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-700">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3h18v14H3z"/><path d="M3 17h18"/></svg>
         </div>
-        <div class="text-lg font-semibold">Intuitive Dashboards</div>
-        <p class="mt-1 text-sm text-zinc-600">Live occupancy, revenue, and discrepancies for owners & managers. Make decisions with confidence.</p>
+  <div id="solCard3Title" class="text-lg font-semibold">Intuitive Dashboards</div>
+  <p id="solCard3Desc" class="mt-1 text-sm text-zinc-600">Live occupancy, revenue, and discrepancies for owners & managers. Make decisions with confidence.</p>
       </div>
     </div>
 
     <div class="mt-10 flex flex-col items-center justify-center gap-4 rounded-3xl border border-orange-200 bg-white p-6 text-center shadow-lg">
-      <div class="text-sm font-semibold uppercase tracking-wider text-orange-600">Pricing</div>
-      <div class="text-3xl font-black">Grow revenue by 10%+ for just <span class="text-orange-600">₹150/month</span></div>
-      <div class="text-sm text-zinc-600">Flat, transparent, no hidden charges.</div>
+  <div id="pricingTitle" class="text-sm font-semibold uppercase tracking-wider text-orange-600">Pricing</div>
+  <div id="pricingHeadline" class="text-3xl font-black">Grow revenue by 10%+ for just <span class="text-orange-600">₹150/month</span></div>
+  <div id="pricingSub" class="text-sm text-zinc-600">Flat, transparent, no hidden charges.</div>
       <div class="mt-2 flex flex-wrap items-center justify-center gap-3">
-        <span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">No long contracts</span>
-        <span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">Easy install</span>
-        <span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">24×7 support</span>
+  <span id="pricingTag1" class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">No long contracts</span>
+  <span id="pricingTag2" class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">Easy install</span>
+  <span id="pricingTag3" class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700">24×7 support</span>
       </div>
       <div class="mt-4 flex flex-col gap-3 sm:flex-row">
-        <a href="tel:+918791011880" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-6 py-3 font-semibold text-white shadow hover:bg-orange-700">
+        <a id="pricingCallNowBtn" href="tel:+918791011880" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-6 py-3 font-semibold text-white shadow hover:bg-orange-700">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.1 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9.1 10.9a16 16 0 0 0 4 4l1.57-1.06a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now
+          <span id="pricingCallNowText">Call Now</span>
         </a>
-        <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-zinc-300 bg-white px-6 py-3 font-semibold text-zinc-900 shadow hover:border-zinc-400">
-          Book a Free Demo
+        <a id="pricingBookDemoBtn" href="#demo" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-zinc-300 bg-white px-6 py-3 font-semibold text-zinc-900 shadow hover:border-zinc-400">
+          <span id="pricingBookDemoText">Book a Free Demo</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA Banner (from reference.html) -->
-  <section class="mx-auto max-w-6xl px-4 py-12">
-    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 to-orange-600 p-8 text-white shadow-lg">
-      <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10"></div>
-      <h3 class="text-2xl font-extrabold md:text-3xl">Stop revenue leakage. Start compounding profits.</h3>
-      <p class="mt-2 text-white/90">InnSync makes sure your records match reality—every single day.</p>
-      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-        <a href="tel:+918791011880" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold text-orange-700 shadow hover:bg-white/90">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.1 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9.1 10.9a16 16 0 0 0 4 4l1.57-1.06a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now: +91 8791011880
-        </a>
-        <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 px-6 py-3 font-semibold text-white hover:bg-white/10">
-          Book a Free Demo
-        </a>
+  <!-- Trust & Features combined -->
+  <section class="mx-auto max-w-6xl px-4 py-12" aria-labelledby="trustFeaturesTitle">
+    <div class="rounded-3xl border border-orange-200 bg-white p-6 shadow-lg">
+      <div class="flex flex-col gap-8 lg:flex-row">
+        <!-- Trust & compliance badges -->
+        <div class="w-full lg:w-1/2">
+          <h3 id="trustFeaturesTitle" class="text-2xl font-extrabold md:text-3xl">Built for trust. Designed for results.</h3>
+          <p id="trustFeaturesSubtitle" class="mt-2 text-sm text-zinc-600">Operational integrity baked in — security, accountability, and uptime that hotels can rely on.</p>
+          <div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div class="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white p-3">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 1l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V5l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <div>
+                <div id="trustItem1Title" class="text-sm font-semibold">End‑to‑end encryption</div>
+                <div id="trustItem1Desc" class="text-xs text-zinc-500">In transit and at rest</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white p-3">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+              </span>
+              <div>
+                <div id="trustItem2Title" class="text-sm font-semibold">Owner‑first visibility</div>
+                <div id="trustItem2Desc" class="text-xs text-zinc-500">Every room, every day</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white p-3">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              </span>
+              <div>
+                <div id="trustItem3Title" class="text-sm font-semibold">99.9% uptime</div>
+                <div id="trustItem3Desc" class="text-xs text-zinc-500">Monitored 24×7</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white p-3">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-orange-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6"/></svg>
+              </span>
+              <div>
+                <div id="trustItem4Title" class="text-sm font-semibold">Audit logs</div>
+                <div id="trustItem4Desc" class="text-xs text-zinc-500">Full trail of changes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature trio -->
+        <div class="w-full lg:w-1/2">
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-orange-200 bg-orange-50 p-4 text-center">
+              <div class="mx-auto mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white text-orange-700 shadow">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+              </div>
+              <div id="ftTrio1Title" class="text-sm font-bold">Leak alerts <span class="text-orange-700">under 60s</span></div>
+              <div id="ftTrio1Desc" class="mt-1 text-xs text-zinc-600">From sensor to phone</div>
+            </div>
+            <div class="rounded-2xl border border-orange-200 bg-orange-50 p-4 text-center">
+              <div class="mx-auto mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white text-orange-700 shadow">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19h16V5H4z"/><path d="M8 9h8M8 13h5"/></svg>
+              </div>
+              <div id="ftTrio2Title" class="text-sm font-bold"><span class="text-orange-700">100%</span> audit trail</div>
+              <div id="ftTrio2Desc" class="mt-1 text-xs text-zinc-600">Every change recorded</div>
+            </div>
+            <div class="rounded-2xl border border-orange-200 bg-orange-50 p-4 text-center">
+              <div class="mx-auto mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white text-orange-700 shadow">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18"/><path d="M7 8h10M7 16h10"/></svg>
+              </div>
+              <div id="ftTrio3Title" class="text-sm font-bold">Auto‑reconciliation</div>
+              <div id="ftTrio3Desc" class="mt-1 text-xs text-zinc-600">Daily OTA cross‑checks</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -384,14 +564,30 @@
   <!-- Trusted By (from reference.html) -->
   <section id="trusted" class="mx-auto max-w-6xl px-4 py-12">
     <div class="text-center">
-      <h2 class="text-2xl font-extrabold md:text-3xl">Trusted By</h2>
-      <p class="mt-2 text-zinc-600">Leading hospitality brands rely on InnSync</p>
+      <h2 id="trustedTitle" class="text-2xl font-extrabold md:text-3xl">Trusted By</h2>
+      <p id="trustedSubtitle" class="mt-2 text-zinc-600">Leading hospitality brands rely on InnSync</p>
     </div>
+    <!-- Logo image sources via Wikimedia Commons (licenses vary; trademarks belong to their owners) -->
     <div class="mt-8 grid grid-cols-2 items-center justify-center gap-6 sm:grid-cols-4">
-      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">OYO</div>
-      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">FabHotels</div>
-      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">Treebo</div>
-      <div class="flex h-20 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-lg font-bold text-zinc-500 shadow-sm">Hosteller</div>
+      <div class="flex h-24 flex-col items-center justify-center gap-1 rounded-2xl border border-zinc-200 bg-white shadow-sm">
+        <img alt="OYO logo" class="h-8 w-auto opacity-90" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/OYO_Rooms_logo.png">
+        <div class="text-xs font-medium text-zinc-600">OYO</div>
+      </div>
+      <div class="flex h-24 flex-col items-center justify-center gap-1 rounded-2xl border border-zinc-200 bg-white shadow-sm">
+        <img alt="FabHotels logo" class="h-8 w-auto opacity-90" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fabhotels_Logo.png">
+        <div class="text-xs font-medium text-zinc-600">FabHotels</div>
+      </div>
+      <div class="flex h-24 flex-col items-center justify-center gap-1 rounded-2xl border border-zinc-200 bg-white shadow-sm">
+        <img alt="Treebo logo" class="h-8 w-auto opacity-90" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Treebo_Logo_-_Vertical.png">
+        <div class="text-xs font-medium text-zinc-600">Treebo</div>
+      </div>
+      <div class="flex h-24 flex-col items-center justify-center gap-1 rounded-2xl border border-zinc-200 bg-white shadow-sm">
+        <!-- No freely-licensed Hosteller logo found on Commons; using text-only fallback -->
+        <svg aria-hidden="true" class="h-8 w-8 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M3 21h18" stroke-width="1.5"/><path d="M19 21V8l-7-5-7 5v13" stroke-width="1.5"/>
+        </svg>
+        <div class="text-xs font-medium text-zinc-600">The Hosteller</div>
+      </div>
     </div>
   </section>
 
@@ -399,25 +595,25 @@
   <section id="demo" class="mx-auto max-w-6xl px-4 py-12">
     <div class="grid gap-8 md:grid-cols-2">
       <div class="rounded-3xl border border-orange-200 bg-white p-6 shadow-lg">
-        <h3 class="text-xl font-bold">Book a Free Demo</h3>
-        <p class="mt-1 text-sm text-zinc-600">Tell us a bit about your property and we’ll show you how InnSync pays for itself.</p>
+        <h3 id="demoTitle" class="text-xl font-bold">Book a Free Demo</h3>
+        <p id="demoSubtitle" class="mt-1 text-sm text-zinc-600">Tell us a bit about your property and we’ll show you how InnSync pays for itself.</p>
         <form id="demoFormRef" class="mt-6 grid gap-4">
           <div>
-            <label class="text-sm font-medium">Your Name</label>
+            <label id="demoLabelName" class="text-sm font-medium">Your Name</label>
             <input name="name" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 outline-none ring-orange-200 focus:ring" placeholder="e.g., Rahul Verma">
           </div>
           <div>
-            <label class="text-sm font-medium">Phone</label>
+            <label id="demoLabelPhone" class="text-sm font-medium">Phone</label>
             <input name="phone" required class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 outline-none ring-orange-200 focus:ring" placeholder="e.g., 98765 43210">
           </div>
           <div>
-            <label class="text-sm font-medium">Hotel / Property Name</label>
+            <label id="demoLabelHotel" class="text-sm font-medium">Hotel / Property Name</label>
             <input name="hotel" class="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 outline-none ring-orange-200 focus:ring" placeholder="e.g., Sunrise Residency">
           </div>
-          <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-700">
-            Request Demo
+          <button id="demoSubmitBtn" type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-700">
+            <span id="demoSubmitText">Request Demo</span>
           </button>
-          <p class="text-xs text-zinc-500">Or call us directly at <a href="tel:+918791011880" class="font-medium text-orange-700 hover:underline">+91 8791011880</a></p>
+          <p id="demoOrCall" class="text-xs text-zinc-500">Or call us directly at <a href="tel:+918791011880" class="font-medium text-orange-700 hover:underline">+91 8791011880</a></p>
         </form>
       </div>
       <div class="flex flex-col justify-center">
@@ -432,64 +628,108 @@
 
   <!-- FAQ (from reference.html) -->
   <section id="faq" class="mx-auto max-w-6xl px-4 py-12">
-    <h2 class="text-center text-2xl font-extrabold md:text-3xl">FAQs</h2>
+    <h2 id="faqTitle" class="text-center text-2xl font-extrabold md:text-3xl">FAQs</h2>
     <div class="mx-auto mt-6 max-w-3xl divide-y divide-zinc-200 rounded-2xl border border-zinc-200 bg-white">
       <div class="px-5 py-4">
         <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
-          <span>Will IoT sensors invade guest privacy?</span>
+          <span id="faqQ1">Will IoT sensors invade guest privacy?</span>
           <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
         </button>
-        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">No. Our sensors only detect presence to measure occupancy—no images, audio, or personal data are captured.</p>
+        <p id="faqA1" class="faq-answer mt-2 hidden text-sm text-zinc-600">No. Our sensors only detect presence to measure occupancy—no images, audio, or personal data are captured.</p>
       </div>
       <div class="px-5 py-4">
         <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
-          <span>What if we don’t use major OTAs?</span>
+          <span id="faqQ2">What if we don’t use major OTAs?</span>
           <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
         </button>
-        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">InnSync supports manual entries and PMS sync. You’ll still get full visibility on walk-ins and offline bookings.</p>
+        <p id="faqA2" class="faq-answer mt-2 hidden text-sm text-zinc-600">InnSync supports manual entries and PMS sync. You’ll still get full visibility on walk-ins and offline bookings.</p>
       </div>
       <div class="px-5 py-4">
         <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
-          <span>Is ₹150/month the only cost?</span>
+          <span id="faqQ3">Is ₹150/month the only cost?</span>
           <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
         </button>
-        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">Yes. A simple, transparent plan—no setup fees, no hidden charges.</p>
+        <p id="faqA3" class="faq-answer mt-2 hidden text-sm text-zinc-600">Yes. A simple, transparent plan—no setup fees, no hidden charges.</p>
       </div>
       <div class="px-5 py-4">
         <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
-          <span>Will my team need training?</span>
+          <span id="faqQ4">Will my team need training?</span>
           <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
         </button>
-        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">InnSync’s UI is designed to be intuitive. Most teams are comfortable within a day.</p>
+        <p id="faqA4" class="faq-answer mt-2 hidden text-sm text-zinc-600">InnSync’s UI is designed to be intuitive. Most teams are comfortable within a day.</p>
       </div>
       <div class="px-5 py-4">
         <button class="faq-toggle flex w-full items-center justify-between text-left font-semibold">
-          <span>How quickly can we see results?</span>
+          <span id="faqQ5">How quickly can we see results?</span>
           <span class="faq-indicator ml-3 inline-flex h-6 w-6 items-center justify-content-center rounded-full border border-zinc-300 text-zinc-600">+</span>
         </button>
-        <p class="faq-answer mt-2 hidden text-sm text-zinc-600">Many properties see leakage reduced within the first month of use.</p>
+        <p id="faqA5" class="faq-answer mt-2 hidden text-sm text-zinc-600">Many properties see leakage reduced within the first month of use.</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer (from reference.html) -->
+  <!-- Footer -->
   <footer class="border-t border-orange-200 bg-white/70">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 md:flex-row">
+    <div class="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <div>
-        <div class="text-lg font-bold">InnSync</div>
-        <div class="text-sm text-zinc-600">Recover hidden revenue. Control your operations.</div>
+        <div class="text-lg font-extrabold tracking-tight">InnSync</div>
+        <p id="footerBrandDesc" class="mt-2 text-sm text-zinc-600">Stop revenue leakages with IoT-verified occupancy and instant alerts.</p>
       </div>
-      <div class="flex items-center gap-3">
-        <a href="tel:+918791011880" class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-zinc-800">Call Now</a>
-        <a href="#demo" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-700">Book Demo</a>
+      <div>
+        <div id="footerQuickLinks" class="text-sm font-semibold text-zinc-800">Quick links</div>
+        <ul class="mt-3 space-y-2 text-sm text-zinc-600">
+          <li><a id="footerLinkLive" class="hover:text-orange-600" href="#liveControl">Live Control</a></li>
+          <li><a id="footerLinkProblem" class="hover:text-orange-600" href="#problem">Problem</a></li>
+          <li><a id="footerLinkSolution" class="hover:text-orange-600" href="#solution">Solution</a></li>
+          <li><a id="footerLinkDemo" class="hover:text-orange-600" href="#demo">Demo</a></li>
+          <li><a id="footerLinkFAQ" class="hover:text-orange-600" href="#faq">FAQ</a></li>
+          <li><a id="footerLinkAbout" class="hover:text-orange-600" href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <div id="footerResources" class="text-sm font-semibold text-zinc-800">Resources</div>
+        <ul class="mt-3 space-y-2 text-sm text-zinc-600">
+          <li><a id="footerResOwner" class="hover:text-orange-600" href="owner.html">Owner Dashboard</a></li>
+          <li><a id="footerResManager" class="hover:text-orange-600" href="manager.html">Manager Portal</a></li>
+          <li><a id="footerResSensors" class="hover:text-orange-600" href="sensors.html">Sensors</a></li>
+          <li><a id="footerResReference" class="hover:text-orange-600" href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+      <div>
+        <div id="footerContact" class="text-sm font-semibold text-zinc-800">Contact</div>
+        <ul class="mt-3 space-y-2 text-sm text-zinc-600">
+          <li><a class="hover:text-orange-600" href="tel:+918791011880">+91 87910 11880</a></li>
+          <li class="flex items-center gap-3 pt-1">
+            <a class="text-zinc-600 hover:text-orange-600" href="#" aria-label="LinkedIn" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.85-2.05 3.8-2.05 4.07 0 4.82 2.68 4.82 6.17V23h-4v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.69-2.5 3.43V23h-4V8.5z"/></svg>
+            </a>
+            <a class="text-zinc-600 hover:text-orange-600" href="#" aria-label="Twitter" title="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.56 8.56 0 0 1-2.72 1.04 4.27 4.27 0 0 0-7.27 3.89A12.11 12.11 0 0 1 3.15 4.6a4.27 4.27 0 0 0 1.32 5.7 4.23 4.23 0 0 1-1.93-.54v.05a4.27 4.27 0 0 0 3.42 4.18c-.47.13-.97.2-1.48.2-.36 0-.71-.03-1.05-.1a4.27 4.27 0 0 0 3.99 2.96A8.56 8.56 0 0 1 2 19.54 12.07 12.07 0 0 0 8.56 21.5c7.27 0 11.25-6.02 11.25-11.25 0-.17 0-.35-.01-.52A8.03 8.03 0 0 0 22.46 6z"/></svg>
+            </a>
+            <a class="text-zinc-600 hover:text-orange-600" href="#" aria-label="YouTube" title="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.8.6 9.3.6 9.3.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-orange-100">
+      <div class="mx-auto max-w-6xl px-4 py-4 text-xs text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <span id="footerCopyright">© 2025 InnSync. All rights reserved.</span>
+        <div class="flex gap-4">
+          <a id="footerBottomAbout" class="hover:text-orange-600" href="about.html">About</a>
+          <a id="footerBottomSecurity" class="hover:text-orange-600" href="security.txt">Security</a>
+          <a id="footerBottomRobots" class="hover:text-orange-600" href="robots.txt">Robots</a>
+          <a id="footerBottomSitemap" class="hover:text-orange-600" href="sitemap.xml">Sitemap</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- Floating Call Now (mobile) -->
-  <a href="tel:+918791011880" class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-orange-600 px-5 py-3 font-semibold text-white shadow-2xl md:hidden">
+  <a id="floatingCallBtn" href="tel:+918791011880" class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-orange-600 px-5 py-3 font-semibold text-white shadow-2xl md:hidden">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.1 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9.1 10.9a16 16 0 0 0 4 4l1.57-1.06a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
-    Call Now
+    <span id="floatingCallNowText">Call Now</span>
   </a>
 
 
@@ -499,28 +739,159 @@
   <script type="module">
     import { apiLogin } from './js/api.js';
 
-    // Language change button label
+    // Language change buttons (desktop + mobile)
+    const langLabels = { en: 'EN', hi: 'हि', kn: 'ಕ', mr: 'म' };
     const langChangeBtn = document.getElementById('langChangeBtn');
-    if (langChangeBtn) {
-      langChangeBtn.onclick = function() { langPopup.style.display = 'flex'; };
-      const lang = localStorage.getItem('innsync_lang') || 'en';
-      const langLabels = { en: 'EN', hi: 'हि', kn: 'ಕ', mr: 'म' };
-      document.getElementById('langChangeBtnLabel').textContent = langLabels[lang] || '🌐';
-    }
+    const langChangeBtn2 = document.getElementById('langChangeBtn2');
+    const setLangBadge = (lang) => {
+      const t = langLabels[lang] || '🌐';
+      const el1 = document.getElementById('langChangeBtnLabel'); if (el1) el1.textContent = t;
+      const el2 = document.getElementById('langChangeBtnLabel2'); if (el2) el2.textContent = t;
+    };
+    [langChangeBtn, langChangeBtn2].forEach(btn => {
+      if (btn) {
+        btn.onclick = function() { langPopup.style.display = 'flex'; };
+      }
+    });
+    setLangBadge(localStorage.getItem('innsync_lang') || 'en');
 
     // Language popup and dynamic content
     const langPopup = document.getElementById('langPopup');
-    const langBtns = langPopup.querySelectorAll('button[data-lang]');
+  const langBtns = langPopup.querySelectorAll('button[data-lang]');
     const defaultLang = localStorage.getItem('innsync_lang') || 'en';
 
     function updateLandingContent(lang) {
       const c = window.languageContent[lang] || window.languageContent['en'];
+      const setText = (id, val) => { const el = document.getElementById(id); if (el && val != null) el.textContent = val; };
+      // Navbar
+      setText('navProblem', c.nav_problem);
+      setText('navSolution', c.nav_solution);
+      setText('navTrusted', c.nav_trusted);
+      setText('navDemo', c.nav_demo);
+      setText('navFAQ', c.nav_faq);
+      setText('navAbout', c.nav_about);
+      setText('navLogin', c.nav_login);
+      // Popup title
+      setText('langPopupTitle', c.lang_popup_title);
       // Hero
       const title = document.querySelector('.hero-title'); if (title) title.textContent = c.hero_title;
-      const subtitle = document.getElementById('heroSubtitle'); if (subtitle) subtitle.textContent = c.hero_subtitle;
-      const badge = document.getElementById('heroBadge'); if (badge) badge.textContent = c.trust_heading || '';
-      const ctaDemo = document.getElementById('heroCtaDemo'); if (ctaDemo) { ctaDemo.textContent = c.cta_demo_label; ctaDemo.setAttribute('aria-label', c.cta_demo_label); }
-      const ctaCall = document.getElementById('heroCtaCall'); if (ctaCall) { ctaCall.textContent = c.cta_call_label || 'See the Live Control Panel'; ctaCall.setAttribute('aria-label', c.cta_call_label || 'See the Live Control Panel'); }
+      setText('heroSubtitle', c.hero_subtitle);
+      setText('heroBadge', c.hero_badge);
+      setText('heroPill1', c.hero_pill1);
+      setText('heroPill2', c.hero_pill2);
+      setText('heroPill3', c.hero_pill3);
+      setText('heroTrust', c.hero_trust);
+      const ctaDemo = document.getElementById('heroCtaDemo'); if (ctaDemo && c.cta_demo_label) { ctaDemo.textContent = c.cta_demo_label; ctaDemo.setAttribute('aria-label', c.cta_demo_label); }
+      const ctaCall = document.getElementById('heroCtaCall'); if (ctaCall && c.cta_call_label) { ctaCall.textContent = c.cta_call_label; ctaCall.setAttribute('aria-label', c.cta_call_label); }
+      // Live Control
+      setText('liveTitle', c.live_title);
+      setText('liveControlStatus', c.live_status_demo);
+      setText('kpiOccupancyLabel', c.live_kpi_occupancy);
+      setText('kpiRegisteredLabel', c.live_kpi_registered);
+      setText('kpiLeakageLabel', c.live_kpi_leakage);
+      setText('leakAlertTitle', c.live_alert_title);
+      setText('leakAlertDesc', c.live_alert_desc);
+      const liveBullets = document.getElementById('liveBullets');
+      if (liveBullets && c.live_bullets) {
+        liveBullets.innerHTML = '';
+        c.live_bullets.forEach(txt => {
+          const li = document.createElement('li'); li.className = 'd-flex align-items-center gap-2';
+          const icon = document.createElement('span'); icon.setAttribute('aria-hidden','true'); icon.textContent = '✅';
+          li.appendChild(icon); li.appendChild(document.createTextNode(' ' + txt));
+          liveBullets.appendChild(li);
+        });
+      }
+      // Problem
+      setText('problemTitle', c.problem_title);
+      setText('problemText', c.problem_text);
+      setText('problemPoint1', c.problem_point1);
+      setText('problemPoint2', c.problem_point2);
+      setText('problemPoint3', c.problem_point3);
+      setText('riskTitle', c.risk_title);
+      setText('riskLabel1', c.risk_label1);
+      setText('riskLabel2', c.risk_label2);
+      setText('riskLabel3', c.risk_label3);
+      // Solution
+      setText('solutionTitle', c.solution_title);
+      setText('solutionTagline', c.solution_tagline);
+      setText('solCard1Title', c.sol_card1_title);
+      setText('solCard1Desc', c.sol_card1_desc);
+      setText('solCard2Title', c.sol_card2_title);
+      setText('solCard2Desc', c.sol_card2_desc);
+      setText('solCard3Title', c.sol_card3_title);
+      setText('solCard3Desc', c.sol_card3_desc);
+      setText('pricingTitle', c.pricing_title);
+      setText('pricingHeadline', c.pricing_headline);
+      setText('pricingSub', c.pricing_sub);
+      setText('pricingTag1', c.pricing_tag1);
+      setText('pricingTag2', c.pricing_tag2);
+      setText('pricingTag3', c.pricing_tag3);
+      setText('pricingCallNowText', c.call_now_btn);
+      setText('pricingBookDemoText', c.pricing_demo_btn);
+      // Trust & features
+      setText('trustFeaturesTitle', c.trust_title);
+      setText('trustFeaturesSubtitle', c.trust_subtitle);
+      setText('trustItem1Title', c.trust_item1_title);
+      setText('trustItem1Desc', c.trust_item1_desc);
+      setText('trustItem2Title', c.trust_item2_title);
+      setText('trustItem2Desc', c.trust_item2_desc);
+      setText('trustItem3Title', c.trust_item3_title);
+      setText('trustItem3Desc', c.trust_item3_desc);
+      setText('trustItem4Title', c.trust_item4_title);
+      setText('trustItem4Desc', c.trust_item4_desc);
+      setText('ftTrio1Title', c.ft_trio1_title);
+      setText('ftTrio1Desc', c.ft_trio1_desc);
+      setText('ftTrio2Title', c.ft_trio2_title);
+      setText('ftTrio2Desc', c.ft_trio2_desc);
+      setText('ftTrio3Title', c.ft_trio3_title);
+      setText('ftTrio3Desc', c.ft_trio3_desc);
+      // Trusted By
+      setText('trustedTitle', c.trusted_title);
+      setText('trustedSubtitle', c.trusted_subtitle);
+      // Demo
+      setText('demoTitle', c.demo_title);
+      setText('demoSubtitle', c.demo_subtitle);
+      setText('demoLabelName', c.demo_name_label);
+      setText('demoLabelPhone', c.demo_phone_label);
+      setText('demoLabelHotel', c.demo_hotel_label);
+      setText('demoSubmitText', c.demo_submit_label);
+      const demoOrCall = document.getElementById('demoOrCall');
+      if (demoOrCall && c.demo_or_call_text) {
+        const num = '+91 8791011880';
+        demoOrCall.innerHTML = `${c.demo_or_call_text} <a href="tel:+918791011880" class="font-medium text-orange-700 hover:underline">${num}</a>`;
+      }
+      // FAQ
+      setText('faqTitle', c.faq_title);
+      setText('faqQ1', c.faq_q1);
+      setText('faqA1', c.faq_a1);
+      setText('faqQ2', c.faq_q2);
+      setText('faqA2', c.faq_a2);
+      setText('faqQ3', c.faq_q3);
+      setText('faqA3', c.faq_a3);
+      setText('faqQ4', c.faq_q4);
+      setText('faqA4', c.faq_a4);
+      setText('faqQ5', c.faq_q5);
+      setText('faqA5', c.faq_a5);
+      // Footer
+      setText('footerBrandDesc', c.footer_brand_desc);
+      setText('footerQuickLinks', c.footer_quick_links);
+      setText('footerResources', c.footer_resources);
+      setText('footerContact', c.footer_contact);
+      setText('footerLinkLive', c.nav_live_control || c.nav_live || 'Live Control');
+      setText('footerLinkProblem', c.nav_problem);
+      setText('footerLinkSolution', c.nav_solution);
+      setText('footerLinkDemo', c.nav_demo);
+      setText('footerLinkFAQ', c.nav_faq);
+      setText('footerLinkAbout', c.nav_about);
+      setText('footerResOwner', c.footer_res_owner);
+      setText('footerResManager', c.footer_res_manager);
+      setText('footerResSensors', c.footer_res_sensors);
+      setText('footerResReference', c.footer_res_reference);
+      setText('footerBottomAbout', c.nav_about);
+      setText('footerBottomSecurity', c.footer_bottom_security);
+      setText('footerBottomRobots', c.footer_bottom_robots);
+      setText('footerBottomSitemap', c.footer_bottom_sitemap);
+      setText('floatingCallNowText', c.call_now_btn);
     }
 
     if (!localStorage.getItem('innsync_lang')) {
@@ -535,7 +906,8 @@
         const lang = btn.getAttribute('data-lang');
         localStorage.setItem('innsync_lang', lang);
         langPopup.style.display = 'none';
-        updateLandingContent(lang);
+  updateLandingContent(lang);
+  setLangBadge(lang);
       };
     });
 
@@ -544,13 +916,19 @@
     const body = document.getElementById('landingBody');
     const themeIcon = document.getElementById('themeIcon');
     const savedTheme = localStorage.getItem('innsync-theme');
-    if (savedTheme === 'dark') { body.classList.add('dark-theme'); themeIcon.textContent = '🌙'; }
+    const applyTheme = (mode) => {
+      const isDark = mode === 'dark';
+      body.classList.toggle('dark-theme', isDark);
+      themeIcon.textContent = isDark ? '🌙' : '☀️';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+    };
+    applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
     themeToggle.addEventListener('click', () => {
+      const isDark = body.classList.contains('dark-theme');
+      const next = isDark ? 'light' : 'dark';
       requestAnimationFrame(() => {
-        body.classList.toggle('dark-theme');
-        const isDark = body.classList.contains('dark-theme');
-        themeIcon.textContent = isDark ? '🌙' : '☀️';
-        localStorage.setItem('innsync-theme', isDark ? 'dark' : 'light');
+        applyTheme(next);
+        localStorage.setItem('innsync-theme', next);
       });
     });
 
@@ -559,20 +937,25 @@
     const showErr = (msg) => { const e = document.getElementById('loginError'); e.textContent = msg; e.style.display = 'block'; };
     const hideErr = () => { const e = document.getElementById('loginError'); e.style.display = 'none'; };
     async function login(requestedRole) {
+      const lang = localStorage.getItem('innsync_lang') || 'en';
+      const c = window.languageContent[lang] || window.languageContent['en'];
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
-      if (!email || !password) { showErr('Please enter both email and password'); return; }
+      if (!email || !password) { showErr(c.login_err_required || 'Please enter both email and password'); return; }
       hideErr();
       const buttons = document.querySelectorAll('#loginForm button');
       buttons.forEach(btn => btn.disabled = true);
       try {
         const session = await apiLogin(email, password);
-        if (!session?.role) { showErr('Login failed, missing role'); return; }
-        if (session.role !== requestedRole) { showErr(`This user is not authorized as ${requestedRole}`); return; }
+        if (!session?.role) { showErr(c.login_err_missing_role || 'Login failed, missing role'); return; }
+        if (session.role !== requestedRole) {
+          const msg = requestedRole === 'MANAGER' ? (c.login_err_unauthorized_manager || 'This user is not authorized as MANAGER') : (c.login_err_unauthorized_owner || 'This user is not authorized as OWNER');
+          showErr(msg); return;
+        }
         localStorage.setItem('innsync_user', JSON.stringify(session));
         window.location.href = requestedRole === 'MANAGER' ? 'manager.html' : 'owner.html';
       } catch (e) {
-        showErr('Login failed, please check email/password');
+        showErr(c.login_err_failed || 'Login failed, please check email/password');
       } finally {
         buttons.forEach(btn => btn.disabled = false);
       }
@@ -635,12 +1018,14 @@
       });
     });
 
-    // Demo form (simple acknowledgement)
+  // Demo form (localized acknowledgement)
     const refDemoForm = document.getElementById('demoFormRef');
     if (refDemoForm) {
       refDemoForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert("Thanks! We'll reach out to schedule your demo.");
+    const lang = localStorage.getItem('innsync_lang') || 'en';
+    const c = window.languageContent[lang] || window.languageContent['en'];
+    alert(c.demo_success || "Thanks! We'll reach out to schedule your demo.");
         e.target.reset();
       });
     }
