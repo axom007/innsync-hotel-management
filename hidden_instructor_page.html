@@ -6,26 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Only - InnSync Project</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #fdfaf6;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px;
         }
         header {
             background-color: #ff6600;
             color: white;
             padding: 10px;
             text-align: center;
+            margin-bottom: 20px;
         }
         section {
             padding: 20px;
             max-width: 900px;
             margin: auto;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.6);
         }
-        h2 {
+        h1, h2 {
             color: #ff6600;
         }
         table {
@@ -47,28 +54,97 @@
             font-style: italic;
             background: #fff7f0;
         }
+        
+        .checklist-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .checklist-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        .checklist-column h2 {
+            font-size: 1.2em;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+        .checklist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .task-text {
+            flex-grow: 1;
+        }
+        .checklist-item select {
+            width: 150px; /* Or any other fixed width */
+        }
+        /* Sample media grid before team table */
+        .media-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr;
+            margin: 10px 0 16px 0;
+        }
+        @media (min-width: 640px) {
+            .media-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .media-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: #fff;
+        }
+        .media-card small {
+            display: block;
+            margin-top: 8px;
+            color: #64748b;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>InnSync Project – Instructor Only</h1>
+    <h1 style="color: #e5e7eb;">InnSync Project – Instructor Only</h1>
     <p>Restricted Access Page</p>
 </header>
 
 <section>
     <h2>Team Members</h2>
+    <!-- Sample image containers: replace the src values with your own images -->
+    <div class="media-grid" aria-label="Sample images to replace with project visuals">
+        <div class="card media-card">
+            <img src="https://res.cloudinary.com/dwp3cu57z/image/upload/c_crop,g_auto,h_500,w_500/WhatsApp_Image_2025-08-13_at_23.03.59_cb0e9c29_uisgf2" alt="Sample placeholder 1 (replace with your image)">
+           <h2 style="text-align: center;">Satvik Kumar</h2>
+        </div>
+        <div class="card media-card">
+            <img src="https://res.cloudinary.com/dwp3cu57z/image/upload/c_crop,g_auto,h_1200,w_1200/WhatsApp_Image_2025-08-13_at_23.05.30_1578ece2_mj0r6w" alt="Sample placeholder 2 (replace with your image)">
+            <h2 style="text-align: center;">Harsh Singh Rathore</h2>
+        </div>
+    </div>
     <table>
         <tr>
             <th>Name</th>
+            <th>Unique ID</th>
+            <th>Roll No.</th>
             <th>Role</th>
+            
         </tr>
         <tr>
-            <td>Satvik Kumar (IPM05189)</td>
+            <td>Satvik Kumar</td>
+            <td>IPM57M069</td>
+            <td>IPM05189</td>
             <td>Responsible for backend flow and front-end ideation</td>
         </tr>
         <tr>
-            <td>Harsh Singh Rathore (IPM05173)</td>
+            <td>Harsh Singh Rathore</td>
+            <td>IPM57M061</td>
+            <td>IPM05173</td>
             <td>Technical implementation and integration</td>
         </tr>
     </table>
@@ -106,5 +182,401 @@
         <figcaption style="color:#666;font-size:0.9rem;margin-top:8px;">Captured on 2025-08-12 (local build). For grading reference only.</figcaption>
     </figure>
   </section>
+<section>
+    <h2>Customer Profile</h2>
+    <p>InnSync serves small to mid-sized hotels where owners and on-ground managers want fast, practical wins without complex software rollouts. The focus is on plugging revenue leaks, improving visibility of bookings and occupancy, and keeping day-to-day operations simple.</p>
+    <h3>Primary Stakeholders</h3>
+    <ul>
+        <li><strong>Hotel Owners</strong> – Traditional, ROI-first decision-makers who value clear numbers and quick outcomes.</li>
+        <li><strong>Hotel Managers</strong> – Time-pressed operators who need speed, clarity, and minimal friction in daily workflows.</li>
+    </ul>
+    <h3>Key Traits & Preferences</h3>
+    <ul>
+        <li><strong>Action-oriented</strong>: Prefer a direct phone call over long forms; expect quick answers.</li>
+        <li><strong>Language comfort</strong>: Appreciate choosing a preferred language upfront for clarity and trust.</li>
+        <li><strong>Pragmatic</strong>: Care about measurable gains (e.g., +10% revenue uplift) more than flashy features.</li>
+    </ul>
+    <h3>Jobs To Be Done</h3>
+    <ul>
+        <li>Track real-time occupancy and bookings across channels.</li>
+        <li>Detect and prevent unrecorded or missed bookings that leak revenue.</li>
+        <li>Standardize simple, reliable front-desk processes.</li>
+    </ul>
+    <h3>Decision Triggers</h3>
+    <ul>
+        <li>Evidence of lost revenue or mismatch between stays and records.</li>
+        <li>Manual/spreadsheet processes slowing the front desk.</li>
+        <li>Need for lightweight tools that work well on mobile.</li>
+    </ul>
+    <h3>Why InnSync Fits</h3>
+    <ul>
+        <li><strong>Measurable outcome first</strong>: Designed to surface and close revenue gaps.</li>
+        <li><strong>Simple onboarding</strong>: Minimal setup; optimized for quick manager adoption.</li>
+        <li><strong>Owner-friendly narrative</strong>: Clear numbers, crisp copy, and a prominent call-to-call CTA.</li>
+    </ul>
+</section>
+<div class="container">
+    <h1 style="text-align: center; color: #1a1a1a; margin-bottom: 20px;">WBD Project Requirements</h1>
+    <div class="checklist-container">
+        <div class="checklist-column">
+            <div class="card">
+                <h2>📋 Project Setup & Documentation</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Table with team number, member names, roll numbers</strong></span>
+                    <select>
+                        <option value="not-applicable">Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Stakeholders listed</strong></span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Submission</strong>: Complete & submit before deadline</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🏗️ Core Technical Requirements</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Stack</strong>: Use HTML, CSS, JavaScript</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Page Count</strong>: 5–6 main pages</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Semantic HTML</strong>: Use &lt;header&gt;, &lt;footer&gt;, &lt;nav&gt;, etc.</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Central CSS</strong>: Single global stylesheet</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Framework Use</strong>: Bootstrap (or approved alternative)</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Accessible Forms & Validation</strong></span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🔒 Security & Configuration Files</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Security.txt</strong>: At site root</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Robots.txt</strong>: At site root</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>HTTPS (SSL)</strong>: Serve site securely</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🔐 Hidden/Instructors-only Page</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Access Restriction</strong>: Instructor only</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Handwritten HTML</strong>: No auto-generation</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Team Table</strong>: Members & roles listed</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Testimonial</strong>: Added</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Consumer Profile</strong>: Who are you catering to?</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Design Philosophy</strong>: Written in the Hidden page</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Philosophy of logo</strong>: Documented reasoning behind logo design</span>
+                    <select>
+                        <option value="not-applicable" selected>Not applicable</option>
+                        <option value="done">Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Survey</strong>: Survey for design</span>
+                    <select>
+                        <option value="not-applicable" selected>Not applicable</option>
+                        <option value="done">Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="checklist-column">
+            <div class="card">
+                <h2>🎨 Design & User Experience</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Consistent Design</strong>: Uniform look & documented method</span>
+                    <select>
+                        <option value="not-applicable">Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Mobile Responsive</strong>: Works on phones & tablets</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Favicon</strong>: Add favicon</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Icons on Links</strong>: Icon for every navigation/action link</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card">
+                <h2>♿ Accessibility & Performance</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Accessibility</strong>: Screen-readable & accessible</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Performance</strong>: Optimized for fast rendering</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Images</strong>: Optimized image on every page</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Image Optimization</strong>: Documented</span>
+                    <select>
+                        <option value="not-applicable" selected>Not applicable</option>
+                        <option value="done">Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Figure Labelling</strong>: "Lower is better" / "Higher is better"</span>
+                    <select>
+                        <option value="not-applicable" selected>Not applicable</option>
+                        <option value="done">Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🔍 SEO & Marketing</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>SEO Keywords</strong>: Selected with reasoning</span>
+                    <select>
+                        <option value="not-applicable">Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>SEO Ranking Check</strong>: Recorded</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Sitemap</strong>: HTML or XML created</span>
+                    <select>
+                        <option value="not-applicable">Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Social Buttons</strong>: Implemented</span>
+                    <select>
+                        <option value="not-applicable" selected>Not applicable</option>
+                        <option value="done">Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🚀 Hosting & Deployment</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Public Availability</strong>: Site & code publicly accessible</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Public URL</strong>: For robots.txt provided</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Ngrok Hosting</strong>: Temporary testing via ngrok</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done">Done</option>
+                        <option value="to-be-done" selected>To be done</option>
+                        <option value="attached">Attached</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🎯 Special Features</h2>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>Google Map</strong>: On "About Us" page</span>
+                    <select>
+                        <option value="not-applicable">Not applicable</option>
+                        <option value="done"  selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+                <div class="checklist-item">
+                    <span class="task-text"><strong>LinkedIn Profile Link</strong>: Optional</span>
+                    <select>
+                        <option value="not-applicable" >Not applicable</option>
+                        <option value="done" selected>Done</option>
+                        <option value="to-be-done">To be done</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+

@@ -370,6 +370,43 @@ body.dark-theme .legend {
   margin-right: 6px;
 }
 
+/* Legend dot colors aligned with badges */
+/* Light mode */
+body:not(.dark-theme) .legend .dot.vacant {
+  background: rgba(148, 163, 184, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+body:not(.dark-theme) .legend .dot.booked {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+body:not(.dark-theme) .legend .dot.checked {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+body:not(.dark-theme) .legend .dot.flagged {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* Dark mode */
+body.dark-theme .legend .dot.vacant {
+  background: rgba(71, 85, 105, 0.8);
+  border: 1px solid rgba(100, 116, 139, 0.6);
+}
+body.dark-theme .legend .dot.booked {
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+body.dark-theme .legend .dot.checked {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+body.dark-theme .legend .dot.flagged {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
 /* Form Elements */
 input, select, textarea {
   width: 100%;
