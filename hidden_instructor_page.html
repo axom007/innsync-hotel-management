@@ -215,6 +215,98 @@
         <li><strong>Owner-friendly narrative</strong>: Clear numbers, crisp copy, and a prominent call-to-call CTA.</li>
     </ul>
 </section>
+<section>
+    <h2>Manager Dashboard Workflow (On-ground operations)</h2>
+    <p><strong>Goal:</strong> Make daily booking and check-in tasks fast, clear, and error-free.</p>
+    <h3>1. Real-time Room Status Overview</h3>
+    <ul>
+        <li>Grid layout shows all rooms with clear color codes:</li>
+        <ul>
+            <li><strong>Vacant</strong> (available to assign)</li>
+            <li><strong>Booked</strong> (reservation exists but not yet checked in)</li>
+            <li><strong>Checked-in</strong> (guest currently in room)</li>
+            <li><strong>Flagged</strong> (issues or special attention needed)</li>
+        </ul>
+        <li>Managers can instantly see which rooms are free or occupied.</li>
+    </ul>
+    <h3>2. Add Walk-in Booking (No Prior Reservation)</h3>
+    <ul>
+        <li>Select room category (Standard, Deluxe, Suite).</li>
+        <li>Enter guest name and price.</li>
+        <li>Save Walk-in Booking → Room immediately changes status from Vacant to Booked (or Checked-in if chosen).</li>
+    </ul>
+    <h3>3. Mark Check-in</h3>
+    <ul>
+        <li>Convert an existing Booked room to Checked-in status.</li>
+        <li>Choose booking record → assign room → confirm check-in.</li>
+        <li>Reduces manual errors and standardizes front-desk process.</li>
+    </ul>
+    <h3>4. Add OTA Booking (Online Travel Agency Reservation)</h3>
+    <ul>
+        <li>Automatically generates random OTA bookings to reflect online reservations.</li>
+        <li>Helps prevent mismatches between system records and actual arrivals.</li>
+    </ul>
+    <p><strong>Manager’s Benefit:</strong> Daily tasks take seconds, not minutes. Visual status plus quick actions = less friction, fewer missed entries, no complicated forms.</p>
+</section>
+<section>
+    <h3>Manager Dashboard – Screenshot</h3>
+    <div class="media-grid">
+        <div class="card media-card">
+            <img loading="lazy" src="https://res.cloudinary.com/dwp3cu57z/image/upload/c_scale,w_1000/q_auto/f_auto/Screenshot_2025-08-13_234000_dfu3kz" alt="Manager dashboard screenshot (rooms grid, actions)">
+            <small>Manager dashboard (demo view)</small>
+        </div>
+    </div>
+    
+</section>
+
+<section>
+    <h2>Owner Dashboard Workflow (Revenue & Performance View)</h2>
+    <p><strong>Goal:</strong> Give hotel owners a fast snapshot of revenue, occupancy, and leak prevention.</p>
+    <h3>1. Key Metrics at the Top</h3>
+    <ul>
+        <li><strong>Occupancy Rate (%)</strong> – how full the hotel is today.</li>
+        <li><strong>Revenue (Today)</strong> – real-time earnings figure.</li>
+        <li><strong>Booked Rooms Count</strong> – number of confirmed reservations.</li>
+        <li><strong>Flags</strong> – operational issues requiring attention.</li>
+    </ul>
+    <h3>2. Room Status Grid</h3>
+    <ul>
+        <li>Same color-coded layout as the manager view for consistency.</li>
+        <li>Lets owners verify occupancy and booking activity at a glance.</li>
+        <li>Owners can cross-check what’s recorded vs. what’s happening on the ground.</li>
+    </ul>
+    <h3>3. Simulate Sensor Feature</h3>
+    <ul>
+        <li><strong>Currently:</strong> Randomly flags a room to demonstrate alert functionality.</li>
+        <li><strong>Future:</strong> Will integrate with room sensors to automatically detect occupied rooms without bookings, preventing revenue leakage and unauthorized stays.</li>
+    </ul>
+    <h3>4. Alerts Section</h3>
+    <ul>
+        <li>Highlights anomalies, such as unrecorded stays, discrepancies, or flagged rooms.</li>
+        <li>Ensures owners are immediately aware of revenue leaks or operational lapses.</li>
+    </ul>
+    <p><strong>Owner’s Benefit:</strong> Owners see ROI instantly – how many rooms are filled, how much money came in today, and whether anything is slipping through the cracks. No digging into reports, just clear numbers and clear action signals.</p>
+</section>
+<section>
+    <h3>Owner Dashboard – Screenshot</h3>
+    <div class="media-grid">
+        <div class="card media-card">
+            <img loading="lazy" src="https://res.cloudinary.com/dwp3cu57z/image/upload/c_scale,w_1000/q_auto/f_auto/Screenshot_2025-08-13_234027_cduurs" alt="Owner dashboard screenshot (metrics, rooms, alerts)">
+            <small>Owner dashboard (demo view)</small>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Overall Flow Between Dashboards</h2>
+    <ul>
+        <li>Manager performs actions → walk-in added, check-in marked, OTA booking synced.</li>
+        <li>Owner instantly sees results → occupancy and revenue figures update automatically.</li>
+        <li>Simulate Sensor flags issues → future sensor algorithm will show real occupancy vs. recorded bookings.</li>
+        <li>Any discrepancy is flagged → prevents unrecorded bookings and lost revenue.</li>
+    </ul>
+    <p>This tight loop keeps managers efficient and owners confident that revenue isn’t leaking.</p>
+</section>
 <div class="container">
     <h1 style="text-align: center; color: #1a1a1a; margin-bottom: 20px;">WBD Project Requirements</h1>
     <div class="checklist-container">
